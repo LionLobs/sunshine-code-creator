@@ -125,12 +125,10 @@ function Ribbon({ className = "", flip = false }: { className?: string; flip?: b
 
 function Index() {
   const [scrolled, setScrolled] = useState(false);
-  const [showSticky, setShowSticky] = useState(false);
 
   useEffect(() => {
     const onScroll = () => {
       setScrolled(window.scrollY > 30);
-      setShowSticky(window.scrollY > 600);
     };
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -160,25 +158,13 @@ function Index() {
             <a href="#porque" className="hover:text-foreground transition">Por que patrocinar</a>
             <a href="#galeria" className="hover:text-foreground transition">Galeria</a>
             <a href="#planos" className="hover:text-foreground transition">Planos</a>
-            <a href="#contato" className="hover:text-foreground transition">Contato</a>
           </nav>
-          <a href="#contato" className="hidden sm:inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-primary to-accent px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-[var(--shadow-glow)] hover:scale-105 transition-transform">
-            Seja Parceiro <ArrowRight className="h-4 w-4" />
+          <a href="#planos" className="hidden sm:inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-primary to-accent px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-[var(--shadow-glow)] hover:scale-105 transition-transform">
+            Escolher meu plano <ArrowRight className="h-4 w-4" />
           </a>
         </div>
       </header>
 
-      {/* Sticky bottom CTA on mobile */}
-      <div className={`md:hidden fixed bottom-0 inset-x-0 z-40 transition-transform duration-300 ${showSticky ? "translate-y-0" : "translate-y-full"}`}>
-        <a
-          href="https://wa.me/5548999799850?text=Ol%C3%A1!%20Quero%20conhecer%20os%20planos%20de%20patroc%C3%ADnio%20do%20Elite%20Floripa%20Voleibol."
-          target="_blank"
-          rel="noopener noreferrer"
-          className="m-3 flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-primary to-accent px-6 py-4 font-bold text-primary-foreground shadow-[var(--shadow-glow)]"
-        >
-          <Phone className="h-5 w-5" /> Quero ser Patrocinador
-        </a>
-      </div>
 
       {/* HERO */}
       <section id="top" className="relative min-h-screen flex items-center pt-24 pb-16">
