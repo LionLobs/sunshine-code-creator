@@ -544,62 +544,49 @@ function Index() {
 
             <div className="relative text-center">
               <img src={logo} alt="Elite Voleibol" className="mx-auto h-32 w-auto drop-shadow-[0_0_40px_oklch(0.7_0.2_300_/_0.8)]" />
-              <h2 className="mt-8 text-4xl md:text-6xl font-black leading-tight">
-                SUA MARCA PODE IR
+              <div className="mt-6 text-xs tracking-[0.3em] text-accent">A DECISÃO É SUA</div>
+              <h2 className="mt-4 text-4xl md:text-6xl font-black leading-tight">
+                ESCOLHA O PLANO
                 <br />
                 <span className="bg-gradient-to-r from-primary via-accent to-primary-glow bg-clip-text text-transparent">
-                  MUITO MAIS LONGE
+                  E ME AVISE.
                 </span>
-                <br />
-                COM A GENTE!
               </h2>
               <p className="mt-6 text-lg text-muted-foreground max-w-2xl mx-auto">
-                Apoie o esporte, fortaleça sua marca e seja parte de um projeto que faz a diferença dentro e fora das quadras.
+                É simples assim: escolha entre <span className="text-foreground font-semibold">Bronze, Prata ou Ouro</span>, me responda qual faz mais sentido para o seu negócio e eu já reservo sua vaga e cuido de todo o processo para sua marca entrar em quadra na próxima rodada.
               </p>
 
-              <div className="mt-10 flex flex-col items-center gap-6">
-                <a
-                  href="https://wa.me/5548999799850?text=Ol%C3%A1!%20Quero%20conhecer%20os%20planos%20de%20patroc%C3%ADnio%20do%20Elite%20Floripa%20Voleibol."
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-primary to-accent px-10 py-5 text-lg font-bold text-primary-foreground shadow-[var(--shadow-glow)] hover:scale-105 transition-transform"
-                >
-                  <CheckCircle2 className="h-6 w-6" />
-                  QUERO FECHAR UM PATROCÍNIO
-                </a>
-
-                <div className="text-xs tracking-[0.3em] text-accent mt-4">VAMOS CONVERSAR?</div>
-
-                <div className="flex sm:grid sm:grid-cols-3 gap-3 w-full overflow-x-auto no-scrollbar snap-x snap-mandatory -mx-6 px-6 sm:mx-0 sm:px-0 sm:overflow-visible">
-                  <a href="https://wa.me/5548999799850" target="_blank" rel="noopener noreferrer" className="snap-start shrink-0 w-[78%] sm:w-auto flex items-center gap-3 rounded-xl border border-border bg-card/70 backdrop-blur px-5 py-4 hover:border-primary/60 hover:bg-card hover:-translate-y-0.5 transition group">
-                    <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-gradient-to-br from-primary/30 to-accent/20 border border-primary/40 group-hover:scale-110 transition">
-                      <Phone className="h-4 w-4 text-accent" />
+              <div className="mt-10 grid sm:grid-cols-3 gap-4">
+                {plans.map((p) => (
+                  <div
+                    key={p.tier}
+                    className={`rounded-2xl border p-5 text-left ${
+                      p.featured
+                        ? "border-accent/60 bg-gradient-to-br from-primary/20 to-accent/10 shadow-[var(--shadow-glow)]"
+                        : "border-border bg-background/40"
+                    }`}
+                  >
+                    <div className={`inline-flex items-center justify-center h-10 w-10 rounded-xl bg-gradient-to-br ${p.medalColor} shadow-lg mb-3`}>
+                      <Award className="h-5 w-5 text-background" />
                     </div>
-                    <div className="text-left">
-                      <div className="text-[10px] tracking-widest text-muted-foreground">WHATSAPP</div>
-                      <div className="text-sm font-semibold">(48) 99979-9850</div>
+                    <div className="text-xl font-black tracking-tight">{p.tier.toUpperCase()}</div>
+                    <div className="text-xs text-accent font-semibold">{p.tagline}</div>
+                    <div className="mt-3 text-2xl font-black">
+                      R$ {p.price}
+                      <span className="text-xs text-muted-foreground font-normal">/mês</span>
                     </div>
-                  </a>
-                  <a href="https://instagram.com/elitefloripavoleibol" target="_blank" rel="noopener noreferrer" className="snap-start shrink-0 w-[78%] sm:w-auto flex items-center gap-3 rounded-xl border border-border bg-card/70 backdrop-blur px-5 py-4 hover:border-primary/60 hover:bg-card hover:-translate-y-0.5 transition group">
-                    <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-gradient-to-br from-primary/30 to-accent/20 border border-primary/40 group-hover:scale-110 transition">
-                      <Instagram className="h-4 w-4 text-accent" />
-                    </div>
-                    <div className="text-left">
-                      <div className="text-[10px] tracking-widest text-muted-foreground">INSTAGRAM</div>
-                      <div className="text-sm font-semibold">@elitefloripavoleibol</div>
-                    </div>
-                  </a>
-                  <a href="mailto:elitefloripavoleibol@gmail.com" className="snap-start shrink-0 w-[78%] sm:w-auto flex items-center gap-3 rounded-xl border border-border bg-card/70 backdrop-blur px-5 py-4 hover:border-primary/60 hover:bg-card hover:-translate-y-0.5 transition group">
-                    <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-gradient-to-br from-primary/30 to-accent/20 border border-primary/40 group-hover:scale-110 transition">
-                      <Mail className="h-4 w-4 text-accent" />
-                    </div>
-                    <div className="text-left">
-                      <div className="text-[10px] tracking-widest text-muted-foreground">E-MAIL</div>
-                      <div className="text-xs font-semibold break-all">elitefloripavoleibol@gmail.com</div>
-                    </div>
-                  </a>
-                </div>
+                  </div>
+                ))}
               </div>
+
+              <div className="mt-10 inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-primary to-accent px-10 py-5 text-lg font-bold text-primary-foreground shadow-[var(--shadow-glow)]">
+                <CheckCircle2 className="h-6 w-6" />
+                ME RESPONDA COM O PLANO ESCOLHIDO
+              </div>
+
+              <p className="mt-6 text-sm text-muted-foreground max-w-xl mx-auto">
+                <span className="text-foreground font-semibold">Quanto antes você decide, antes sua marca aparece</span> — e mais segmentos seguem disponíveis para o seu nicho.
+              </p>
             </div>
           </div>
         </div>
