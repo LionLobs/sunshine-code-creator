@@ -428,7 +428,7 @@ function Index() {
             {plans.map((plan) => (
               <div
                 key={plan.tier}
-                className={`relative rounded-3xl border bg-card/70 backdrop-blur-xl p-8 transition-all hover:-translate-y-2 group ${
+                className={`snap-start shrink-0 w-[88%] sm:w-[70%] lg:w-auto relative rounded-3xl border bg-card/70 backdrop-blur-xl p-8 transition-all hover:-translate-y-2 group ${
                   plan.featured
                     ? `border-accent/60 lg:scale-[1.04] ${plan.glow}`
                     : `border-border hover:border-primary/50 ${plan.glow}`
