@@ -301,7 +301,8 @@ function Index() {
             </p>
           </div>
 
-          <div className="mt-16 flex md:grid md:grid-cols-2 lg:grid-cols-3 gap-5 overflow-x-auto no-scrollbar snap-x snap-mandatory -mx-6 px-6 md:mx-0 md:px-0 md:overflow-visible">
+          <div className="md:hidden flex items-center gap-2 text-[10px] tracking-[0.3em] text-accent mb-3 uppercase"><span>←</span> Deslize para ver mais <span>→</span></div>
+          <div className="flex md:grid md:grid-cols-2 lg:grid-cols-3 gap-5 overflow-x-auto no-scrollbar snap-x snap-mandatory -mx-6 px-6 md:mx-0 md:px-0 md:overflow-visible">
             {reasons.map(({ icon: Icon, title, desc }, i) => (
               <div key={title} className="snap-start shrink-0 w-[85%] sm:w-[60%] md:w-auto group relative rounded-2xl border border-border bg-card/60 backdrop-blur p-4 hover:border-primary/60 hover:bg-card hover:-translate-y-1 transition-all overflow-hidden">
                 <div className="absolute -top-12 -right-12 h-32 w-32 rounded-full bg-primary/20 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -414,7 +415,8 @@ function Index() {
             </p>
           </div>
 
-          <div className="mt-16 flex lg:grid lg:grid-cols-3 gap-6 overflow-x-auto no-scrollbar snap-x snap-mandatory -mx-6 px-6 pb-4 lg:pb-0 lg:mx-0 lg:px-0 lg:overflow-visible">
+          <div className="lg:hidden flex items-center gap-2 text-[10px] tracking-[0.3em] text-accent mb-3 uppercase"><span>←</span> Deslize para ver mais <span>→</span></div>
+          <div className="flex lg:grid lg:grid-cols-3 gap-6 overflow-x-auto no-scrollbar snap-x snap-mandatory -mx-6 px-6 pb-4 lg:pb-0 lg:mx-0 lg:px-0 lg:overflow-visible">
             {plans.map((plan) => (
               <div
                 key={plan.tier}
@@ -508,6 +510,7 @@ function Index() {
             <div className="text-xs tracking-[0.3em] text-accent mb-4">PROVA SOCIAL</div>
             <h2 className="text-xl md:text-2xl font-black">Quem já apostou na gente <span className="text-accent">não voltou atrás.</span></h2>
           </div>
+          <div className="md:hidden flex items-center gap-2 text-[10px] tracking-[0.3em] text-accent mb-3 uppercase"><span>←</span> Deslize para ver mais <span>→</span></div>
           <div className="flex md:grid md:grid-cols-2 gap-6 overflow-x-auto no-scrollbar snap-x snap-mandatory -mx-6 px-6 md:mx-0 md:px-0 md:overflow-visible">
             {testimonials.map((t, i) => (
               <div key={i} className="snap-start shrink-0 w-[88%] md:w-auto relative rounded-3xl border border-border bg-card/70 backdrop-blur p-6 md:p-8 shadow-[var(--shadow-card)] overflow-hidden">
