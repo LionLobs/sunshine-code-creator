@@ -516,9 +516,9 @@ function Index() {
             <div className="text-xs tracking-[0.3em] text-accent mb-4">CONFIANÇA</div>
             <h2 className="text-3xl md:text-5xl font-black">O que dizem nossos parceiros</h2>
           </div>
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="flex md:grid md:grid-cols-2 gap-6 overflow-x-auto no-scrollbar snap-x snap-mandatory -mx-6 px-6 md:mx-0 md:px-0 md:overflow-visible">
             {testimonials.map((t, i) => (
-              <div key={i} className="relative rounded-3xl border border-border bg-card/70 backdrop-blur p-8 md:p-10 shadow-[var(--shadow-card)] overflow-hidden">
+              <div key={i} className="snap-start shrink-0 w-[88%] md:w-auto relative rounded-3xl border border-border bg-card/70 backdrop-blur p-8 md:p-10 shadow-[var(--shadow-card)] overflow-hidden">
                 <Quote className="absolute top-6 right-6 h-16 w-16 text-primary/20" />
                 <p className="text-lg md:text-xl leading-relaxed font-medium">"{t.quote}"</p>
                 <div className="mt-6 flex items-center gap-3">
