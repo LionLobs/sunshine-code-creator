@@ -429,7 +429,7 @@ function Index() {
           </div>
 
           <div className="lg:hidden flex items-center gap-2 text-[10px] tracking-[0.3em] text-accent mb-3 uppercase"><span>←</span> Deslize para ver mais <span>→</span></div>
-          <div className="flex lg:grid lg:grid-cols-3 gap-6 overflow-x-auto no-scrollbar snap-x snap-mandatory -mx-6 px-6 pb-4 lg:pb-0 lg:mx-0 lg:px-0 lg:overflow-visible">
+          <div className="flex lg:grid lg:grid-cols-3 gap-6 overflow-x-auto overflow-y-visible no-scrollbar snap-x snap-mandatory -mx-6 px-6 pt-6 pb-6 lg:pt-8 lg:pb-4 lg:mx-0 lg:px-0 lg:overflow-visible">
             {plans.map((plan) => (
               <div
                 key={plan.tier}
