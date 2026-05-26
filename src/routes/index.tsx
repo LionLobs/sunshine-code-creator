@@ -477,25 +477,26 @@ function Index() {
                   ))}
                 </div>
 
-                <a
-                  href={`https://wa.me/5548999799850?text=Ol%C3%A1!%20Tenho%20interesse%20no%20plano%20${plan.tier}%20de%20patroc%C3%ADnio.`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`mt-8 flex items-center justify-center gap-2 rounded-full px-6 py-4 font-bold transition-all ${
+                <div
+                  className={`mt-8 flex items-center justify-center gap-2 rounded-full px-6 py-4 font-bold ${
                     plan.featured
-                      ? "bg-gradient-to-r from-primary to-accent text-primary-foreground shadow-[var(--shadow-glow)] hover:scale-105"
-                      : "border border-border bg-background/40 hover:bg-primary/20 hover:border-primary/60 hover:scale-105"
+                      ? "bg-gradient-to-r from-primary to-accent text-primary-foreground shadow-[var(--shadow-glow)]"
+                      : "border border-border bg-background/40"
                   }`}
                 >
-                  Quero ser {plan.tier} <ArrowRight className="h-4 w-4" />
-                </a>
+                  Quero o plano {plan.tier} <ArrowRight className="h-4 w-4" />
+                </div>
               </div>
             ))}
           </div>
 
-          <div className="mt-12 text-center text-sm text-muted-foreground">
-            <Calendar className="inline h-4 w-4 mr-1 text-accent" />
-            Pacotes personalizados disponíveis sob consulta.
+          <div className="mt-12 max-w-2xl mx-auto text-center">
+            <div className="inline-flex items-center gap-2 rounded-full border border-accent/40 bg-accent/10 px-4 py-1.5 text-xs font-semibold tracking-widest text-accent mb-4">
+              <Sparkles className="h-3.5 w-3.5" /> VAGAS LIMITADAS POR TEMPORADA
+            </div>
+            <p className="text-base text-muted-foreground">
+              <span className="text-foreground font-semibold">Trabalhamos com poucos parceiros</span> para garantir que cada marca tenha real destaque. Quando um segmento é fechado, ele só reabre na próxima temporada.
+            </p>
           </div>
         </div>
       </section>
