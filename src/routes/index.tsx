@@ -279,6 +279,19 @@ function Index() {
         </div>
       </section>
 
+      {/* MARQUEE — brand values rolling band */}
+      <section className="relative py-6 border-b border-border overflow-hidden bg-gradient-to-r from-primary/10 via-background to-accent/10">
+        <div className="flex w-max animate-marquee gap-12 whitespace-nowrap">
+          {Array.from({ length: 2 }).map((_, k) => (
+            <div key={k} className="flex items-center gap-12 px-6">
+              {["ELITE FLORIANÓPOLIS", "•", "ALTO DESEMPENHO", "•", "PROJETO OFICIAL", "•", "VOLEIBOL DE BASE", "•", "+10K ALCANCE MENSAL", "•", "PATROCÍNIOS ABERTOS", "•"].map((w, i) => (
+                <span key={i} className="text-sm font-black tracking-[0.25em] text-accent/80">{w}</span>
+              ))}
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* WHY SPONSOR */}
       <section id="porque" className="relative py-12 md:py-16">
         <div className="absolute inset-0 -z-10">
