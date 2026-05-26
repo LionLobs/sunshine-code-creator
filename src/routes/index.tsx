@@ -219,9 +219,9 @@ function Index() {
               </a>
             </div>
 
-            <div className="mt-14 grid grid-cols-2 sm:grid-cols-4 gap-6">
+            <div className="mt-14 flex sm:grid sm:grid-cols-4 gap-4 sm:gap-6 overflow-x-auto no-scrollbar snap-x snap-mandatory -mx-6 px-6 sm:mx-0 sm:px-0 sm:overflow-visible">
               {pillars.map(({ icon: Icon, label }) => (
-                <div key={label} className="flex flex-col items-start gap-2 group">
+                <div key={label} className="snap-start shrink-0 w-[42%] sm:w-auto flex flex-col items-start gap-2 group">
                   <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-primary/30 to-accent/20 border border-primary/40 group-hover:scale-110 transition-transform shadow-[0_8px_20px_-8px_oklch(0.5_0.2_300_/_0.5)]">
                     <Icon className="h-5 w-5 text-accent" />
                   </div>
@@ -312,9 +312,9 @@ function Index() {
             </p>
           </div>
 
-          <div className="mt-16 grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div className="mt-16 flex md:grid md:grid-cols-2 lg:grid-cols-3 gap-5 overflow-x-auto no-scrollbar snap-x snap-mandatory -mx-6 px-6 md:mx-0 md:px-0 md:overflow-visible">
             {reasons.map(({ icon: Icon, title, desc }, i) => (
-              <div key={title} className="group relative rounded-2xl border border-border bg-card/60 backdrop-blur p-7 hover:border-primary/60 hover:bg-card hover:-translate-y-1 transition-all overflow-hidden">
+              <div key={title} className="snap-start shrink-0 w-[85%] sm:w-[60%] md:w-auto group relative rounded-2xl border border-border bg-card/60 backdrop-blur p-7 hover:border-primary/60 hover:bg-card hover:-translate-y-1 transition-all overflow-hidden">
                 <div className="absolute -top-12 -right-12 h-32 w-32 rounded-full bg-primary/20 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
                 <div className="relative">
                   <div className="flex items-center justify-between mb-5">
@@ -424,11 +424,11 @@ function Index() {
             </p>
           </div>
 
-          <div className="mt-16 grid lg:grid-cols-3 gap-6">
+          <div className="mt-16 flex lg:grid lg:grid-cols-3 gap-6 overflow-x-auto no-scrollbar snap-x snap-mandatory -mx-6 px-6 pb-4 lg:pb-0 lg:mx-0 lg:px-0 lg:overflow-visible">
             {plans.map((plan) => (
               <div
                 key={plan.tier}
-                className={`relative rounded-3xl border bg-card/70 backdrop-blur-xl p-8 transition-all hover:-translate-y-2 group ${
+                className={`snap-start shrink-0 w-[88%] sm:w-[70%] lg:w-auto relative rounded-3xl border bg-card/70 backdrop-blur-xl p-8 transition-all hover:-translate-y-2 group ${
                   plan.featured
                     ? `border-accent/60 lg:scale-[1.04] ${plan.glow}`
                     : `border-border hover:border-primary/50 ${plan.glow}`
@@ -516,9 +516,9 @@ function Index() {
             <div className="text-xs tracking-[0.3em] text-accent mb-4">CONFIANÇA</div>
             <h2 className="text-3xl md:text-5xl font-black">O que dizem nossos parceiros</h2>
           </div>
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="flex md:grid md:grid-cols-2 gap-6 overflow-x-auto no-scrollbar snap-x snap-mandatory -mx-6 px-6 md:mx-0 md:px-0 md:overflow-visible">
             {testimonials.map((t, i) => (
-              <div key={i} className="relative rounded-3xl border border-border bg-card/70 backdrop-blur p-8 md:p-10 shadow-[var(--shadow-card)] overflow-hidden">
+              <div key={i} className="snap-start shrink-0 w-[88%] md:w-auto relative rounded-3xl border border-border bg-card/70 backdrop-blur p-8 md:p-10 shadow-[var(--shadow-card)] overflow-hidden">
                 <Quote className="absolute top-6 right-6 h-16 w-16 text-primary/20" />
                 <p className="text-lg md:text-xl leading-relaxed font-medium">"{t.quote}"</p>
                 <div className="mt-6 flex items-center gap-3">
@@ -578,8 +578,8 @@ function Index() {
 
                 <div className="text-xs tracking-[0.3em] text-accent mt-4">VAMOS CONVERSAR?</div>
 
-                <div className="grid sm:grid-cols-3 gap-3 w-full">
-                  <a href="https://wa.me/5548999799850" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 rounded-xl border border-border bg-card/70 backdrop-blur px-5 py-4 hover:border-primary/60 hover:bg-card hover:-translate-y-0.5 transition group">
+                <div className="flex sm:grid sm:grid-cols-3 gap-3 w-full overflow-x-auto no-scrollbar snap-x snap-mandatory -mx-6 px-6 sm:mx-0 sm:px-0 sm:overflow-visible">
+                  <a href="https://wa.me/5548999799850" target="_blank" rel="noopener noreferrer" className="snap-start shrink-0 w-[78%] sm:w-auto flex items-center gap-3 rounded-xl border border-border bg-card/70 backdrop-blur px-5 py-4 hover:border-primary/60 hover:bg-card hover:-translate-y-0.5 transition group">
                     <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-gradient-to-br from-primary/30 to-accent/20 border border-primary/40 group-hover:scale-110 transition">
                       <Phone className="h-4 w-4 text-accent" />
                     </div>
@@ -588,7 +588,7 @@ function Index() {
                       <div className="text-sm font-semibold">(48) 99979-9850</div>
                     </div>
                   </a>
-                  <a href="https://instagram.com/elitefloripavoleibol" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 rounded-xl border border-border bg-card/70 backdrop-blur px-5 py-4 hover:border-primary/60 hover:bg-card hover:-translate-y-0.5 transition group">
+                  <a href="https://instagram.com/elitefloripavoleibol" target="_blank" rel="noopener noreferrer" className="snap-start shrink-0 w-[78%] sm:w-auto flex items-center gap-3 rounded-xl border border-border bg-card/70 backdrop-blur px-5 py-4 hover:border-primary/60 hover:bg-card hover:-translate-y-0.5 transition group">
                     <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-gradient-to-br from-primary/30 to-accent/20 border border-primary/40 group-hover:scale-110 transition">
                       <Instagram className="h-4 w-4 text-accent" />
                     </div>
@@ -597,7 +597,7 @@ function Index() {
                       <div className="text-sm font-semibold">@elitefloripavoleibol</div>
                     </div>
                   </a>
-                  <a href="mailto:elitefloripavoleibol@gmail.com" className="flex items-center gap-3 rounded-xl border border-border bg-card/70 backdrop-blur px-5 py-4 hover:border-primary/60 hover:bg-card hover:-translate-y-0.5 transition group">
+                  <a href="mailto:elitefloripavoleibol@gmail.com" className="snap-start shrink-0 w-[78%] sm:w-auto flex items-center gap-3 rounded-xl border border-border bg-card/70 backdrop-blur px-5 py-4 hover:border-primary/60 hover:bg-card hover:-translate-y-0.5 transition group">
                     <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-gradient-to-br from-primary/30 to-accent/20 border border-primary/40 group-hover:scale-110 transition">
                       <Mail className="h-4 w-4 text-accent" />
                     </div>
