@@ -250,8 +250,8 @@ function Index() {
       <section className="relative py-8 border-y border-border bg-gradient-to-r from-card/50 via-background to-card/50 backdrop-blur">
         <div className="mx-auto max-w-6xl px-6 grid grid-cols-2 md:grid-cols-4 gap-8">
           {[
-            { value: "+50", label: "Atletas em formação" },
-            { value: "100%", label: "Projeto Oficial" },
+            { value: "+50", label: "Atletas masculinos em formação" },
+            { value: "Sub 17·19·21", label: "Categorias de base" },
             { value: "365", label: "Dias de presença" },
             { value: "+10K", label: "Alcance mensal" },
           ].map((s) => (
