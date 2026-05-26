@@ -444,6 +444,7 @@ function Index() {
                     <div>
                       <div className="text-[10px] tracking-widest text-muted-foreground">PATROCINADOR</div>
                       <div className="text-3xl font-black tracking-tight">{plan.tier.toUpperCase()}</div>
+                      <div className="text-[11px] text-accent font-semibold mt-0.5">{plan.tagline}</div>
                     </div>
                   </div>
                   <div className="text-5xl font-black text-foreground/10 tracking-tighter">{plan.number}</div>
