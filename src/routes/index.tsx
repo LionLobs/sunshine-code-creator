@@ -4,7 +4,7 @@ import {
   Trophy, HeartPulse, Users, Target, Megaphone, Smartphone, Palette,
   Handshake, Shirt, Instagram, FileImage, Star, BadgeCheck, TrendingUp,
   Video, Award, Lock, ShieldCheck, MapPin, Heart, Crown,
-  Phone, Mail, ArrowRight, Sparkles, CheckCircle2, Quote, Calendar, Eye,
+  ArrowRight, Sparkles, CheckCircle2, Quote, Eye,
 } from "lucide-react";
 import logo from "@/assets/logo.png";
 import heroTeam from "@/assets/hero-team.jpg";
