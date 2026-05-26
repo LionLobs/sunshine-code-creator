@@ -402,14 +402,15 @@ function Index() {
 
         <div className="mx-auto max-w-7xl px-6">
           <div className="text-center max-w-3xl mx-auto">
-            <div className="text-xs tracking-[0.3em] text-accent mb-4">PLANOS DE PATROCÍNIO</div>
+            <div className="text-xs tracking-[0.3em] text-accent mb-4">ESCOLHA SUA POSIÇÃO EM QUADRA</void>
             <h2 className="text-4xl md:text-6xl font-black leading-tight">
-              ESCOLHA O <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">NÍVEL</span>
+              QUAL DESSES TRÊS<br />
+              <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">FAZ MAIS SENTIDO</span>
               <br />
-              DA SUA PARCERIA
+              PARA O SEU NEGÓCIO?
             </h2>
             <p className="mt-6 text-muted-foreground text-lg">
-              Três caminhos para conectar sua marca ao esporte de alto nível. Cada plano inclui todos os benefícios do anterior.
+              A maioria das empresas que conversam com a gente escolhem o <span className="text-accent font-semibold">Prata</span> ou <span className="text-accent font-semibold">Ouro</span> — pela exposição que oferecem e pela exclusividade. Mas qualquer um dos três já coloca sua marca dentro do nosso universo.
             </p>
           </div>
 
