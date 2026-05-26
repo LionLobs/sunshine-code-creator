@@ -232,27 +232,9 @@ function Index() {
             </div>
           </div>
 
-          {/* Visual right panel */}
-          {/* Visual right panel - single hero image */}
-          <div className="relative block mt-10 lg:mt-0">
-            <div className="absolute -inset-10 bg-gradient-to-br from-primary/40 to-accent/20 blur-3xl rounded-full" />
-            <div className="relative rounded-3xl overflow-hidden border border-border shadow-[var(--shadow-card)] h-[400px] sm:h-[520px] lg:h-[620px] group">
-              <img
-                src={playerCelebrate}
-                alt="Atleta Elite Floripa Voleibol"
-                className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
-              />
-              {/* Cinematic shading */}
-              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
-              <div className="absolute inset-0 bg-gradient-to-r from-background/40 via-transparent to-transparent" />
-              <div className="absolute inset-0 bg-gradient-to-l from-primary/20 via-transparent to-transparent mix-blend-screen" />
-              {/* Label */}
-              <div className="absolute bottom-5 left-5 text-xs font-bold tracking-[0.3em] text-accent">
-                PAIXÃO · GARRA · UNIÃO
-              </div>
-            </div>
-
-            <div className="absolute -bottom-6 -left-6 rounded-2xl bg-card/95 border border-border backdrop-blur-xl px-5 py-4 shadow-[var(--shadow-card)] z-10">
+          {/* Sede Oficial badge - right column on desktop, full width on mobile */}
+          <div className="relative hidden lg:flex justify-end">
+            <div className="rounded-2xl bg-card/95 border border-border backdrop-blur-xl px-5 py-4 shadow-[var(--shadow-card)]">
               <div className="text-[10px] tracking-widest text-muted-foreground">SEDE OFICIAL</div>
               <div className="flex items-center gap-2 mt-1 font-semibold">
                 <MapPin className="h-4 w-4 text-accent" /> Florianópolis — SC
