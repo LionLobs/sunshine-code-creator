@@ -232,37 +232,9 @@ function Index() {
             </div>
           </div>
 
-          {/* Visual right panel */}
-          <div className="relative block mt-10 lg:mt-0">
-            <div className="absolute -inset-10 bg-gradient-to-br from-primary/40 to-accent/20 blur-3xl rounded-full" />
-            <div className="relative grid grid-cols-2 gap-3 sm:gap-4">
-              <div className="space-y-4">
-                <div className="relative rounded-3xl overflow-hidden border border-border shadow-[var(--shadow-card)] h-[220px] sm:h-[300px] group">
-                  <img src={playerCelebrate} alt="" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent" />
-                  <div className="absolute bottom-3 left-3 text-xs font-bold tracking-widest text-accent">PAIXÃO</div>
-                </div>
-                <div className="relative rounded-3xl overflow-hidden border border-border shadow-[var(--shadow-card)] h-[150px] sm:h-[200px] group">
-                  <img src={ball} alt="" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent" />
-                  <div className="absolute bottom-3 left-3 text-xs font-bold tracking-widest text-accent">FOCO</div>
-                </div>
-              </div>
-              <div className="space-y-4 pt-10">
-                <div className="relative rounded-3xl overflow-hidden border border-border shadow-[var(--shadow-card)] h-[150px] sm:h-[200px] group">
-                  <img src={teamHug} alt="" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent" />
-                  <div className="absolute bottom-3 left-3 text-xs font-bold tracking-widest text-accent">UNIÃO</div>
-                </div>
-                <div className="relative rounded-3xl overflow-hidden border border-border shadow-[var(--shadow-card)] h-[220px] sm:h-[300px] group">
-                  <img src={spike} alt="" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent" />
-                  <div className="absolute bottom-3 left-3 text-xs font-bold tracking-widest text-accent">GARRA</div>
-                </div>
-              </div>
-            </div>
-
-            <div className="absolute -bottom-6 -left-6 rounded-2xl bg-card/95 border border-border backdrop-blur-xl px-5 py-4 shadow-[var(--shadow-card)] z-10">
+          {/* Sede Oficial badge - right column on desktop, full width on mobile */}
+          <div className="relative hidden lg:flex justify-end">
+            <div className="rounded-2xl bg-card/95 border border-border backdrop-blur-xl px-5 py-4 shadow-[var(--shadow-card)]">
               <div className="text-[10px] tracking-widest text-muted-foreground">SEDE OFICIAL</div>
               <div className="flex items-center gap-2 mt-1 font-semibold">
                 <MapPin className="h-4 w-4 text-accent" /> Florianópolis — SC
