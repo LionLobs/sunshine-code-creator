@@ -148,3 +148,37 @@
     color: var(--color-foreground);
   }
 }
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+  /* Horizontal snap rail used on mobile */
+  .scroll-rail {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scroll-padding-left: 1.5rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    margin-left: -1.5rem;
+    margin-right: -1.5rem;
+    scrollbar-width: none;
+  }
+  .scroll-rail::-webkit-scrollbar { display: none; }
+  .scroll-rail > * { scroll-snap-align: start; flex-shrink: 0; }
+
+  @media (min-width: 768px) {
+    .scroll-rail {
+      display: grid;
+      overflow: visible;
+      padding-left: 0;
+      padding-right: 0;
+      margin-left: 0;
+      margin-right: 0;
+    }
+    .scroll-rail > * { flex-shrink: 1; }
+  }
+}
