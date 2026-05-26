@@ -232,11 +232,38 @@ function Index() {
             </div>
           </div>
 
-          {/* Sede Oficial badge - right column on desktop, full width on mobile */}
-          <div className="relative hidden lg:flex justify-end">
-            <div className="rounded-2xl bg-card/95 border border-border backdrop-blur-xl px-5 py-4 shadow-[var(--shadow-card)]">
-              <div className="text-[10px] tracking-widest text-muted-foreground">SEDE OFICIAL</div>
-              <div className="flex items-center gap-2 mt-1 font-semibold">
+          {/* Right column — image collage (visible on mobile too) */}
+          <div className="relative block mt-8 lg:mt-0">
+            <div className="grid grid-cols-2 gap-3 sm:gap-4">
+              <div className="space-y-3 sm:space-y-4 mt-6 sm:mt-10">
+                <div className="relative overflow-hidden rounded-2xl border border-border shadow-[var(--shadow-card)] h-[180px] sm:h-[260px] lg:h-[300px] group">
+                  <img src={spike} alt="Atleta masculino atacando" loading="lazy" className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/10 to-transparent" />
+                  <div className="absolute bottom-3 left-3 text-[10px] font-bold tracking-widest text-accent">PAIXÃO</div>
+                </div>
+                <div className="relative overflow-hidden rounded-2xl border border-border shadow-[var(--shadow-card)] h-[180px] sm:h-[260px] lg:h-[300px] group">
+                  <img src={actionImg} alt="Ação de jogo" loading="lazy" className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/10 to-transparent" />
+                  <div className="absolute bottom-3 left-3 text-[10px] font-bold tracking-widest text-accent">FOCO</div>
+                </div>
+              </div>
+              <div className="space-y-3 sm:space-y-4">
+                <div className="relative overflow-hidden rounded-2xl border border-border shadow-[var(--shadow-card)] h-[180px] sm:h-[260px] lg:h-[300px] group">
+                  <img src={teamHug} alt="Equipe masculina celebrando" loading="lazy" className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/10 to-transparent" />
+                  <div className="absolute bottom-3 left-3 text-[10px] font-bold tracking-widest text-accent">UNIÃO</div>
+                </div>
+                <div className="relative overflow-hidden rounded-2xl border border-border shadow-[var(--shadow-card)] h-[180px] sm:h-[260px] lg:h-[300px] group">
+                  <img src={huddle} alt="Huddle do time" loading="lazy" className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/10 to-transparent" />
+                  <div className="absolute bottom-3 left-3 text-[10px] font-bold tracking-widest text-accent">GARRA</div>
+                </div>
+              </div>
+            </div>
+            {/* Sede Oficial badge floating in corner */}
+            <div className="absolute -bottom-3 left-2 sm:bottom-3 sm:left-3 rounded-2xl bg-card/95 border border-border backdrop-blur-xl px-4 py-3 shadow-[var(--shadow-card)] z-10">
+              <div className="text-[9px] tracking-widest text-muted-foreground">SEDE OFICIAL</div>
+              <div className="flex items-center gap-2 mt-1 font-semibold text-sm">
                 <MapPin className="h-4 w-4 text-accent" /> Florianópolis — SC
               </div>
             </div>
