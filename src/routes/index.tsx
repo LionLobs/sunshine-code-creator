@@ -312,9 +312,9 @@ function Index() {
             </p>
           </div>
 
-          <div className="mt-16 grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div className="mt-16 flex md:grid md:grid-cols-2 lg:grid-cols-3 gap-5 overflow-x-auto no-scrollbar snap-x snap-mandatory -mx-6 px-6 md:mx-0 md:px-0 md:overflow-visible">
             {reasons.map(({ icon: Icon, title, desc }, i) => (
-              <div key={title} className="group relative rounded-2xl border border-border bg-card/60 backdrop-blur p-7 hover:border-primary/60 hover:bg-card hover:-translate-y-1 transition-all overflow-hidden">
+              <div key={title} className="snap-start shrink-0 w-[85%] sm:w-[60%] md:w-auto group relative rounded-2xl border border-border bg-card/60 backdrop-blur p-7 hover:border-primary/60 hover:bg-card hover:-translate-y-1 transition-all overflow-hidden">
                 <div className="absolute -top-12 -right-12 h-32 w-32 rounded-full bg-primary/20 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
                 <div className="relative">
                   <div className="flex items-center justify-between mb-5">
