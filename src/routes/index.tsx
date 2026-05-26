@@ -208,13 +208,13 @@ function Index() {
               </a>
             </div>
 
-            <div className="mt-14 flex sm:grid sm:grid-cols-4 gap-4 sm:gap-6 overflow-x-auto no-scrollbar snap-x snap-mandatory -mx-6 px-6 sm:mx-0 sm:px-0 sm:overflow-visible">
+            <div className="mt-14 grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6">
               {pillars.map(({ icon: Icon, label }) => (
-                <div key={label} className="snap-start shrink-0 w-[42%] sm:w-auto flex flex-col items-start gap-2 group">
+                <div key={label} className="flex flex-col items-start gap-2 group">
                   <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-primary/30 to-accent/20 border border-primary/40 group-hover:scale-110 transition-transform shadow-[0_8px_20px_-8px_oklch(0.5_0.2_300_/_0.5)]">
                     <Icon className="h-5 w-5 text-accent" />
                   </div>
-                  <div className="text-[11px] font-semibold tracking-wider text-muted-foreground uppercase">{label}</div>
+                  <div className="text-[11px] font-semibold tracking-wider text-muted-foreground uppercase leading-tight">{label}</div>
                 </div>
               ))}
             </div>
