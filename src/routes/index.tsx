@@ -237,24 +237,24 @@ function Index() {
             <div className="absolute -inset-10 bg-gradient-to-br from-primary/40 to-accent/20 blur-3xl rounded-full" />
             <div className="relative grid grid-cols-2 gap-3 sm:gap-4">
               <div className="space-y-4">
-                <div className="relative rounded-3xl overflow-hidden border border-border shadow-[var(--shadow-card)] h-[300px] group">
+                <div className="relative rounded-3xl overflow-hidden border border-border shadow-[var(--shadow-card)] h-[220px] sm:h-[300px] group">
                   <img src={playerCelebrate} alt="" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                   <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent" />
                   <div className="absolute bottom-3 left-3 text-xs font-bold tracking-widest text-accent">PAIXÃO</div>
                 </div>
-                <div className="relative rounded-3xl overflow-hidden border border-border shadow-[var(--shadow-card)] h-[200px] group">
+                <div className="relative rounded-3xl overflow-hidden border border-border shadow-[var(--shadow-card)] h-[150px] sm:h-[200px] group">
                   <img src={ball} alt="" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                   <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent" />
                   <div className="absolute bottom-3 left-3 text-xs font-bold tracking-widest text-accent">FOCO</div>
                 </div>
               </div>
               <div className="space-y-4 pt-10">
-                <div className="relative rounded-3xl overflow-hidden border border-border shadow-[var(--shadow-card)] h-[200px] group">
+                <div className="relative rounded-3xl overflow-hidden border border-border shadow-[var(--shadow-card)] h-[150px] sm:h-[200px] group">
                   <img src={teamHug} alt="" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                   <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent" />
                   <div className="absolute bottom-3 left-3 text-xs font-bold tracking-widest text-accent">UNIÃO</div>
                 </div>
-                <div className="relative rounded-3xl overflow-hidden border border-border shadow-[var(--shadow-card)] h-[300px] group">
+                <div className="relative rounded-3xl overflow-hidden border border-border shadow-[var(--shadow-card)] h-[220px] sm:h-[300px] group">
                   <img src={spike} alt="" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                   <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent" />
                   <div className="absolute bottom-3 left-3 text-xs font-bold tracking-widest text-accent">GARRA</div>
@@ -378,7 +378,7 @@ function Index() {
           </div>
 
           <div className="grid grid-cols-12 gap-4 md:gap-5">
-            <div className="col-span-12 md:col-span-8 relative rounded-3xl overflow-hidden h-[300px] md:h-[300px] group border border-border shadow-[var(--shadow-card)]">
+            <div className="col-span-12 md:col-span-8 relative rounded-3xl overflow-hidden h-[300px] md:h-[220px] sm:h-[300px] group border border-border shadow-[var(--shadow-card)]">
               <img src={huddle} alt="Time reunido" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" />
               <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
               <div className="absolute bottom-6 left-6 right-6">
@@ -386,7 +386,7 @@ function Index() {
                 <div className="text-3xl md:text-4xl font-black">Estratégia e união antes de cada jogo</div>
               </div>
             </div>
-            <div className="col-span-12 md:col-span-4 relative rounded-3xl overflow-hidden h-[300px] md:h-[300px] group border border-border shadow-[var(--shadow-card)]">
+            <div className="col-span-12 md:col-span-4 relative rounded-3xl overflow-hidden h-[300px] md:h-[220px] sm:h-[300px] group border border-border shadow-[var(--shadow-card)]">
               <img src={spike} alt="Ataque" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" />
               <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
               <div className="absolute bottom-6 left-6 right-6">
