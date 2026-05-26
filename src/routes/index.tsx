@@ -171,20 +171,8 @@ function Index() {
         {/* Solid backdrop */}
         <div className="absolute inset-0 -z-20 bg-background" />
 
-        {/* Right-side background image with cinematic shading */}
-        <div className="absolute inset-y-0 right-0 w-full md:w-[75%] lg:w-[65%] -z-10 pointer-events-none">
-          <img
-            src={heroTeam}
-            alt="Equipe masculina Elite Floripa Voleibol"
-            className="h-full w-full object-cover object-right opacity-90"
-          />
-          {/* Left-fade — very subtle on mobile so the image is clearly visible */}
-          <div className="absolute inset-0 bg-gradient-to-r from-background/60 via-transparent to-transparent md:from-background md:via-background/70 md:to-background/10" />
-          {/* Top/bottom vignette — softer on mobile */}
-          <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-transparent to-background/80 md:from-background/70 md:to-background" />
-          {/* Right edge purple glow */}
-          <div className="absolute inset-y-0 right-0 w-1/2 bg-gradient-to-l from-primary/30 via-primary/10 to-transparent mix-blend-screen" />
-        </div>
+        {/* Subtle right-edge purple glow */}
+        <div className="absolute inset-y-0 right-0 w-1/2 -z-10 pointer-events-none bg-gradient-to-l from-primary/15 via-primary/5 to-transparent" />
 
         {/* Brand ribbon - top left like the visual ID */}
         <Ribbon className="top-0 left-0 h-48 w-72 opacity-60" />
