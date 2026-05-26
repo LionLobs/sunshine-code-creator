@@ -505,8 +505,8 @@ function Index() {
       <section className="relative py-24">
         <div className="mx-auto max-w-7xl px-6">
           <div className="text-center max-w-2xl mx-auto mb-14">
-            <div className="text-xs tracking-[0.3em] text-accent mb-4">CONFIANÇA</div>
-            <h2 className="text-3xl md:text-5xl font-black">O que dizem nossos parceiros</h2>
+            <div className="text-xs tracking-[0.3em] text-accent mb-4">PROVA SOCIAL</div>
+            <h2 className="text-3xl md:text-5xl font-black">Quem já apostou na gente <span className="text-accent">não voltou atrás.</span></h2>
           </div>
           <div className="flex md:grid md:grid-cols-2 gap-6 overflow-x-auto no-scrollbar snap-x snap-mandatory -mx-6 px-6 md:mx-0 md:px-0 md:overflow-visible">
             {testimonials.map((t, i) => (
