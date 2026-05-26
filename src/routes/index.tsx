@@ -289,15 +289,15 @@ function Index() {
 
         <div className="mx-auto max-w-7xl px-6">
           <div className="max-w-3xl">
-            <div className="text-xs tracking-[0.3em] text-accent mb-4">04 — A OPORTUNIDADE</div>
+            <div className="text-xs tracking-[0.3em] text-accent mb-4">04 — O QUE VOCÊ GANHA</div>
             <h2 className="text-4xl md:text-6xl font-black leading-tight">
-              POR QUE SUA EMPRESA
+              ENQUANTO VOCÊ LÊ ISSO,
               <br />
-              <span className="text-accent">DEVE PATROCINAR?</span>
+              <span className="text-accent">SEU CONCORRENTE TAMBÉM ESTÁ.</span>
             </h2>
             <div className="mt-4 h-1 w-24 bg-gradient-to-r from-primary to-accent rounded-full" />
             <p className="mt-6 text-lg text-muted-foreground max-w-2xl">
-              Patrocinar o Elite Voleibol é investir em visibilidade real, conexão com a comunidade e em um time que representa Florianópolis com excelência.
+              Patrocinar o Elite não é gasto — é a forma mais barata e mais humana de fazer sua marca aparecer todos os dias para milhares de pessoas em Florianópolis. <span className="text-foreground font-semibold">Quem chega primeiro garante o melhor espaço.</span>
             </p>
           </div>
 
