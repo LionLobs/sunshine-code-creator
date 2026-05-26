@@ -424,7 +424,7 @@ function Index() {
             </p>
           </div>
 
-          <div className="mt-16 grid lg:grid-cols-3 gap-6">
+          <div className="mt-16 flex lg:grid lg:grid-cols-3 gap-6 overflow-x-auto no-scrollbar snap-x snap-mandatory -mx-6 px-6 pb-4 lg:pb-0 lg:mx-0 lg:px-0 lg:overflow-visible">
             {plans.map((plan) => (
               <div
                 key={plan.tier}
