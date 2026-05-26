@@ -504,7 +504,7 @@ function Index() {
 
           <div className="mt-12 text-center text-sm text-muted-foreground">
             <Calendar className="inline h-4 w-4 mr-1 text-accent" />
-            Contratos a partir de 3 meses. Pacotes personalizados disponíveis sob consulta.
+            Pacotes personalizados disponíveis sob consulta.
           </div>
         </div>
       </section>
