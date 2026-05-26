@@ -169,9 +169,18 @@ function Index() {
       {/* HERO */}
       <section id="top" className="relative min-h-screen flex items-center pt-24 pb-16">
         <div className="absolute inset-0 -z-10">
-          <img src={heroTeam} alt="" className="h-full w-full object-cover opacity-30" />
-          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/85 to-background/30" />
-          <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-transparent to-background" />
+          {/* Right-side background image with cinematic shading */}
+          <div className="absolute inset-y-0 right-0 w-full md:w-[70%] lg:w-[60%]">
+            <img src={heroTeam} alt="" className="h-full w-full object-cover object-center opacity-60" />
+            {/* Strong left-fade to blend into background */}
+            <div className="absolute inset-0 bg-gradient-to-r from-background via-background/85 to-background/20" />
+            {/* Top/bottom vignette */}
+            <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-transparent to-background" />
+            {/* Right edge purple glow */}
+            <div className="absolute inset-y-0 right-0 w-1/3 bg-gradient-to-l from-primary/20 via-primary/5 to-transparent mix-blend-screen" />
+          </div>
+          {/* Solid backdrop behind everything */}
+          <div className="absolute inset-0 bg-background -z-10" />
         </div>
 
         {/* Brand ribbon - top left like the visual ID */}
