@@ -233,32 +233,22 @@ function Index() {
           </div>
 
           {/* Visual right panel */}
+          {/* Visual right panel - single hero image */}
           <div className="relative block mt-10 lg:mt-0">
             <div className="absolute -inset-10 bg-gradient-to-br from-primary/40 to-accent/20 blur-3xl rounded-full" />
-            <div className="relative grid grid-cols-2 gap-3 sm:gap-4">
-              <div className="space-y-4">
-                <div className="relative rounded-3xl overflow-hidden border border-border shadow-[var(--shadow-card)] h-[220px] sm:h-[300px] group">
-                  <img src={playerCelebrate} alt="" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent" />
-                  <div className="absolute bottom-3 left-3 text-xs font-bold tracking-widest text-accent">PAIXÃO</div>
-                </div>
-                <div className="relative rounded-3xl overflow-hidden border border-border shadow-[var(--shadow-card)] h-[150px] sm:h-[200px] group">
-                  <img src={ball} alt="" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent" />
-                  <div className="absolute bottom-3 left-3 text-xs font-bold tracking-widest text-accent">FOCO</div>
-                </div>
-              </div>
-              <div className="space-y-4 pt-10">
-                <div className="relative rounded-3xl overflow-hidden border border-border shadow-[var(--shadow-card)] h-[150px] sm:h-[200px] group">
-                  <img src={teamHug} alt="" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent" />
-                  <div className="absolute bottom-3 left-3 text-xs font-bold tracking-widest text-accent">UNIÃO</div>
-                </div>
-                <div className="relative rounded-3xl overflow-hidden border border-border shadow-[var(--shadow-card)] h-[220px] sm:h-[300px] group">
-                  <img src={spike} alt="" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent" />
-                  <div className="absolute bottom-3 left-3 text-xs font-bold tracking-widest text-accent">GARRA</div>
-                </div>
+            <div className="relative rounded-3xl overflow-hidden border border-border shadow-[var(--shadow-card)] h-[400px] sm:h-[520px] lg:h-[620px] group">
+              <img
+                src={playerCelebrate}
+                alt="Atleta Elite Floripa Voleibol"
+                className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
+              />
+              {/* Cinematic shading */}
+              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-r from-background/40 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-l from-primary/20 via-transparent to-transparent mix-blend-screen" />
+              {/* Label */}
+              <div className="absolute bottom-5 left-5 text-xs font-bold tracking-[0.3em] text-accent">
+                PAIXÃO · GARRA · UNIÃO
               </div>
             </div>
 
