@@ -191,20 +191,20 @@ function Index() {
               </span>
             </h1>
             <p className="mt-8 text-2xl md:text-3xl font-bold">
-              Juntos, levamos o
+              Sua marca onde a paixão
               <br />
-              <span className="text-accent">esporte mais longe.</span>
+              <span className="text-accent">acontece de verdade.</span>
             </p>
             <p className="mt-6 max-w-xl text-base md:text-lg text-muted-foreground leading-relaxed">
-              Seja parceiro de um projeto oficial da Prefeitura de Florianópolis e associe sua marca a performance, disciplina, saúde e impacto social.
+              Estamos selecionando um número limitado de empresas para caminhar com a gente nesta temporada. Escolha o plano que faz sentido para o seu negócio — e garanta sua marca antes que outra do seu segmento chegue primeiro.
             </p>
 
             <div className="mt-10 flex flex-wrap gap-4">
               <a href="#planos" className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-primary to-accent px-7 py-4 font-semibold text-primary-foreground shadow-[var(--shadow-glow)] hover:scale-105 transition-transform">
-                Ver Planos de Patrocínio <ArrowRight className="h-4 w-4" />
+                Quero ver os planos <ArrowRight className="h-4 w-4" />
               </a>
               <a href="#porque" className="inline-flex items-center gap-2 rounded-full border border-border bg-card/50 backdrop-blur px-7 py-4 font-semibold hover:bg-card hover:border-primary/50 transition">
-                <Eye className="h-4 w-4" /> Por que patrocinar?
+                <Eye className="h-4 w-4" /> Entender o retorno
               </a>
             </div>
 
