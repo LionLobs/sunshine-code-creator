@@ -178,10 +178,10 @@ function Index() {
             alt="Equipe masculina Elite Floripa Voleibol"
             className="h-full w-full object-cover object-right opacity-90"
           />
-          {/* Left-fade to blend into background — weaker on mobile so image stays visible */}
-          <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-background/30 to-background/5 md:from-background md:via-background/70 md:to-background/10" />
-          {/* Top/bottom vignette */}
-          <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-transparent to-background" />
+          {/* Left-fade — very subtle on mobile so the image is clearly visible */}
+          <div className="absolute inset-0 bg-gradient-to-r from-background/60 via-transparent to-transparent md:from-background md:via-background/70 md:to-background/10" />
+          {/* Top/bottom vignette — softer on mobile */}
+          <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-transparent to-background/80 md:from-background/70 md:to-background" />
           {/* Right edge purple glow */}
           <div className="absolute inset-y-0 right-0 w-1/2 bg-gradient-to-l from-primary/30 via-primary/10 to-transparent mix-blend-screen" />
         </div>
