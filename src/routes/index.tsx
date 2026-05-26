@@ -233,9 +233,9 @@ function Index() {
           </div>
 
           {/* Visual right panel */}
-          <div className="relative hidden lg:block">
+          <div className="relative block mt-10 lg:mt-0">
             <div className="absolute -inset-10 bg-gradient-to-br from-primary/40 to-accent/20 blur-3xl rounded-full" />
-            <div className="relative grid grid-cols-2 gap-4">
+            <div className="relative grid grid-cols-2 gap-3 sm:gap-4">
               <div className="space-y-4">
                 <div className="relative rounded-3xl overflow-hidden border border-border shadow-[var(--shadow-card)] h-[300px] group">
                   <img src={playerCelebrate} alt="" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
