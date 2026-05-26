@@ -4,7 +4,7 @@ import {
   Trophy, HeartPulse, Users, Target, Megaphone, Smartphone, Palette,
   Handshake, Shirt, Instagram, FileImage, Star, BadgeCheck, TrendingUp,
   Video, Award, Lock, ShieldCheck, MapPin, Heart, Crown,
-  Phone, Mail, ArrowRight, Sparkles, CheckCircle2, Quote, Calendar, Eye,
+  ArrowRight, Sparkles, CheckCircle2, Quote, Eye,
 } from "lucide-react";
 import logo from "@/assets/logo.png";
 import heroTeam from "@/assets/hero-team.jpg";
@@ -27,73 +27,76 @@ const pillars = [
 ];
 
 const reasons = [
-  { icon: TrendingUp, title: "Fortalecimento da marca", desc: "Sua empresa ganha visibilidade junto a um público engajado em toda a região da Grande Florianópolis." },
-  { icon: Users, title: "Público jovem e esportivo", desc: "Conexão direta com famílias, atletas, estudantes e comunidades ativas no esporte." },
-  { icon: Heart, title: "Saúde, disciplina e performance", desc: "Associe sua marca a valores positivos que inspiram e geram identificação imediata." },
-  { icon: Megaphone, title: "Presença em campeonatos", desc: "Marca presente em jogos, eventos, treinos e bastidores do time durante toda a temporada." },
-  { icon: Crown, title: "Autoridade e reconhecimento", desc: "Parceria com um projeto oficial reconhecido pela Prefeitura de Florianópolis." },
-  { icon: ShieldCheck, title: "Impacto social mensurável", desc: "Apoio direto à formação de atletas e ao desenvolvimento esportivo da cidade." },
+  { icon: TrendingUp, title: "Sua marca vista por milhares", desc: "Mais de 10 mil pessoas alcançadas todos os meses entre jogos, redes sociais e ações presenciais na Grande Florianópolis." },
+  { icon: Users, title: "Conexão com um público fiel", desc: "Famílias, atletas, estudantes e torcedores que confiam, acompanham e consomem das marcas que apoiam o time." },
+  { icon: Heart, title: "Associação com valores que vendem", desc: "Saúde, disciplina e superação criam afinidade emocional imediata — o tipo de imagem que dinheiro nenhum em mídia compra." },
+  { icon: Megaphone, title: "Exposição contínua, não pontual", desc: "Sua marca presente em treinos, jogos, bastidores e conteúdos durante toda a temporada. Visibilidade que se acumula." },
+  { icon: Crown, title: "O peso de um projeto oficial", desc: "Reconhecido pela Prefeitura de Florianópolis. Sua empresa entra como parceira de uma instituição séria — não de uma promessa." },
+  { icon: ShieldCheck, title: "Impacto social que gera narrativa", desc: "Você apoia a formação de jovens atletas e ganha uma história real para contar aos seus clientes e às suas redes." },
 ];
 
 const plans = [
   {
     tier: "Bronze",
     price: "500",
+    tagline: "Comece a aparecer",
     medalColor: "from-amber-700 via-amber-600 to-amber-500",
     glow: "shadow-[0_0_60px_-10px_rgba(217,119,6,0.35)]",
     number: "01",
     intro: null,
     badge: null,
     benefits: [
-      { icon: Megaphone, text: "Logo nas redes sociais do time" },
-      { icon: Smartphone, text: "Divulgação em stories durante campeonatos" },
-      { icon: Palette, text: "Marca em artes de jogos e resultados" },
-      { icon: Handshake, text: "Agradecimento oficial como parceiro" },
+      { icon: Megaphone, text: "Sua logo nas redes sociais do time" },
+      { icon: Smartphone, text: "Divulgação em stories durante os campeonatos" },
+      { icon: Palette, text: "Marca aplicada em artes de jogos e resultados" },
+      { icon: Handshake, text: "Reconhecimento público como parceiro oficial" },
     ],
   },
   {
     tier: "Prata",
     price: "800",
+    tagline: "A escolha de quem quer crescer junto",
     medalColor: "from-slate-300 via-slate-200 to-slate-400",
     glow: "shadow-[0_0_60px_-10px_rgba(203,213,225,0.35)]",
     number: "02",
     intro: "Bronze",
-    badge: "POPULAR",
+    badge: "MAIS ESCOLHIDO",
     benefits: [
-      { icon: Shirt, text: "Logo na camisa de treino" },
-      { icon: Instagram, text: "Divulgação fixa no Instagram do time" },
+      { icon: Shirt, text: "Logo estampada na camisa de treino do time" },
+      { icon: Instagram, text: "Divulgação fixa no Instagram oficial" },
       { icon: FileImage, text: "Marca em banner oficial da equipe" },
-      { icon: Star, text: "Participação em ações promocionais" },
+      { icon: Star, text: "Prioridade em ações promocionais e ativações" },
     ],
   },
   {
     tier: "Ouro",
     price: "1.000",
+    tagline: "Para marcas que querem liderar",
     medalColor: "from-yellow-300 via-yellow-400 to-amber-500",
     glow: "shadow-[0_0_80px_-10px_rgba(250,204,21,0.45)]",
     number: "03",
     intro: "Prata",
-    badge: "MAIS COMPLETO",
+    badge: "EXCLUSIVO — 1 VAGA POR SEGMENTO",
     featured: true,
     benefits: [
-      { icon: BadgeCheck, text: "Logo em destaque no uniforme oficial" },
-      { icon: TrendingUp, text: "Maior visibilidade nas redes sociais" },
-      { icon: Video, text: "Divulgação em vídeos e conteúdos do time" },
-      { icon: Award, text: "Presença em campeonatos e eventos" },
-      { icon: Lock, text: "Exclusividade no segmento (opcional)" },
-      { icon: ShieldCheck, text: "Parceria oficial Elite Florianópolis" },
+      { icon: BadgeCheck, text: "Logo em DESTAQUE no uniforme oficial de jogo" },
+      { icon: TrendingUp, text: "Posição principal em todas as comunicações" },
+      { icon: Video, text: "Aparição em vídeos, reels e conteúdos do time" },
+      { icon: Award, text: "Presença ativa em campeonatos e eventos" },
+      { icon: Lock, text: "Exclusividade garantida no seu segmento" },
+      { icon: ShieldCheck, text: "Selo oficial de Parceiro Master Elite Florianópolis" },
     ],
   },
 ];
 
 const testimonials = [
   {
-    quote: "Patrocinar o Elite é estar lado a lado de um projeto sério, com resultado e impacto real na comunidade.",
+    quote: "Patrocinar o Elite é estar lado a lado de um projeto sério, com resultado e impacto real na comunidade. Nossa marca passou a ser reconhecida como apoiadora do esporte local — isso não tem preço.",
     author: "Diretor Comercial",
     role: "Parceiro Local",
   },
   {
-    quote: "A visibilidade que conquistamos junto ao time superou nossas expectativas em apenas 3 meses.",
+    quote: "Em poucos meses começamos a ouvir de clientes: 'vi vocês no time'. A visibilidade superou nossas expectativas e o retorno em imagem foi imediato.",
     author: "Gerente de Marketing",
     role: "Marca Patrocinadora",
   },
@@ -122,12 +125,10 @@ function Ribbon({ className = "", flip = false }: { className?: string; flip?: b
 
 function Index() {
   const [scrolled, setScrolled] = useState(false);
-  const [showSticky, setShowSticky] = useState(false);
 
   useEffect(() => {
     const onScroll = () => {
       setScrolled(window.scrollY > 30);
-      setShowSticky(window.scrollY > 600);
     };
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -157,25 +158,13 @@ function Index() {
             <a href="#porque" className="hover:text-foreground transition">Por que patrocinar</a>
             <a href="#galeria" className="hover:text-foreground transition">Galeria</a>
             <a href="#planos" className="hover:text-foreground transition">Planos</a>
-            <a href="#contato" className="hover:text-foreground transition">Contato</a>
           </nav>
-          <a href="#contato" className="hidden sm:inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-primary to-accent px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-[var(--shadow-glow)] hover:scale-105 transition-transform">
-            Seja Parceiro <ArrowRight className="h-4 w-4" />
+          <a href="#planos" className="hidden sm:inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-primary to-accent px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-[var(--shadow-glow)] hover:scale-105 transition-transform">
+            Escolher meu plano <ArrowRight className="h-4 w-4" />
           </a>
         </div>
       </header>
 
-      {/* Sticky bottom CTA on mobile */}
-      <div className={`md:hidden fixed bottom-0 inset-x-0 z-40 transition-transform duration-300 ${showSticky ? "translate-y-0" : "translate-y-full"}`}>
-        <a
-          href="https://wa.me/5548999799850?text=Ol%C3%A1!%20Quero%20conhecer%20os%20planos%20de%20patroc%C3%ADnio%20do%20Elite%20Floripa%20Voleibol."
-          target="_blank"
-          rel="noopener noreferrer"
-          className="m-3 flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-primary to-accent px-6 py-4 font-bold text-primary-foreground shadow-[var(--shadow-glow)]"
-        >
-          <Phone className="h-5 w-5" /> Quero ser Patrocinador
-        </a>
-      </div>
 
       {/* HERO */}
       <section id="top" className="relative min-h-screen flex items-center pt-24 pb-16">
@@ -202,20 +191,20 @@ function Index() {
               </span>
             </h1>
             <p className="mt-8 text-2xl md:text-3xl font-bold">
-              Juntos, levamos o
+              Sua marca onde a paixão
               <br />
-              <span className="text-accent">esporte mais longe.</span>
+              <span className="text-accent">acontece de verdade.</span>
             </p>
             <p className="mt-6 max-w-xl text-base md:text-lg text-muted-foreground leading-relaxed">
-              Seja parceiro de um projeto oficial da Prefeitura de Florianópolis e associe sua marca a performance, disciplina, saúde e impacto social.
+              Estamos selecionando um número limitado de empresas para caminhar com a gente nesta temporada. Escolha o plano que faz sentido para o seu negócio — e garanta sua marca antes que outra do seu segmento chegue primeiro.
             </p>
 
             <div className="mt-10 flex flex-wrap gap-4">
               <a href="#planos" className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-primary to-accent px-7 py-4 font-semibold text-primary-foreground shadow-[var(--shadow-glow)] hover:scale-105 transition-transform">
-                Ver Planos de Patrocínio <ArrowRight className="h-4 w-4" />
+                Quero ver os planos <ArrowRight className="h-4 w-4" />
               </a>
               <a href="#porque" className="inline-flex items-center gap-2 rounded-full border border-border bg-card/50 backdrop-blur px-7 py-4 font-semibold hover:bg-card hover:border-primary/50 transition">
-                <Eye className="h-4 w-4" /> Por que patrocinar?
+                <Eye className="h-4 w-4" /> Entender o retorno
               </a>
             </div>
 
@@ -300,15 +289,15 @@ function Index() {
 
         <div className="mx-auto max-w-7xl px-6">
           <div className="max-w-3xl">
-            <div className="text-xs tracking-[0.3em] text-accent mb-4">04 — A OPORTUNIDADE</div>
+            <div className="text-xs tracking-[0.3em] text-accent mb-4">04 — O QUE VOCÊ GANHA</div>
             <h2 className="text-4xl md:text-6xl font-black leading-tight">
-              POR QUE SUA EMPRESA
+              ENQUANTO VOCÊ LÊ ISSO,
               <br />
-              <span className="text-accent">DEVE PATROCINAR?</span>
+              <span className="text-accent">SEU CONCORRENTE TAMBÉM ESTÁ.</span>
             </h2>
             <div className="mt-4 h-1 w-24 bg-gradient-to-r from-primary to-accent rounded-full" />
             <p className="mt-6 text-lg text-muted-foreground max-w-2xl">
-              Patrocinar o Elite Voleibol é investir em visibilidade real, conexão com a comunidade e em um time que representa Florianópolis com excelência.
+              Patrocinar o Elite não é gasto — é a forma mais barata e mais humana de fazer sua marca aparecer todos os dias para milhares de pessoas em Florianópolis. <span className="text-foreground font-semibold">Quem chega primeiro garante o melhor espaço.</span>
             </p>
           </div>
 
@@ -338,7 +327,7 @@ function Index() {
                 <Handshake className="h-10 w-10 text-primary-foreground" />
               </div>
               <div className="text-center md:text-left text-xl md:text-3xl font-black leading-snug">
-                MAIS QUE PATROCÍNIO, <span className="text-accent">UMA PARCERIA QUE GERA IMPACTO</span> E TRANSFORMA O FUTURO.
+                NÃO É SÓ UMA LOGO EM UMA CAMISA. É <span className="text-accent">A SUA MARCA SENDO LEMBRADA</span> TODO DIA, EM CADA JOGO, EM CADA POST, EM CADA CONVERSA.
               </div>
             </div>
           </div>
@@ -413,14 +402,15 @@ function Index() {
 
         <div className="mx-auto max-w-7xl px-6">
           <div className="text-center max-w-3xl mx-auto">
-            <div className="text-xs tracking-[0.3em] text-accent mb-4">PLANOS DE PATROCÍNIO</div>
+            <div className="text-xs tracking-[0.3em] text-accent mb-4">ESCOLHA SUA POSIÇÃO EM QUADRA</div>
             <h2 className="text-4xl md:text-6xl font-black leading-tight">
-              ESCOLHA O <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">NÍVEL</span>
+              QUAL DESSES TRÊS<br />
+              <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">FAZ MAIS SENTIDO</span>
               <br />
-              DA SUA PARCERIA
+              PARA O SEU NEGÓCIO?
             </h2>
             <p className="mt-6 text-muted-foreground text-lg">
-              Três caminhos para conectar sua marca ao esporte de alto nível. Cada plano inclui todos os benefícios do anterior.
+              A maioria das empresas que conversam com a gente escolhem o <span className="text-accent font-semibold">Prata</span> ou <span className="text-accent font-semibold">Ouro</span> — pela exposição que oferecem e pela exclusividade. Mas qualquer um dos três já coloca sua marca dentro do nosso universo.
             </p>
           </div>
 
@@ -454,6 +444,7 @@ function Index() {
                     <div>
                       <div className="text-[10px] tracking-widest text-muted-foreground">PATROCINADOR</div>
                       <div className="text-3xl font-black tracking-tight">{plan.tier.toUpperCase()}</div>
+                      <div className="text-[11px] text-accent font-semibold mt-0.5">{plan.tagline}</div>
                     </div>
                   </div>
                   <div className="text-5xl font-black text-foreground/10 tracking-tighter">{plan.number}</div>
@@ -486,25 +477,26 @@ function Index() {
                   ))}
                 </div>
 
-                <a
-                  href={`https://wa.me/5548999799850?text=Ol%C3%A1!%20Tenho%20interesse%20no%20plano%20${plan.tier}%20de%20patroc%C3%ADnio.`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`mt-8 flex items-center justify-center gap-2 rounded-full px-6 py-4 font-bold transition-all ${
+                <div
+                  className={`mt-8 flex items-center justify-center gap-2 rounded-full px-6 py-4 font-bold ${
                     plan.featured
-                      ? "bg-gradient-to-r from-primary to-accent text-primary-foreground shadow-[var(--shadow-glow)] hover:scale-105"
-                      : "border border-border bg-background/40 hover:bg-primary/20 hover:border-primary/60 hover:scale-105"
+                      ? "bg-gradient-to-r from-primary to-accent text-primary-foreground shadow-[var(--shadow-glow)]"
+                      : "border border-border bg-background/40"
                   }`}
                 >
-                  Quero ser {plan.tier} <ArrowRight className="h-4 w-4" />
-                </a>
+                  Quero o plano {plan.tier} <ArrowRight className="h-4 w-4" />
+                </div>
               </div>
             ))}
           </div>
 
-          <div className="mt-12 text-center text-sm text-muted-foreground">
-            <Calendar className="inline h-4 w-4 mr-1 text-accent" />
-            Pacotes personalizados disponíveis sob consulta.
+          <div className="mt-12 max-w-2xl mx-auto text-center">
+            <div className="inline-flex items-center gap-2 rounded-full border border-accent/40 bg-accent/10 px-4 py-1.5 text-xs font-semibold tracking-widest text-accent mb-4">
+              <Sparkles className="h-3.5 w-3.5" /> VAGAS LIMITADAS POR TEMPORADA
+            </div>
+            <p className="text-base text-muted-foreground">
+              <span className="text-foreground font-semibold">Trabalhamos com poucos parceiros</span> para garantir que cada marca tenha real destaque. Quando um segmento é fechado, ele só reabre na próxima temporada.
+            </p>
           </div>
         </div>
       </section>
@@ -513,8 +505,8 @@ function Index() {
       <section className="relative py-24">
         <div className="mx-auto max-w-7xl px-6">
           <div className="text-center max-w-2xl mx-auto mb-14">
-            <div className="text-xs tracking-[0.3em] text-accent mb-4">CONFIANÇA</div>
-            <h2 className="text-3xl md:text-5xl font-black">O que dizem nossos parceiros</h2>
+            <div className="text-xs tracking-[0.3em] text-accent mb-4">PROVA SOCIAL</div>
+            <h2 className="text-3xl md:text-5xl font-black">Quem já apostou na gente <span className="text-accent">não voltou atrás.</span></h2>
           </div>
           <div className="flex md:grid md:grid-cols-2 gap-6 overflow-x-auto no-scrollbar snap-x snap-mandatory -mx-6 px-6 md:mx-0 md:px-0 md:overflow-visible">
             {testimonials.map((t, i) => (
@@ -552,62 +544,49 @@ function Index() {
 
             <div className="relative text-center">
               <img src={logo} alt="Elite Voleibol" className="mx-auto h-32 w-auto drop-shadow-[0_0_40px_oklch(0.7_0.2_300_/_0.8)]" />
-              <h2 className="mt-8 text-4xl md:text-6xl font-black leading-tight">
-                SUA MARCA PODE IR
+              <div className="mt-6 text-xs tracking-[0.3em] text-accent">A DECISÃO É SUA</div>
+              <h2 className="mt-4 text-4xl md:text-6xl font-black leading-tight">
+                ESCOLHA O PLANO
                 <br />
                 <span className="bg-gradient-to-r from-primary via-accent to-primary-glow bg-clip-text text-transparent">
-                  MUITO MAIS LONGE
+                  E ME AVISE.
                 </span>
-                <br />
-                COM A GENTE!
               </h2>
               <p className="mt-6 text-lg text-muted-foreground max-w-2xl mx-auto">
-                Apoie o esporte, fortaleça sua marca e seja parte de um projeto que faz a diferença dentro e fora das quadras.
+                É simples assim: escolha entre <span className="text-foreground font-semibold">Bronze, Prata ou Ouro</span>, me responda qual faz mais sentido para o seu negócio e eu já reservo sua vaga e cuido de todo o processo para sua marca entrar em quadra na próxima rodada.
               </p>
 
-              <div className="mt-10 flex flex-col items-center gap-6">
-                <a
-                  href="https://wa.me/5548999799850?text=Ol%C3%A1!%20Quero%20conhecer%20os%20planos%20de%20patroc%C3%ADnio%20do%20Elite%20Floripa%20Voleibol."
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-primary to-accent px-10 py-5 text-lg font-bold text-primary-foreground shadow-[var(--shadow-glow)] hover:scale-105 transition-transform"
-                >
-                  <CheckCircle2 className="h-6 w-6" />
-                  QUERO FECHAR UM PATROCÍNIO
-                </a>
-
-                <div className="text-xs tracking-[0.3em] text-accent mt-4">VAMOS CONVERSAR?</div>
-
-                <div className="flex sm:grid sm:grid-cols-3 gap-3 w-full overflow-x-auto no-scrollbar snap-x snap-mandatory -mx-6 px-6 sm:mx-0 sm:px-0 sm:overflow-visible">
-                  <a href="https://wa.me/5548999799850" target="_blank" rel="noopener noreferrer" className="snap-start shrink-0 w-[78%] sm:w-auto flex items-center gap-3 rounded-xl border border-border bg-card/70 backdrop-blur px-5 py-4 hover:border-primary/60 hover:bg-card hover:-translate-y-0.5 transition group">
-                    <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-gradient-to-br from-primary/30 to-accent/20 border border-primary/40 group-hover:scale-110 transition">
-                      <Phone className="h-4 w-4 text-accent" />
+              <div className="mt-10 grid sm:grid-cols-3 gap-4">
+                {plans.map((p) => (
+                  <div
+                    key={p.tier}
+                    className={`rounded-2xl border p-5 text-left ${
+                      p.featured
+                        ? "border-accent/60 bg-gradient-to-br from-primary/20 to-accent/10 shadow-[var(--shadow-glow)]"
+                        : "border-border bg-background/40"
+                    }`}
+                  >
+                    <div className={`inline-flex items-center justify-center h-10 w-10 rounded-xl bg-gradient-to-br ${p.medalColor} shadow-lg mb-3`}>
+                      <Award className="h-5 w-5 text-background" />
                     </div>
-                    <div className="text-left">
-                      <div className="text-[10px] tracking-widest text-muted-foreground">WHATSAPP</div>
-                      <div className="text-sm font-semibold">(48) 99979-9850</div>
+                    <div className="text-xl font-black tracking-tight">{p.tier.toUpperCase()}</div>
+                    <div className="text-xs text-accent font-semibold">{p.tagline}</div>
+                    <div className="mt-3 text-2xl font-black">
+                      R$ {p.price}
+                      <span className="text-xs text-muted-foreground font-normal">/mês</span>
                     </div>
-                  </a>
-                  <a href="https://instagram.com/elitefloripavoleibol" target="_blank" rel="noopener noreferrer" className="snap-start shrink-0 w-[78%] sm:w-auto flex items-center gap-3 rounded-xl border border-border bg-card/70 backdrop-blur px-5 py-4 hover:border-primary/60 hover:bg-card hover:-translate-y-0.5 transition group">
-                    <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-gradient-to-br from-primary/30 to-accent/20 border border-primary/40 group-hover:scale-110 transition">
-                      <Instagram className="h-4 w-4 text-accent" />
-                    </div>
-                    <div className="text-left">
-                      <div className="text-[10px] tracking-widest text-muted-foreground">INSTAGRAM</div>
-                      <div className="text-sm font-semibold">@elitefloripavoleibol</div>
-                    </div>
-                  </a>
-                  <a href="mailto:elitefloripavoleibol@gmail.com" className="snap-start shrink-0 w-[78%] sm:w-auto flex items-center gap-3 rounded-xl border border-border bg-card/70 backdrop-blur px-5 py-4 hover:border-primary/60 hover:bg-card hover:-translate-y-0.5 transition group">
-                    <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-gradient-to-br from-primary/30 to-accent/20 border border-primary/40 group-hover:scale-110 transition">
-                      <Mail className="h-4 w-4 text-accent" />
-                    </div>
-                    <div className="text-left">
-                      <div className="text-[10px] tracking-widest text-muted-foreground">E-MAIL</div>
-                      <div className="text-xs font-semibold break-all">elitefloripavoleibol@gmail.com</div>
-                    </div>
-                  </a>
-                </div>
+                  </div>
+                ))}
               </div>
+
+              <div className="mt-10 inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-primary to-accent px-10 py-5 text-lg font-bold text-primary-foreground shadow-[var(--shadow-glow)]">
+                <CheckCircle2 className="h-6 w-6" />
+                ME RESPONDA COM O PLANO ESCOLHIDO
+              </div>
+
+              <p className="mt-6 text-sm text-muted-foreground max-w-xl mx-auto">
+                <span className="text-foreground font-semibold">Quanto antes você decide, antes sua marca aparece</span> — e mais segmentos seguem disponíveis para o seu nicho.
+              </p>
             </div>
           </div>
         </div>
