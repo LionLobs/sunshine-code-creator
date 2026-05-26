@@ -578,7 +578,7 @@ function Index() {
 
                 <div className="text-xs tracking-[0.3em] text-accent mt-4">VAMOS CONVERSAR?</div>
 
-                <div className="grid sm:grid-cols-3 gap-3 w-full">
+                <div className="flex sm:grid sm:grid-cols-3 gap-3 w-full overflow-x-auto no-scrollbar snap-x snap-mandatory -mx-6 px-6 sm:mx-0 sm:px-0 sm:overflow-visible">
                   <a href="https://wa.me/5548999799850" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 rounded-xl border border-border bg-card/70 backdrop-blur px-5 py-4 hover:border-primary/60 hover:bg-card hover:-translate-y-0.5 transition group">
                     <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-gradient-to-br from-primary/30 to-accent/20 border border-primary/40 group-hover:scale-110 transition">
                       <Phone className="h-4 w-4 text-accent" />
