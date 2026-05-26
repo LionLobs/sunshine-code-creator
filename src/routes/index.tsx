@@ -167,7 +167,7 @@ function Index() {
 
 
       {/* HERO */}
-      <section id="top" className="relative min-h-[78vh] flex items-center pt-20 pb-8">
+      <section id="top" className="relative min-h-screen flex items-center pt-24 pb-16">
         <div className="absolute inset-0 -z-10">
           <img src={heroTeam} alt="" className="h-full w-full object-cover opacity-30" />
           <div className="absolute inset-0 bg-gradient-to-r from-background via-background/85 to-background/30" />
@@ -183,14 +183,14 @@ function Index() {
               <Sparkles className="h-3.5 w-3.5" />
               PROJETO OFICIAL — PREFEITURA DE FLORIANÓPOLIS
             </div>
-            <h1 className="text-3xl md:text-4xl xl:text-5xl font-black leading-[0.9] tracking-tight">
+            <h1 className="text-4xl md:text-5xl xl:text-7xl font-black leading-[0.9] tracking-tight">
               ELITE FLORIPA
               <br />
               <span className="bg-gradient-to-r from-primary via-accent to-primary-glow bg-clip-text text-transparent">
                 VOLEIBOL
               </span>
             </h1>
-            <p className="mt-4 text-base md:text-lg font-bold">
+            <p className="mt-5 text-lg md:text-2xl font-bold">
               Sua marca onde a paixão
               <br />
               <span className="text-accent">acontece de verdade.</span>
@@ -211,7 +211,7 @@ function Index() {
             <div className="mt-14 flex sm:grid sm:grid-cols-4 gap-4 sm:gap-6 overflow-x-auto no-scrollbar snap-x snap-mandatory -mx-6 px-6 sm:mx-0 sm:px-0 sm:overflow-visible">
               {pillars.map(({ icon: Icon, label }) => (
                 <div key={label} className="snap-start shrink-0 w-[42%] sm:w-auto flex flex-col items-start gap-2 group">
-                  <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-primary/30 to-accent/20 border border-primary/40 group-hover:scale-110 transition-transform shadow-[0_8px_20px_-8px_oklch(0.5_0.2_300_/_0.5)]">
+                  <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-primary/30 to-accent/20 border border-primary/40 group-hover:scale-110 transition-transform shadow-[0_8px_20px_-8px_oklch(0.5_0.2_300_/_0.5)]">
                     <Icon className="h-5 w-5 text-accent" />
                   </div>
                   <div className="text-[11px] font-semibold tracking-wider text-muted-foreground uppercase">{label}</div>
@@ -225,24 +225,24 @@ function Index() {
             <div className="absolute -inset-10 bg-gradient-to-br from-primary/40 to-accent/20 blur-3xl rounded-full" />
             <div className="relative grid grid-cols-2 gap-4">
               <div className="space-y-4">
-                <div className="relative rounded-3xl overflow-hidden border border-border shadow-[var(--shadow-card)] h-[220px] group">
+                <div className="relative rounded-3xl overflow-hidden border border-border shadow-[var(--shadow-card)] h-[300px] group">
                   <img src={playerCelebrate} alt="" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                   <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent" />
                   <div className="absolute bottom-3 left-3 text-xs font-bold tracking-widest text-accent">PAIXÃO</div>
                 </div>
-                <div className="relative rounded-3xl overflow-hidden border border-border shadow-[var(--shadow-card)] h-[160px] group">
+                <div className="relative rounded-3xl overflow-hidden border border-border shadow-[var(--shadow-card)] h-[200px] group">
                   <img src={ball} alt="" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                   <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent" />
                   <div className="absolute bottom-3 left-3 text-xs font-bold tracking-widest text-accent">FOCO</div>
                 </div>
               </div>
               <div className="space-y-4 pt-10">
-                <div className="relative rounded-3xl overflow-hidden border border-border shadow-[var(--shadow-card)] h-[160px] group">
+                <div className="relative rounded-3xl overflow-hidden border border-border shadow-[var(--shadow-card)] h-[200px] group">
                   <img src={teamHug} alt="" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                   <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent" />
                   <div className="absolute bottom-3 left-3 text-xs font-bold tracking-widest text-accent">UNIÃO</div>
                 </div>
-                <div className="relative rounded-3xl overflow-hidden border border-border shadow-[var(--shadow-card)] h-[220px] group">
+                <div className="relative rounded-3xl overflow-hidden border border-border shadow-[var(--shadow-card)] h-[300px] group">
                   <img src={spike} alt="" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                   <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent" />
                   <div className="absolute bottom-3 left-3 text-xs font-bold tracking-widest text-accent">GARRA</div>
@@ -272,7 +272,7 @@ function Index() {
             { value: "+10K", label: "Alcance mensal" },
           ].map((s) => (
             <div key={s.label} className="text-center">
-              <div className="text-xl md:text-2xl font-black bg-gradient-to-br from-primary-foreground via-accent to-primary bg-clip-text text-transparent">{s.value}</div>
+              <div className="text-2xl md:text-3xl font-black bg-gradient-to-br from-primary-foreground via-accent to-primary bg-clip-text text-transparent">{s.value}</div>
               <div className="mt-2 text-xs md:text-sm text-muted-foreground tracking-wider uppercase">{s.label}</div>
             </div>
           ))}
@@ -303,7 +303,7 @@ function Index() {
         <div className="mx-auto max-w-6xl px-6">
           <div className="max-w-3xl">
             <div className="text-xs tracking-[0.3em] text-accent mb-4">04 — O QUE VOCÊ GANHA</div>
-            <h2 className="text-2xl md:text-3xl font-black leading-tight">
+            <h2 className="text-3xl md:text-4xl font-black leading-tight">
               ENQUANTO VOCÊ LÊ ISSO,
               <br />
               <span className="text-accent">SEU CONCORRENTE TAMBÉM ESTÁ.</span>
@@ -321,7 +321,7 @@ function Index() {
                 <div className="absolute -top-12 -right-12 h-32 w-32 rounded-full bg-primary/20 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
                 <div className="relative">
                   <div className="flex items-center justify-between mb-5">
-                    <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-accent shadow-[var(--shadow-glow)]">
+                    <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-accent shadow-[var(--shadow-glow)]">
                       <Icon className="h-4 w-4 text-primary-foreground" />
                     </div>
                     <div className="text-3xl font-black text-foreground/10 tracking-tighter">0{i + 1}</div>
@@ -340,7 +340,7 @@ function Index() {
               <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-primary to-accent shadow-[var(--shadow-glow)]">
                 <Handshake className="h-5 w-5 text-primary-foreground" />
               </div>
-              <div className="text-center md:text-left text-sm md:text-base font-black leading-snug">
+              <div className="text-center md:text-left text-base md:text-lg font-black leading-snug">
                 NÃO É SÓ UMA LOGO EM UMA CAMISA. É <span className="text-accent">A SUA MARCA SENDO LEMBRADA</span> TODO DIA, EM CADA JOGO, EM CADA POST, EM CADA CONVERSA.
               </div>
             </div>
@@ -354,7 +354,7 @@ function Index() {
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
             <div>
               <div className="text-xs tracking-[0.3em] text-accent mb-4">A NOSSA ESSÊNCIA</div>
-              <h2 className="text-2xl md:text-3xl font-black leading-tight">
+              <h2 className="text-3xl md:text-4xl font-black leading-tight">
                 VOLEIBOL DE
                 <br />
                 <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">ALTO NÍVEL</span>
@@ -366,23 +366,23 @@ function Index() {
           </div>
 
           <div className="grid grid-cols-12 gap-4 md:gap-5">
-            <div className="col-span-12 md:col-span-8 relative rounded-3xl overflow-hidden h-[220px] md:h-[300px] group border border-border shadow-[var(--shadow-card)]">
+            <div className="col-span-12 md:col-span-8 relative rounded-3xl overflow-hidden h-[300px] md:h-[300px] group border border-border shadow-[var(--shadow-card)]">
               <img src={huddle} alt="Time reunido" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" />
               <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
               <div className="absolute bottom-6 left-6 right-6">
                 <div className="text-xs tracking-[0.3em] text-accent mb-2">PREPARAÇÃO</div>
-                <div className="text-2xl md:text-3xl font-black">Estratégia e união antes de cada jogo</div>
+                <div className="text-3xl md:text-4xl font-black">Estratégia e união antes de cada jogo</div>
               </div>
             </div>
-            <div className="col-span-12 md:col-span-4 relative rounded-3xl overflow-hidden h-[220px] md:h-[300px] group border border-border shadow-[var(--shadow-card)]">
+            <div className="col-span-12 md:col-span-4 relative rounded-3xl overflow-hidden h-[300px] md:h-[300px] group border border-border shadow-[var(--shadow-card)]">
               <img src={spike} alt="Ataque" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" />
               <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
               <div className="absolute bottom-6 left-6 right-6">
                 <div className="text-xs tracking-[0.3em] text-accent mb-2">EXECUÇÃO</div>
-                <div className="text-xl md:text-2xl font-black">Técnica de elite</div>
+                <div className="text-2xl md:text-3xl font-black">Técnica de elite</div>
               </div>
             </div>
-            <div className="col-span-6 md:col-span-4 relative rounded-3xl overflow-hidden h-[180px] group border border-border shadow-[var(--shadow-card)]">
+            <div className="col-span-6 md:col-span-4 relative rounded-3xl overflow-hidden h-[240px] group border border-border shadow-[var(--shadow-card)]">
               <img src={teamHug} alt="Comemoração" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" />
               <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent" />
               <div className="absolute bottom-4 left-4">
@@ -390,7 +390,7 @@ function Index() {
                 <div className="text-base font-black">Celebração em equipe</div>
               </div>
             </div>
-            <div className="col-span-6 md:col-span-4 relative rounded-3xl overflow-hidden h-[180px] group border border-border shadow-[var(--shadow-card)]">
+            <div className="col-span-6 md:col-span-4 relative rounded-3xl overflow-hidden h-[240px] group border border-border shadow-[var(--shadow-card)]">
               <img src={actionImg} alt="Quadra" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" />
               <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent" />
               <div className="absolute bottom-4 left-4">
@@ -398,7 +398,7 @@ function Index() {
                 <div className="text-base font-black">Momentos decisivos</div>
               </div>
             </div>
-            <div className="col-span-12 md:col-span-4 relative rounded-3xl overflow-hidden h-[180px] group border border-primary/40 bg-gradient-to-br from-primary/30 via-card to-accent/20 shadow-[var(--shadow-glow)] flex flex-col items-center justify-center p-6 text-center">
+            <div className="col-span-12 md:col-span-4 relative rounded-3xl overflow-hidden h-[240px] group border border-primary/40 bg-gradient-to-br from-primary/30 via-card to-accent/20 shadow-[var(--shadow-glow)] flex flex-col items-center justify-center p-6 text-center">
               <img src={logo} alt="Elite Voleibol" className="h-12 w-auto mx-auto drop-shadow-[0_0_25px_oklch(0.7_0.2_300_/_0.7)]" />
               <div className="mt-4 text-xs tracking-[0.3em] text-accent">DESDE A BASE</div>
               <div className="mt-1 text-xl font-black">Formando atletas e campeões</div>
@@ -417,7 +417,7 @@ function Index() {
         <div className="mx-auto max-w-6xl px-6">
           <div className="text-center max-w-3xl mx-auto">
             <div className="text-xs tracking-[0.3em] text-accent mb-4">ESCOLHA SUA POSIÇÃO EM QUADRA</div>
-            <h2 className="text-2xl md:text-3xl font-black leading-tight">
+            <h2 className="text-3xl md:text-4xl font-black leading-tight">
               QUAL DESSES TRÊS<br />
               <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">FAZ MAIS SENTIDO</span>
               <br />
@@ -521,7 +521,7 @@ function Index() {
         <div className="mx-auto max-w-6xl px-6">
           <div className="text-center max-w-2xl mx-auto mb-14">
             <div className="text-xs tracking-[0.3em] text-accent mb-4">PROVA SOCIAL</div>
-            <h2 className="text-xl md:text-2xl font-black">Quem já apostou na gente <span className="text-accent">não voltou atrás.</span></h2>
+            <h2 className="text-2xl md:text-3xl font-black">Quem já apostou na gente <span className="text-accent">não voltou atrás.</span></h2>
           </div>
           <div className="md:hidden flex items-center gap-2 text-[10px] tracking-[0.3em] text-accent mb-3 uppercase"><span>←</span> Deslize para ver mais <span>→</span></div>
           <div className="flex md:grid md:grid-cols-2 gap-6 overflow-x-auto no-scrollbar snap-x snap-mandatory -mx-6 px-6 md:mx-0 md:px-0 md:overflow-visible">
@@ -559,9 +559,9 @@ function Index() {
             <div className="absolute -bottom-32 -left-32 h-96 w-96 rounded-full bg-accent/25 blur-3xl" />
 
             <div className="relative text-center">
-              <img src={logo} alt="Elite Voleibol" className="mx-auto h-14 w-auto drop-shadow-[0_0_40px_oklch(0.7_0.2_300_/_0.8)]" />
+              <img src={logo} alt="Elite Voleibol" className="mx-auto h-16 w-auto drop-shadow-[0_0_40px_oklch(0.7_0.2_300_/_0.8)]" />
               <div className="mt-6 text-xs tracking-[0.3em] text-accent">A DECISÃO É SUA</div>
-              <h2 className="mt-4 text-2xl md:text-3xl font-black leading-tight">
+              <h2 className="mt-4 text-3xl md:text-4xl font-black leading-tight">
                 ESCOLHA O PLANO
                 <br />
                 <span className="bg-gradient-to-r from-primary via-accent to-primary-glow bg-clip-text text-transparent">
