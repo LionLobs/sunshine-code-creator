@@ -327,7 +327,7 @@ function Index() {
                 <Handshake className="h-10 w-10 text-primary-foreground" />
               </div>
               <div className="text-center md:text-left text-xl md:text-3xl font-black leading-snug">
-                MAIS QUE PATROCÍNIO, <span className="text-accent">UMA PARCERIA QUE GERA IMPACTO</span> E TRANSFORMA O FUTURO.
+                NÃO É SÓ UMA LOGO EM UMA CAMISA. É <span className="text-accent">A SUA MARCA SENDO LEMBRADA</span> TODO DIA, EM CADA JOGO, EM CADA POST, EM CADA CONVERSA.
               </div>
             </div>
           </div>
