@@ -402,7 +402,7 @@ function Index() {
 
         <div className="mx-auto max-w-7xl px-6">
           <div className="text-center max-w-3xl mx-auto">
-            <div className="text-xs tracking-[0.3em] text-accent mb-4">ESCOLHA SUA POSIÇÃO EM QUADRA</void>
+            <div className="text-xs tracking-[0.3em] text-accent mb-4">ESCOLHA SUA POSIÇÃO EM QUADRA</div>
             <h2 className="text-4xl md:text-6xl font-black leading-tight">
               QUAL DESSES TRÊS<br />
               <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">FAZ MAIS SENTIDO</span>
