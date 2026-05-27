@@ -482,11 +482,10 @@ function Index() {
                 </div>
 
                 <div className="mt-5 rounded-xl bg-background/60 border border-border px-4 py-3 backdrop-blur">
-                  <div className="text-[10px] tracking-widest text-muted-foreground">INVESTIMENTO MENSAL</div>
+                  <div className="text-[10px] tracking-widest text-muted-foreground">INVESTIMENTO ÚNICO</div>
                   <div className="mt-1 flex items-baseline gap-1">
                     <span className="text-sm font-semibold text-muted-foreground">R$</span>
                     <span className="text-3xl font-black bg-gradient-to-br from-primary-foreground to-accent bg-clip-text text-transparent">{plan.price}</span>
-                    <span className="text-sm text-muted-foreground">/mês</span>
                   </div>
                 </div>
 
@@ -605,7 +604,6 @@ function Index() {
                     <div className="text-xs text-accent font-semibold">{p.tagline}</div>
                     <div className="mt-3 text-2xl font-black">
                       R$ {p.price}
-                      <span className="text-xs text-muted-foreground font-normal">/mês</span>
                     </div>
                   </div>
                 ))}
