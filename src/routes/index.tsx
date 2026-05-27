@@ -37,6 +37,22 @@ const reasons = [
 
 const plans = [
   {
+    tier: "Apoiador",
+    price: "250",
+    tagline: "Dê o primeiro passo com a gente",
+    medalColor: "from-orange-400 via-amber-500 to-orange-600",
+    glow: "shadow-[0_0_60px_-10px_rgba(251,146,60,0.35)]",
+    number: "00",
+    intro: null,
+    badge: null,
+    benefits: [
+      { icon: Megaphone, text: "Sua logo no story de agradecimento aos apoiadores" },
+      { icon: Instagram, text: "Menção no post oficial de parceiros do mês" },
+      { icon: Handshake, text: "Reconhecimento público como apoiador do projeto" },
+      { icon: Heart, text: "Participação direta na formação dos atletas" },
+    ],
+  },
+  {
     tier: "Bronze",
     price: "500",
     tagline: "Comece a aparecer",
@@ -52,6 +68,7 @@ const plans = [
       { icon: Handshake, text: "Reconhecimento público como parceiro oficial" },
     ],
   },
+
   {
     tier: "Prata",
     price: "800",
