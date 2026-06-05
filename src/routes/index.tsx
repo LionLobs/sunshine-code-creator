@@ -14,6 +14,10 @@ import teamHug from "@/assets/team-hug.jpg";
 import spike from "@/assets/spike.jpg";
 import huddle from "@/assets/huddle.jpg";
 import ball from "@/assets/ball.jpg";
+import teamPhotoAsset from "@/assets/team-photo.jpg.asset.json";
+import teamHuddleAsset from "@/assets/team-huddle.jpg.asset.json";
+const teamPhoto = teamPhotoAsset.url;
+const teamHuddle = teamHuddleAsset.url;
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -242,9 +246,9 @@ function Index() {
             <div className="grid grid-cols-2 gap-3 sm:gap-4">
               <div className="space-y-3 sm:space-y-4 mt-6 sm:mt-10">
                 <div className="relative overflow-hidden rounded-2xl border border-border shadow-[var(--shadow-card)] h-[180px] sm:h-[260px] lg:h-[300px] group">
-                  <img src={spike} alt="Atleta masculino atacando" loading="lazy" className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                  <img src={teamPhoto} alt="Equipe Elite Floripa Voleibol Masculino" loading="lazy" className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-700" />
                   <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/10 to-transparent" />
-                  <div className="absolute bottom-3 left-3 text-[10px] font-bold tracking-widest text-accent">PAIXÃO</div>
+                  <div className="absolute bottom-3 left-3 text-[10px] font-bold tracking-widest text-accent">EQUIPE</div>
                 </div>
                 <div className="relative overflow-hidden rounded-2xl border border-border shadow-[var(--shadow-card)] h-[180px] sm:h-[260px] lg:h-[300px] group">
                   <img src={actionImg} alt="Ação de jogo" loading="lazy" className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-700" />
@@ -254,7 +258,7 @@ function Index() {
               </div>
               <div className="space-y-3 sm:space-y-4">
                 <div className="relative overflow-hidden rounded-2xl border border-border shadow-[var(--shadow-card)] h-[180px] sm:h-[260px] lg:h-[300px] group">
-                  <img src={teamHug} alt="Equipe masculina celebrando" loading="lazy" className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                  <img src={teamHuddle} alt="Equipe Elite Floripa reunida em quadra" loading="lazy" className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-700" />
                   <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/10 to-transparent" />
                   <div className="absolute bottom-3 left-3 text-[10px] font-bold tracking-widest text-accent">UNIÃO</div>
                 </div>
@@ -632,6 +636,15 @@ function Index() {
               <div className="text-[10px] tracking-widest text-accent">VOLEIBOL DE ALTO NÍVEL</div>
             </div>
           </div>
+          <a
+            href="https://instagram.com/elite_floripa"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-gradient-to-r from-primary/20 to-accent/20 px-4 py-2 text-xs font-bold tracking-widest text-foreground hover:from-primary/30 hover:to-accent/30 transition-colors"
+          >
+            <Instagram className="h-4 w-4 text-accent" />
+            @ELITE_FLORIPA
+          </a>
           <div className="text-xs">© {new Date().getFullYear()} Elite Voleibol. Todos os direitos reservados.</div>
         </div>
       </footer>
