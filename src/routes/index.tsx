@@ -198,7 +198,12 @@ function Index() {
         {/* Brand ribbon - top left like the visual ID */}
         <Ribbon className="top-0 left-0 h-48 w-72 opacity-60" />
 
-        <div className="mx-auto max-w-6xl px-6 grid lg:grid-cols-[1.1fr_1fr] gap-12 items-center relative">
+        <div className="md:hidden absolute top-24 right-4 z-0 h-28 w-24 overflow-hidden rounded-2xl border border-primary/40 bg-card/60 shadow-[var(--shadow-card)]">
+          <img src={teamPhoto} alt="Equipe Elite Floripa" loading="eager" className="h-full w-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background/50 to-transparent" />
+        </div>
+
+        <div className="mx-auto max-w-6xl px-6 grid lg:grid-cols-[1.1fr_1fr] gap-12 items-center relative z-10">
           <div>
             <div className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-4 py-1.5 text-xs font-medium text-accent backdrop-blur-sm mb-6">
               <Sparkles className="h-3.5 w-3.5" />
@@ -246,7 +251,7 @@ function Index() {
             <div className="grid grid-cols-2 gap-3 sm:gap-4">
               <div className="space-y-3 sm:space-y-4 mt-6 sm:mt-10">
                 <div className="relative overflow-hidden rounded-2xl border border-border shadow-[var(--shadow-card)] h-[180px] sm:h-[260px] lg:h-[300px] group">
-                  <img src={teamPhoto} alt="Equipe Elite Floripa Voleibol Masculino" loading="lazy" className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                  <img src={teamPhoto} alt="Equipe Elite Floripa Voleibol Masculino" loading="eager" className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-700" />
                   <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/10 to-transparent" />
                   <div className="absolute bottom-3 left-3 text-[10px] font-bold tracking-widest text-accent">EQUIPE</div>
                 </div>
@@ -258,7 +263,7 @@ function Index() {
               </div>
               <div className="space-y-3 sm:space-y-4">
                 <div className="relative overflow-hidden rounded-2xl border border-border shadow-[var(--shadow-card)] h-[180px] sm:h-[260px] lg:h-[300px] group">
-                  <img src={teamHuddle} alt="Equipe Elite Floripa reunida em quadra" loading="lazy" className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                  <img src={teamHuddle} alt="Equipe Elite Floripa reunida em quadra" loading="eager" className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-700" />
                   <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/10 to-transparent" />
                   <div className="absolute bottom-3 left-3 text-[10px] font-bold tracking-widest text-accent">UNIÃO</div>
                 </div>
