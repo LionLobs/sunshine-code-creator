@@ -392,7 +392,7 @@ function Index() {
 
           <div className="grid grid-cols-12 gap-4 md:gap-5">
             <div className="col-span-12 md:col-span-8 relative rounded-3xl overflow-hidden h-[300px] md:h-[220px] sm:h-[300px] group border border-border shadow-[var(--shadow-card)]">
-              <img src={huddle} alt="Time reunido" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" />
+              <img src={teamPhoto} alt="Equipe Elite Floripa masculina" loading="lazy" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" />
               <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
               <div className="absolute bottom-6 left-6 right-6">
                 <div className="text-xs tracking-[0.3em] text-accent mb-2">PREPARAÇÃO</div>
@@ -400,7 +400,7 @@ function Index() {
               </div>
             </div>
             <div className="col-span-12 md:col-span-4 relative rounded-3xl overflow-hidden h-[300px] md:h-[220px] sm:h-[300px] group border border-border shadow-[var(--shadow-card)]">
-              <img src={spike} alt="Ataque" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" />
+              <img src={teamHuddle} alt="Equipe Elite Floripa reunida em quadra" loading="lazy" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" />
               <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
               <div className="absolute bottom-6 left-6 right-6">
                 <div className="text-xs tracking-[0.3em] text-accent mb-2">EXECUÇÃO</div>
