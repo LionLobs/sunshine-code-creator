@@ -14,10 +14,8 @@ import teamHug from "@/assets/team-hug.jpg";
 import spike from "@/assets/spike.jpg";
 import huddle from "@/assets/huddle.jpg";
 import ball from "@/assets/ball.jpg";
-import teamPhotoAsset from "@/assets/team-photo.jpg.asset.json";
-import teamHuddleAsset from "@/assets/team-huddle.jpg.asset.json";
-const teamPhoto = teamPhotoAsset.url;
-const teamHuddle = teamHuddleAsset.url;
+import teamPhoto from "@/assets/team-photo.jpg";
+import teamHuddle from "@/assets/team-huddle.jpg";
 
 export const Route = createFileRoute("/")({
   component: Index,
