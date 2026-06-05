@@ -198,7 +198,7 @@ function Index() {
         {/* Brand ribbon - top left like the visual ID */}
         <Ribbon className="top-0 left-0 h-48 w-72 opacity-60" />
 
-        <div className="md:hidden absolute top-24 right-4 z-0 h-28 w-24 overflow-hidden rounded-2xl border border-primary/40 bg-card/60 shadow-[var(--shadow-card)]">
+        <div className="md:hidden absolute top-24 right-4 z-20 h-28 w-24 overflow-hidden rounded-2xl border border-primary/40 bg-card/60 shadow-[var(--shadow-card)]">
           <img src={teamPhoto} alt="Equipe Elite Floripa" loading="eager" className="h-full w-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-t from-background/50 to-transparent" />
         </div>
