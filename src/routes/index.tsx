@@ -14,10 +14,8 @@ import teamHug from "@/assets/team-hug.jpg";
 import spike from "@/assets/spike.jpg";
 import huddle from "@/assets/huddle.jpg";
 import ball from "@/assets/ball.jpg";
-import teamPhotoAsset from "@/assets/team-photo.jpg.asset.json";
-import teamHuddleAsset from "@/assets/team-huddle.jpg.asset.json";
-const teamPhoto = teamPhotoAsset.url;
-const teamHuddle = teamHuddleAsset.url;
+import teamPhoto from "@/assets/team-photo.jpg";
+import teamHuddle from "@/assets/team-huddle.jpg";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -198,7 +196,12 @@ function Index() {
         {/* Brand ribbon - top left like the visual ID */}
         <Ribbon className="top-0 left-0 h-48 w-72 opacity-60" />
 
-        <div className="mx-auto max-w-6xl px-6 grid lg:grid-cols-[1.1fr_1fr] gap-12 items-center relative">
+        <div className="lg:hidden absolute top-24 right-4 z-20 h-28 w-24 overflow-hidden rounded-2xl border border-primary/40 bg-card/60 shadow-[var(--shadow-card)]">
+          <img src={teamPhoto} alt="Equipe Elite Floripa" loading="eager" className="h-full w-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background/50 to-transparent" />
+        </div>
+
+        <div className="mx-auto max-w-6xl px-6 grid lg:grid-cols-[1.1fr_1fr] gap-12 items-center relative z-10">
           <div>
             <div className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-4 py-1.5 text-xs font-medium text-accent backdrop-blur-sm mb-6">
               <Sparkles className="h-3.5 w-3.5" />
@@ -246,7 +249,7 @@ function Index() {
             <div className="grid grid-cols-2 gap-3 sm:gap-4">
               <div className="space-y-3 sm:space-y-4 mt-6 sm:mt-10">
                 <div className="relative overflow-hidden rounded-2xl border border-border shadow-[var(--shadow-card)] h-[180px] sm:h-[260px] lg:h-[300px] group">
-                  <img src={teamPhoto} alt="Equipe Elite Floripa Voleibol Masculino" loading="lazy" className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                  <img src={teamPhoto} alt="Equipe Elite Floripa Voleibol Masculino" loading="eager" className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-700" />
                   <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/10 to-transparent" />
                   <div className="absolute bottom-3 left-3 text-[10px] font-bold tracking-widest text-accent">EQUIPE</div>
                 </div>
@@ -258,7 +261,7 @@ function Index() {
               </div>
               <div className="space-y-3 sm:space-y-4">
                 <div className="relative overflow-hidden rounded-2xl border border-border shadow-[var(--shadow-card)] h-[180px] sm:h-[260px] lg:h-[300px] group">
-                  <img src={teamHuddle} alt="Equipe Elite Floripa reunida em quadra" loading="lazy" className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                  <img src={teamHuddle} alt="Equipe Elite Floripa reunida em quadra" loading="eager" className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-700" />
                   <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/10 to-transparent" />
                   <div className="absolute bottom-3 left-3 text-[10px] font-bold tracking-widest text-accent">UNIÃO</div>
                 </div>
@@ -387,7 +390,7 @@ function Index() {
 
           <div className="grid grid-cols-12 gap-4 md:gap-5">
             <div className="col-span-12 md:col-span-8 relative rounded-3xl overflow-hidden h-[300px] md:h-[220px] sm:h-[300px] group border border-border shadow-[var(--shadow-card)]">
-              <img src={huddle} alt="Time reunido" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" />
+              <img src={teamPhoto} alt="Equipe Elite Floripa masculina" loading="lazy" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" />
               <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
               <div className="absolute bottom-6 left-6 right-6">
                 <div className="text-xs tracking-[0.3em] text-accent mb-2">PREPARAÇÃO</div>
@@ -395,7 +398,7 @@ function Index() {
               </div>
             </div>
             <div className="col-span-12 md:col-span-4 relative rounded-3xl overflow-hidden h-[300px] md:h-[220px] sm:h-[300px] group border border-border shadow-[var(--shadow-card)]">
-              <img src={spike} alt="Ataque" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" />
+              <img src={teamHuddle} alt="Equipe Elite Floripa reunida em quadra" loading="lazy" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" />
               <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
               <div className="absolute bottom-6 left-6 right-6">
                 <div className="text-xs tracking-[0.3em] text-accent mb-2">EXECUÇÃO</div>
