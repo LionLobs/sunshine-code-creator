@@ -9,17 +9,22 @@ import {
 import logoAsset from "@/assets/logo.png.asset.json";
 import teamPhotoAsset from "@/assets/team-photo.jpg.asset.json";
 import teamHuddleAsset from "@/assets/team-huddle.jpg.asset.json";
-import insta1 from "@/assets/insta-1.jpg";
-import insta2 from "@/assets/insta-2.jpg";
-import insta3 from "@/assets/insta-3.jpg";
+import insta1Asset from "@/assets/insta-1.jpg.asset.json";
+import insta2Asset from "@/assets/insta-2.jpg.asset.json";
+import insta3Asset from "@/assets/insta-3.jpg.asset.json";
 import insta4Asset from "@/assets/insta-4.jpg.asset.json";
-import insta5 from "@/assets/insta-5.jpg";
-import insta6 from "@/assets/insta-6.jpg";
+import insta5Asset from "@/assets/insta-5.jpg.asset.json";
+import insta6Asset from "@/assets/insta-6.jpg.asset.json";
 
 const logo = logoAsset.url;
 const teamPhoto = teamPhotoAsset.url;
 const teamHuddle = teamHuddleAsset.url;
+const insta1 = insta1Asset.url;
+const insta2 = insta2Asset.url;
+const insta3 = insta3Asset.url;
 const insta4 = insta4Asset.url;
+const insta5 = insta5Asset.url;
+const insta6 = insta6Asset.url;
 
 export const Route = createFileRoute("/")({
   component: Index,
