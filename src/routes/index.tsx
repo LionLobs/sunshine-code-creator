@@ -318,7 +318,7 @@ function Index() {
       {/* WHY SPONSOR */}
       <section id="porque" className="relative py-12 md:py-16">
         <div className="absolute inset-0 -z-10">
-          <img src={playerCelebrate} alt="" className="h-full w-full object-cover opacity-10" />
+          <img src={insta4} alt="" className="h-full w-full object-cover opacity-20 grayscale" />
           <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background" />
         </div>
         <Ribbon className="top-10 right-0 h-40 w-60 opacity-40" flip />
