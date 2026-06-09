@@ -1,9 +1,19 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import {
-  Trophy, Users, Target, Instagram, MapPin,
-  ArrowRight, Sparkles, ChevronRight, Mail,
-  Award, Flame, Shield, Crown,
+  Trophy,
+  Users,
+  Target,
+  Instagram,
+  MapPin,
+  ArrowRight,
+  Sparkles,
+  ChevronRight,
+  Mail,
+  Award,
+  Flame,
+  Shield,
+  Crown,
 } from "lucide-react";
 import logoAsset from "@/assets/logo.png.asset.json";
 import heroBgAsset from "@/assets/hero-bg.jpg.asset.json";
@@ -20,15 +30,39 @@ export const Route = createFileRoute("/")({
 });
 
 const categories = [
-  { age: "SUB-17", desc: "A base que constrói o futuro. Atletas entre 15 e 17 anos em formação técnica e mental.", icon: Flame },
-  { age: "SUB-19", desc: "A geração de transição. Disputando campeonatos estaduais e regionais de alto nível.", icon: Shield },
-  { age: "SUB-21", desc: "A elite da base. Pré-profissional, preparando atletas para o cenário nacional.", icon: Crown },
+  {
+    age: "SUB-17",
+    desc: "A base que constrói o futuro. Atletas entre 15 e 17 anos em formação técnica e mental.",
+    icon: Flame,
+  },
+  {
+    age: "SUB-19",
+    desc: "A geração de transição. Disputando campeonatos estaduais e regionais de alto nível.",
+    icon: Shield,
+  },
+  {
+    age: "SUB-21",
+    desc: "A elite da base. Pré-profissional, preparando atletas para o cenário nacional.",
+    icon: Crown,
+  },
 ];
 
 const values = [
-  { icon: Trophy, title: "Alto Desempenho", desc: "Treinos diários, metodologia profissional e cobrança real." },
-  { icon: Users, title: "Formação Humana", desc: "Disciplina, respeito e responsabilidade dentro e fora de quadra." },
-  { icon: Target, title: "Foco em Resultado", desc: "Cada temporada com metas claras — estaduais, regionais e nacionais." },
+  {
+    icon: Trophy,
+    title: "Alto Desempenho",
+    desc: "Treinos diários, metodologia profissional e cobrança real.",
+  },
+  {
+    icon: Users,
+    title: "Formação Humana",
+    desc: "Disciplina, respeito e responsabilidade dentro e fora de quadra.",
+  },
+  {
+    icon: Target,
+    title: "Foco em Resultado",
+    desc: "Cada temporada com metas claras — estaduais, regionais e nacionais.",
+  },
   { icon: Shield, title: "Time Oficial", desc: "Reconhecido pela Prefeitura de Florianópolis." },
 ];
 
@@ -58,21 +92,37 @@ function Index() {
       </div>
 
       {/* NAV */}
-      <header className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${scrolled ? "bg-background/80 backdrop-blur-xl border-b border-border" : ""}`}>
+      <header
+        className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${scrolled ? "bg-background/80 backdrop-blur-xl border-b border-border" : ""}`}
+      >
         <div className="mx-auto max-w-7xl px-6 py-4 flex items-center justify-between">
           <a href="#top" className="flex items-center gap-3">
-            <img src={logo} alt="Elite Floripa Voleibol" className="h-10 w-auto drop-shadow-[0_0_18px_oklch(0.7_0.2_300_/_0.6)]" />
+            <img
+              src={logo}
+              alt="Elite Floripa Voleibol"
+              className="h-10 w-auto drop-shadow-[0_0_18px_oklch(0.7_0.2_300_/_0.6)]"
+            />
             <div className="hidden sm:block leading-tight">
               <div className="text-sm font-black tracking-[0.18em]">ELITE FLORIPA</div>
               <div className="text-[9px] text-accent tracking-[0.35em]">VOLEIBOL MASCULINO</div>
             </div>
           </a>
           <nav className="hidden lg:flex items-center gap-9 text-sm font-medium text-muted-foreground">
-            <a href="#sobre" className="hover:text-foreground transition">O Time</a>
-            <a href="#categorias" className="hover:text-foreground transition">Categorias</a>
-            <a href="#conquistas" className="hover:text-foreground transition">Conquistas</a>
-            <a href="#instagram" className="hover:text-foreground transition">Instagram</a>
-            <a href="#contato" className="hover:text-foreground transition">Contato</a>
+            <a href="#sobre" className="hover:text-foreground transition">
+              O Time
+            </a>
+            <a href="#categorias" className="hover:text-foreground transition">
+              Categorias
+            </a>
+            <a href="#conquistas" className="hover:text-foreground transition">
+              Conquistas
+            </a>
+            <a href="#instagram" className="hover:text-foreground transition">
+              Instagram
+            </a>
+            <a href="#contato" className="hover:text-foreground transition">
+              Contato
+            </a>
           </nav>
           <a
             href="https://instagram.com/elite_floripa"
@@ -86,9 +136,18 @@ function Index() {
       </header>
 
       {/* HERO */}
-      <section id="top" className="relative min-h-screen flex items-end pt-24 pb-16 overflow-hidden">
+      <section
+        id="top"
+        className="relative min-h-screen flex items-end pt-24 pb-16 overflow-hidden"
+      >
         <div className="absolute inset-0 -z-10">
-          <img src={heroBg} alt="Elite Floripa em quadra" className="h-full w-full object-cover" width={1920} height={1080} />
+          <img
+            src={heroBg}
+            alt="Elite Floripa em quadra"
+            className="h-full w-full object-cover"
+            width={1920}
+            height={1080}
+          />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/85 to-background/40" />
           <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/30 to-transparent" />
           <div className="absolute inset-0 bg-primary/10 mix-blend-overlay" />
@@ -103,22 +162,35 @@ function Index() {
             <h1 className="text-5xl md:text-7xl xl:text-8xl font-black leading-[0.85] tracking-tight">
               ELITE
               <br />
-              <span className="bg-gradient-to-r from-primary via-accent to-primary-glow bg-clip-text text-transparent">FLORIPA</span>
+              <span className="bg-gradient-to-r from-primary via-accent to-primary-glow bg-clip-text text-transparent">
+                FLORIPA
+              </span>
             </h1>
             <div className="mt-4 flex items-center gap-3">
               <div className="h-[2px] w-16 bg-accent" />
-              <div className="text-xs md:text-sm font-bold tracking-[0.4em] text-accent uppercase">Voleibol Masculino · SC</div>
+              <div className="text-xs md:text-sm font-bold tracking-[0.4em] text-accent uppercase">
+                Voleibol Masculino · SC
+              </div>
             </div>
             <p className="mt-8 max-w-xl text-lg md:text-xl text-foreground/85 leading-relaxed font-light">
               Formando atletas e pessoas no mais alto nível do voleibol catarinense.
-              <span className="text-foreground font-semibold"> Base sólida. Treino diário. Resultado real.</span>
+              <span className="text-foreground font-semibold">
+                {" "}
+                Base sólida. Treino diário. Resultado real.
+              </span>
             </p>
 
             <div className="mt-10 flex flex-wrap gap-3">
-              <a href="#sobre" className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-primary to-accent px-6 py-3.5 text-sm font-bold text-primary-foreground shadow-[var(--shadow-glow)] hover:scale-105 transition-transform">
+              <a
+                href="#sobre"
+                className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-primary to-accent px-6 py-3.5 text-sm font-bold text-primary-foreground shadow-[var(--shadow-glow)] hover:scale-105 transition-transform"
+              >
                 Conheça o time <ArrowRight className="h-4 w-4" />
               </a>
-              <a href="#contato" className="inline-flex items-center gap-2 rounded-full border border-border bg-card/50 backdrop-blur px-6 py-3.5 text-sm font-bold hover:bg-card hover:border-primary/50 transition">
+              <a
+                href="#contato"
+                className="inline-flex items-center gap-2 rounded-full border border-border bg-card/50 backdrop-blur px-6 py-3.5 text-sm font-bold hover:bg-card hover:border-primary/50 transition"
+              >
                 Entre em contato
               </a>
             </div>
@@ -143,8 +215,12 @@ function Index() {
             { value: "2018", label: "Fundação do time" },
           ].map((s) => (
             <div key={s.label} className="text-center py-8 px-2">
-              <div className="text-3xl md:text-4xl font-black bg-gradient-to-br from-primary-foreground via-accent to-primary bg-clip-text text-transparent">{s.value}</div>
-              <div className="mt-2 text-[10px] md:text-xs text-muted-foreground tracking-[0.25em] uppercase">{s.label}</div>
+              <div className="text-3xl md:text-4xl font-black bg-gradient-to-br from-primary-foreground via-accent to-primary bg-clip-text text-transparent">
+                {s.value}
+              </div>
+              <div className="mt-2 text-[10px] md:text-xs text-muted-foreground tracking-[0.25em] uppercase">
+                {s.label}
+              </div>
             </div>
           ))}
         </div>
@@ -153,7 +229,14 @@ function Index() {
       {/* SOBRE */}
       <section id="sobre" className="relative py-24 md:py-32 overflow-hidden">
         <div className="absolute inset-0 -z-10">
-          <img src={teamBg} alt="" loading="lazy" className="h-full w-full object-cover opacity-25" width={1920} height={1080} />
+          <img
+            src={teamBg}
+            alt=""
+            loading="lazy"
+            className="h-full w-full object-cover opacity-25"
+            width={1920}
+            height={1080}
+          />
           <div className="absolute inset-0 bg-gradient-to-b from-background via-background/80 to-background" />
           <div className="absolute inset-0 bg-primary/15 mix-blend-multiply" />
         </div>
@@ -171,20 +254,28 @@ function Index() {
 
           <div className="space-y-6 text-base md:text-lg text-foreground/80 leading-relaxed font-light">
             <p>
-              O <span className="text-foreground font-semibold">Elite Floripa</span> é um time oficial de voleibol masculino de base, sediado em Florianópolis e reconhecido pela Prefeitura. Formamos atletas e pessoas em três categorias: <span className="text-accent font-semibold">Sub-17, Sub-19 e Sub-21</span>.
+              O <span className="text-foreground font-semibold">Elite Floripa</span> é um time
+              oficial de voleibol masculino de base, sediado em Florianópolis e reconhecido pela
+              Prefeitura. Formamos atletas e pessoas em três categorias:{" "}
+              <span className="text-accent font-semibold">Sub-17, Sub-19 e Sub-21</span>.
             </p>
             <p>
-              Trabalhamos com metodologia profissional, treinos diários, estrutura completa e cobrança real — porque acreditamos que disciplina e amor pelo esporte caminham juntos.
+              Trabalhamos com metodologia profissional, treinos diários, estrutura completa e
+              cobrança real — porque acreditamos que disciplina e amor pelo esporte caminham juntos.
             </p>
             <p>
-              Atuamos em campeonatos estaduais, regionais e nacionais — sempre representando Florianópolis com orgulho.
+              Atuamos em campeonatos estaduais, regionais e nacionais — sempre representando
+              Florianópolis com orgulho.
             </p>
           </div>
         </div>
 
         <div className="mx-auto max-w-7xl px-6 mt-20 grid grid-cols-2 lg:grid-cols-4 gap-4">
           {values.map(({ icon: Icon, title, desc }) => (
-            <div key={title} className="group relative rounded-2xl border border-border bg-card/70 backdrop-blur-xl p-5 hover:border-primary/60 hover:-translate-y-1 transition-all overflow-hidden">
+            <div
+              key={title}
+              className="group relative rounded-2xl border border-border bg-card/70 backdrop-blur-xl p-5 hover:border-primary/60 hover:-translate-y-1 transition-all overflow-hidden"
+            >
               <div className="absolute -top-10 -right-10 h-28 w-28 rounded-full bg-primary/30 blur-2xl opacity-0 group-hover:opacity-100 transition" />
               <div className="relative">
                 <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-accent shadow-[var(--shadow-glow)] mb-4">
@@ -204,19 +295,31 @@ function Index() {
           <div className="max-w-3xl mb-16">
             <div className="text-[10px] tracking-[0.4em] text-accent mb-6">02 — CATEGORIAS</div>
             <h2 className="text-4xl md:text-5xl font-black leading-[0.95] tracking-tight">
-              TRÊS GERAÇÕES.<br />
-              <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">UMA MESMA QUADRA.</span>
+              TRÊS GERAÇÕES.
+              <br />
+              <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                UMA MESMA QUADRA.
+              </span>
             </h2>
             <p className="mt-6 text-base md:text-lg text-muted-foreground font-light max-w-2xl">
-              Cada categoria com treinos próprios, treinadores especializados e calendário de competições alinhado ao seu nível de desenvolvimento.
+              Cada categoria com treinos próprios, treinadores especializados e calendário de
+              competições alinhado ao seu nível de desenvolvimento.
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-5">
             {categories.map(({ age, desc, icon: Icon }, i) => (
-              <div key={age} className="group relative rounded-3xl border border-border bg-card/60 backdrop-blur-xl overflow-hidden hover:border-primary/60 transition-all">
+              <div
+                key={age}
+                className="group relative rounded-3xl border border-border bg-card/60 backdrop-blur-xl overflow-hidden hover:border-primary/60 transition-all"
+              >
                 <div className="absolute inset-0 -z-10 opacity-30 group-hover:opacity-50 transition-opacity">
-                  <img src={i === 0 ? heroBg : i === 1 ? teamBg : ballBg} alt="" loading="lazy" className="h-full w-full object-cover" />
+                  <img
+                    src={i === 0 ? heroBg : i === 1 ? teamBg : ballBg}
+                    alt=""
+                    loading="lazy"
+                    className="h-full w-full object-cover"
+                  />
                   <div className="absolute inset-0 bg-gradient-to-t from-card via-card/80 to-card/40" />
                 </div>
 
@@ -225,7 +328,9 @@ function Index() {
                     <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-accent shadow-[var(--shadow-glow)]">
                       <Icon className="h-5 w-5 text-primary-foreground" />
                     </div>
-                    <div className="text-5xl font-black text-foreground/10 tracking-tighter">0{i + 1}</div>
+                    <div className="text-5xl font-black text-foreground/10 tracking-tighter">
+                      0{i + 1}
+                    </div>
                   </div>
                   <div className="mt-auto">
                     <div className="text-3xl md:text-4xl font-black tracking-tight">{age}</div>
@@ -244,7 +349,14 @@ function Index() {
       {/* CONQUISTAS */}
       <section id="conquistas" className="relative py-24 md:py-32 overflow-hidden">
         <div className="absolute inset-0 -z-10">
-          <img src={ballBg} alt="" loading="lazy" className="h-full w-full object-cover opacity-30" width={1920} height={1080} />
+          <img
+            src={ballBg}
+            alt=""
+            loading="lazy"
+            className="h-full w-full object-cover opacity-30"
+            width={1920}
+            height={1080}
+          />
           <div className="absolute inset-0 bg-gradient-to-b from-background via-background/75 to-background" />
           <div className="absolute inset-0 bg-accent/10 mix-blend-multiply" />
         </div>
@@ -254,7 +366,8 @@ function Index() {
             <div>
               <div className="text-[10px] tracking-[0.4em] text-accent mb-6">03 — CONQUISTAS</div>
               <h2 className="text-4xl md:text-5xl font-black leading-[0.95] tracking-tight">
-                NOSSA<br />
+                NOSSA
+                <br />
                 <span className="text-accent">TRAJETÓRIA.</span>
               </h2>
             </div>
@@ -265,8 +378,13 @@ function Index() {
 
           <div className="space-y-3">
             {achievements.map((a, i) => (
-              <div key={i} className="group relative grid grid-cols-[80px_1fr_auto] md:grid-cols-[120px_1fr_auto] items-center gap-4 md:gap-8 rounded-2xl border border-border bg-card/70 backdrop-blur-xl p-5 md:p-7 hover:border-primary/50 hover:bg-card transition-all">
-                <div className="text-3xl md:text-5xl font-black bg-gradient-to-br from-primary-foreground to-accent bg-clip-text text-transparent tracking-tighter">{a.year}</div>
+              <div
+                key={i}
+                className="group relative grid grid-cols-[80px_1fr_auto] md:grid-cols-[120px_1fr_auto] items-center gap-4 md:gap-8 rounded-2xl border border-border bg-card/70 backdrop-blur-xl p-5 md:p-7 hover:border-primary/50 hover:bg-card transition-all"
+              >
+                <div className="text-3xl md:text-5xl font-black bg-gradient-to-br from-primary-foreground to-accent bg-clip-text text-transparent tracking-tighter">
+                  {a.year}
+                </div>
                 <div>
                   <div className="text-base md:text-xl font-bold leading-snug">{a.title}</div>
                   <div className="text-xs text-muted-foreground tracking-wider mt-1 flex items-center gap-1.5">
@@ -280,9 +398,55 @@ function Index() {
         </div>
       </section>
 
-      {/* INSTAGRAM FEED */}
-      <InstagramFeed />
+      {/* INSTAGRAM */}
+      <section id="instagram" className="relative py-24 md:py-32 overflow-hidden">
+        <div className="absolute inset-0 -z-10">
+          <img
+            src={teamBg}
+            alt=""
+            loading="lazy"
+            className="h-full w-full object-cover opacity-40"
+            width={1920}
+            height={1080}
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-background via-background/60 to-background" />
+        </div>
 
+        <div className="mx-auto max-w-5xl px-6 text-center">
+          <div className="text-[10px] tracking-[0.4em] text-accent mb-6">04 — REDES SOCIAIS</div>
+          <h2 className="text-4xl md:text-6xl font-black leading-[0.95] tracking-tight">
+            ACOMPANHE TUDO
+            <br />
+            <span className="bg-gradient-to-r from-primary via-accent to-primary-glow bg-clip-text text-transparent">
+              EM TEMPO REAL.
+            </span>
+          </h2>
+          <p className="mt-6 text-base md:text-lg text-muted-foreground font-light max-w-2xl mx-auto">
+            Bastidores, treinos, jogos e conquistas — tudo postado pela equipe oficial do Elite
+            Floripa, todos os dias.
+          </p>
+
+          <a
+            href="https://instagram.com/elite_floripa"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group mt-12 inline-flex items-center gap-4 rounded-full border border-primary/40 bg-gradient-to-r from-primary/20 via-card to-accent/20 backdrop-blur-xl px-8 py-5 shadow-[var(--shadow-glow)] hover:scale-105 transition-transform"
+          >
+            <div className="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-primary to-accent shadow-[var(--shadow-glow)]">
+              <Instagram className="h-6 w-6 text-primary-foreground" />
+            </div>
+            <div className="text-left">
+              <div className="text-[10px] tracking-[0.3em] text-accent font-bold">
+                SIGA NO INSTAGRAM
+              </div>
+              <div className="text-xl md:text-2xl font-black tracking-tight group-hover:text-accent transition">
+                @elite_floripa
+              </div>
+            </div>
+            <ArrowRight className="h-5 w-5 ml-2 group-hover:translate-x-1 transition" />
+          </a>
+        </div>
+      </section>
 
       {/* CONTATO */}
       <section id="contato" className="relative py-24 md:py-32">
@@ -292,30 +456,56 @@ function Index() {
             <div className="absolute -bottom-32 -left-32 h-96 w-96 rounded-full bg-accent/25 blur-3xl" />
 
             <div className="relative text-center">
-              <img src={logo} alt="Elite Floripa" className="mx-auto h-20 w-auto drop-shadow-[0_0_40px_oklch(0.7_0.2_300_/_0.8)]" />
-              <div className="mt-8 text-[10px] tracking-[0.4em] text-accent">05 — FALE COM A GENTE</div>
+              <img
+                src={logo}
+                alt="Elite Floripa"
+                className="mx-auto h-20 w-auto drop-shadow-[0_0_40px_oklch(0.7_0.2_300_/_0.8)]"
+              />
+              <div className="mt-8 text-[10px] tracking-[0.4em] text-accent">
+                05 — FALE COM A GENTE
+              </div>
               <h2 className="mt-4 text-3xl md:text-5xl font-black leading-tight tracking-tight">
-                QUER FAZER PARTE<br />
-                <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">DO ELITE?</span>
+                QUER FAZER PARTE
+                <br />
+                <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                  DO ELITE?
+                </span>
               </h2>
               <p className="mt-6 text-base md:text-lg text-muted-foreground font-light max-w-xl mx-auto">
-                Atletas, famílias, escolas, imprensa ou interessados — entre em contato. O time está sempre aberto a quem quer somar.
+                Atletas, famílias, escolas, imprensa ou interessados — entre em contato. O time está
+                sempre aberto a quem quer somar.
               </p>
 
               <div className="mt-12 grid sm:grid-cols-3 gap-4">
-                <a href="https://instagram.com/elite_floripa" target="_blank" rel="noopener noreferrer" className="group rounded-2xl border border-border bg-background/40 p-5 hover:border-primary/50 hover:bg-background/60 transition text-left">
+                <a
+                  href="https://instagram.com/elite_floripa"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group rounded-2xl border border-border bg-background/40 p-5 hover:border-primary/50 hover:bg-background/60 transition text-left"
+                >
                   <Instagram className="h-5 w-5 text-accent mb-3" />
-                  <div className="text-[10px] tracking-[0.3em] text-muted-foreground font-bold">INSTAGRAM</div>
+                  <div className="text-[10px] tracking-[0.3em] text-muted-foreground font-bold">
+                    INSTAGRAM
+                  </div>
                   <div className="text-sm font-bold mt-1">@elite_floripa</div>
                 </a>
-                <a href="mailto:contato@elitefloripa.com.br" className="group rounded-2xl border border-border bg-background/40 p-5 hover:border-primary/50 hover:bg-background/60 transition text-left">
+                <a
+                  href="mailto:contato@elitefloripa.com.br"
+                  className="group rounded-2xl border border-border bg-background/40 p-5 hover:border-primary/50 hover:bg-background/60 transition text-left"
+                >
                   <Mail className="h-5 w-5 text-accent mb-3" />
-                  <div className="text-[10px] tracking-[0.3em] text-muted-foreground font-bold">E-MAIL</div>
-                  <div className="text-sm font-bold mt-1 break-all">contato@elitefloripa.com.br</div>
+                  <div className="text-[10px] tracking-[0.3em] text-muted-foreground font-bold">
+                    E-MAIL
+                  </div>
+                  <div className="text-sm font-bold mt-1 break-all">
+                    contato@elitefloripa.com.br
+                  </div>
                 </a>
                 <div className="rounded-2xl border border-border bg-background/40 p-5 text-left">
                   <MapPin className="h-5 w-5 text-accent mb-3" />
-                  <div className="text-[10px] tracking-[0.3em] text-muted-foreground font-bold">SEDE</div>
+                  <div className="text-[10px] tracking-[0.3em] text-muted-foreground font-bold">
+                    SEDE
+                  </div>
                   <div className="text-sm font-bold mt-1">Florianópolis — SC</div>
                 </div>
               </div>
@@ -330,108 +520,31 @@ function Index() {
           <div className="flex items-center gap-3">
             <img src={logo} alt="" className="h-9 w-auto opacity-90" />
             <div>
-              <div className="tracking-[0.18em] font-black text-foreground text-xs">ELITE FLORIPA</div>
+              <div className="tracking-[0.18em] font-black text-foreground text-xs">
+                ELITE FLORIPA
+              </div>
               <div className="text-[9px] tracking-[0.35em] text-accent">VOLEIBOL MASCULINO</div>
             </div>
           </div>
           <div className="flex items-center gap-6 text-xs">
-            <a href="#sobre" className="hover:text-foreground transition">O Time</a>
-            <a href="#categorias" className="hover:text-foreground transition">Categorias</a>
-            <a href="#conquistas" className="hover:text-foreground transition">Conquistas</a>
-            <a href="#contato" className="hover:text-foreground transition">Contato</a>
+            <a href="#sobre" className="hover:text-foreground transition">
+              O Time
+            </a>
+            <a href="#categorias" className="hover:text-foreground transition">
+              Categorias
+            </a>
+            <a href="#conquistas" className="hover:text-foreground transition">
+              Conquistas
+            </a>
+            <a href="#contato" className="hover:text-foreground transition">
+              Contato
+            </a>
           </div>
-          <div className="text-[10px] tracking-widest">© {new Date().getFullYear()} ELITE FLORIPA · TODOS OS DIREITOS RESERVADOS</div>
+          <div className="text-[10px] tracking-widest">
+            © {new Date().getFullYear()} ELITE FLORIPA · TODOS OS DIREITOS RESERVADOS
+          </div>
         </div>
       </footer>
     </div>
   );
 }
-
-// Edite estes URLs com posts reais do @elite_floripa
-const INSTAGRAM_POSTS = [
-  "https://www.instagram.com/elite_floripa/",
-  "https://www.instagram.com/elite_floripa/",
-  "https://www.instagram.com/elite_floripa/",
-  "https://www.instagram.com/elite_floripa/",
-  "https://www.instagram.com/elite_floripa/",
-  "https://www.instagram.com/elite_floripa/",
-];
-
-declare global {
-  interface Window {
-    instgrm?: { Embeds: { process: () => void } };
-  }
-}
-
-function InstagramFeed() {
-  useEffect(() => {
-    const SRC = "https://www.instagram.com/embed.js";
-    const existing = document.querySelector<HTMLScriptElement>(`script[src="${SRC}"]`);
-    if (!existing) {
-      const s = document.createElement("script");
-      s.src = SRC;
-      s.async = true;
-      document.body.appendChild(s);
-    } else if (window.instgrm) {
-      window.instgrm.Embeds.process();
-    }
-  }, []);
-
-  return (
-    <section id="instagram" className="relative py-24 md:py-32 overflow-hidden">
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute inset-0 bg-gradient-to-br from-background via-card to-background" />
-        <div className="absolute top-0 left-1/3 h-[500px] w-[500px] rounded-full bg-primary/20 blur-[140px]" />
-        <div className="absolute bottom-0 right-1/4 h-[500px] w-[500px] rounded-full bg-accent/15 blur-[140px]" />
-      </div>
-
-      <div className="mx-auto max-w-7xl px-6">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
-          <div className="max-w-2xl">
-            <div className="text-[10px] tracking-[0.4em] text-accent mb-6">04 — FEED OFICIAL</div>
-            <h2 className="text-4xl md:text-6xl font-black leading-[0.95] tracking-tight">
-              DIRETO DO<br />
-              <span className="bg-gradient-to-r from-primary via-accent to-primary-glow bg-clip-text text-transparent">@elite_floripa</span>
-            </h2>
-            <p className="mt-6 text-base md:text-lg text-muted-foreground font-light">
-              Bastidores, treinos, jogos e conquistas — postado em tempo real pela equipe oficial.
-            </p>
-          </div>
-
-          <a
-            href="https://instagram.com/elite_floripa"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group inline-flex items-center gap-3 rounded-full border border-primary/40 bg-gradient-to-r from-primary/20 to-accent/20 backdrop-blur-xl px-6 py-3.5 shadow-[var(--shadow-glow)] hover:scale-105 transition-transform self-start"
-          >
-            <Instagram className="h-5 w-5 text-accent" />
-            <span className="text-xs font-bold tracking-[0.25em]">SEGUIR</span>
-            <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition" />
-          </a>
-        </div>
-
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {INSTAGRAM_POSTS.map((url, i) => (
-            <div
-              key={i}
-              className="group relative rounded-3xl border border-border bg-card/60 backdrop-blur-xl overflow-hidden hover:border-primary/50 transition-all p-3"
-            >
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 pointer-events-none" />
-              <blockquote
-                className="instagram-media relative !m-0 !min-w-0 !w-full !bg-transparent !border-0 !shadow-none"
-                data-instgrm-permalink={url}
-                data-instgrm-version="14"
-                style={{ background: "transparent" }}
-              >
-                <a href={url} target="_blank" rel="noopener noreferrer" className="block aspect-square flex items-center justify-center text-muted-foreground text-xs tracking-widest">
-                  CARREGANDO POST DO INSTAGRAM…
-                </a>
-              </blockquote>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
