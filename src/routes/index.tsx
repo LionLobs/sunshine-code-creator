@@ -7,24 +7,8 @@ import {
   ArrowRight, Sparkles, CheckCircle2, Quote, Eye,
 } from "lucide-react";
 import logoAsset from "@/assets/logo.png.asset.json";
-import teamPhotoAsset from "@/assets/team-photo.jpg.asset.json";
-import teamHuddleAsset from "@/assets/team-huddle.jpg.asset.json";
-import insta1Asset from "@/assets/insta-1.jpg.asset.json";
-import insta2Asset from "@/assets/insta-2.jpg.asset.json";
-import insta3Asset from "@/assets/insta-3.jpg.asset.json";
-import insta4Asset from "@/assets/insta-4.jpg.asset.json";
-import insta5Asset from "@/assets/insta-5.jpg.asset.json";
-import insta6Asset from "@/assets/insta-6.jpg.asset.json";
 
 const logo = logoAsset.url;
-const teamPhoto = teamPhotoAsset.url;
-const teamHuddle = teamHuddleAsset.url;
-const insta1 = insta1Asset.url;
-const insta2 = insta2Asset.url;
-const insta3 = insta3Asset.url;
-const insta4 = insta4Asset.url;
-const insta5 = insta5Asset.url;
-const insta6 = insta6Asset.url;
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -79,7 +63,6 @@ const plans = [
       { icon: Handshake, text: "Reconhecimento público como parceiro oficial" },
     ],
   },
-
   {
     tier: "Prata",
     price: "800",
@@ -130,7 +113,6 @@ const testimonials = [
   },
 ];
 
-// Decorative purple ribbon mirroring the brand visual style
 function Ribbon({ className = "", flip = false }: { className?: string; flip?: boolean }) {
   return (
     <svg
@@ -148,6 +130,21 @@ function Ribbon({ className = "", flip = false }: { className?: string; flip?: b
       <polygon points="0,0 200,0 200,80 0,140" fill="url(#ribbon-grad)" />
       <polygon points="0,140 200,80 200,100 0,160" fill="oklch(0.78 0.18 305 / 0.5)" />
     </svg>
+  );
+}
+
+// Reusable dark-purple decorative panel (replaces photo blocks)
+function PurplePanel({ label, sub, className = "" }: { label: string; sub?: string; className?: string }) {
+  return (
+    <div className={`relative overflow-hidden rounded-2xl border border-primary/40 bg-gradient-to-br from-[oklch(0.22_0.12_295)] via-[oklch(0.16_0.08_295)] to-[oklch(0.1_0.05_295)] shadow-[var(--shadow-card)] ${className}`}>
+      <div className="absolute -top-16 -right-16 h-56 w-56 rounded-full bg-primary/30 blur-3xl" />
+      <div className="absolute -bottom-16 -left-16 h-56 w-56 rounded-full bg-accent/25 blur-3xl" />
+      <div className="absolute inset-0 opacity-[0.08] bg-[radial-gradient(circle_at_center,_white_1px,_transparent_1px)] [background-size:18px_18px]" />
+      <div className="relative h-full w-full p-5 flex flex-col justify-end">
+        {sub && <div className="text-[10px] font-bold tracking-[0.3em] text-accent uppercase">{sub}</div>}
+        <div className="text-sm md:text-base font-black tracking-wider uppercase text-foreground/90">{label}</div>
+      </div>
+    </div>
   );
 }
 
@@ -184,8 +181,8 @@ function Index() {
           </a>
           <nav className="hidden md:flex items-center gap-8 text-sm text-muted-foreground">
             <a href="#porque" className="hover:text-foreground transition">Por que patrocinar</a>
-            <a href="#galeria" className="hover:text-foreground transition">Galeria</a>
             <a href="#planos" className="hover:text-foreground transition">Planos</a>
+            <a href="#contato" className="hover:text-foreground transition">Contato</a>
           </nav>
           <a href="#planos" className="hidden sm:inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-primary to-accent px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-[var(--shadow-glow)] hover:scale-105 transition-transform">
             Escolher meu plano <ArrowRight className="h-4 w-4" />
@@ -196,19 +193,12 @@ function Index() {
 
       {/* HERO */}
       <section id="top" className="relative min-h-screen flex items-center pt-24 pb-16 overflow-hidden">
-        {/* Elite Purple Background Layer */}
         <div className="absolute inset-0 -z-20 bg-background" />
         <div className="absolute inset-0 -z-15 overflow-hidden">
-          <img 
-            src={insta1} 
-            alt="" 
-            className="h-full w-full object-cover opacity-30 grayscale-[0.5] contrast-125" 
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-background/95 via-background/80 to-background" />
-          <div className="absolute inset-0 bg-primary/20 mix-blend-multiply" />
+          <div className="absolute inset-0 bg-gradient-to-br from-[oklch(0.2_0.12_295)] via-background to-[oklch(0.15_0.08_295)]" />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/50 to-background" />
         </div>
 
-        {/* Brand ribbon - top left like the visual ID */}
         <Ribbon className="top-0 left-0 h-48 w-72 opacity-60" />
 
         <div className="mx-auto max-w-6xl px-6 grid lg:grid-cols-[1.1fr_1fr] gap-12 items-center relative z-10">
@@ -254,35 +244,33 @@ function Index() {
             </div>
           </div>
 
-          {/* Right column — image collage (visible on mobile too) */}
+          {/* Right column — official emblem card replacing photo collage */}
           <div className="relative block mt-8 lg:mt-0">
-            <div className="grid grid-cols-2 gap-3 sm:gap-4">
-              <div className="space-y-3 sm:space-y-4 mt-6 sm:mt-10">
-                <div className="relative overflow-hidden rounded-2xl border border-border shadow-[var(--shadow-card)] h-[180px] sm:h-[260px] lg:h-[300px] group">
-                  <img src={teamPhoto} alt="Equipe Elite Floripa Voleibol Masculino" loading="eager" className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-700" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/10 to-transparent" />
-                  <div className="absolute bottom-3 left-3 text-[10px] font-bold tracking-widest text-accent uppercase">@elite_floripa</div>
-                </div>
-                <div className="relative overflow-hidden rounded-2xl border border-border shadow-[var(--shadow-card)] h-[180px] sm:h-[260px] lg:h-[300px] group">
-                  <img src={insta2} alt="Ação de jogo" loading="lazy" className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-700" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/10 to-transparent" />
-                  <div className="absolute bottom-3 left-3 text-[10px] font-bold tracking-widest text-accent uppercase">FOCO</div>
-                </div>
-              </div>
-              <div className="space-y-3 sm:space-y-4">
-                <div className="relative overflow-hidden rounded-2xl border border-border shadow-[var(--shadow-card)] h-[180px] sm:h-[260px] lg:h-[300px] group">
-                  <img src={teamHuddle} alt="Equipe Elite Floripa reunida em quadra" loading="eager" className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-700" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/10 to-transparent" />
-                  <div className="absolute bottom-3 left-3 text-[10px] font-bold tracking-widest text-accent uppercase">UNIÃO</div>
-                </div>
-                <div className="relative overflow-hidden rounded-2xl border border-border shadow-[var(--shadow-card)] h-[180px] sm:h-[260px] lg:h-[300px] group">
-                  <img src={insta3} alt="Huddle do time" loading="lazy" className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-700" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/10 to-transparent" />
-                  <div className="absolute bottom-3 left-3 text-[10px] font-bold tracking-widest text-accent uppercase">GARRA</div>
+            <div className="relative rounded-3xl border border-primary/50 bg-gradient-to-br from-[oklch(0.22_0.14_295)] via-[oklch(0.15_0.09_295)] to-[oklch(0.1_0.05_295)] backdrop-blur-xl p-8 md:p-10 shadow-[var(--shadow-glow)] overflow-hidden">
+              <div className="absolute -top-24 -right-24 h-72 w-72 rounded-full bg-primary/40 blur-3xl" />
+              <div className="absolute -bottom-24 -left-24 h-72 w-72 rounded-full bg-accent/30 blur-3xl" />
+              <div className="absolute inset-0 opacity-[0.08] bg-[radial-gradient(circle_at_center,_white_1px,_transparent_1px)] [background-size:22px_22px]" />
+
+              <div className="relative flex flex-col items-center text-center">
+                <div className="text-[10px] tracking-[0.4em] text-accent">EMBLEMA OFICIAL</div>
+                <img src={logo} alt="Elite Voleibol Florianópolis" className="mt-6 h-44 md:h-56 w-auto drop-shadow-[0_0_60px_oklch(0.7_0.25_300_/_0.7)]" />
+                <div className="mt-8 text-2xl md:text-3xl font-black tracking-wider">ELITE FLORIPA</div>
+                <div className="text-xs tracking-[0.35em] text-accent mt-1">VOLEIBOL MASCULINO</div>
+
+                <div className="mt-8 grid grid-cols-3 gap-4 w-full">
+                  {[
+                    { v: "+50", l: "Atletas" },
+                    { v: "Sub 17·19·21", l: "Categorias" },
+                    { v: "Oficial", l: "Prefeitura" },
+                  ].map((s) => (
+                    <div key={s.l} className="rounded-xl border border-border/60 bg-background/40 backdrop-blur px-2 py-3">
+                      <div className="text-[11px] md:text-sm font-black bg-gradient-to-br from-primary-foreground to-accent bg-clip-text text-transparent">{s.v}</div>
+                      <div className="text-[9px] tracking-widest text-muted-foreground uppercase mt-1">{s.l}</div>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
-            {/* Sede Oficial badge floating in corner */}
             <div className="absolute -bottom-3 left-2 sm:bottom-3 sm:left-3 rounded-2xl bg-card/95 border border-border backdrop-blur-xl px-4 py-3 shadow-[var(--shadow-card)] z-10">
               <div className="text-[9px] tracking-widest text-muted-foreground">SEDE OFICIAL</div>
               <div className="flex items-center gap-2 mt-1 font-semibold text-sm">
@@ -312,7 +300,7 @@ function Index() {
         </div>
       </section>
 
-      {/* MARQUEE — brand values rolling band */}
+      {/* MARQUEE */}
       <section className="relative py-6 border-b border-border overflow-hidden bg-gradient-to-r from-primary/10 via-background to-accent/10">
         <div className="flex w-max animate-marquee gap-12 whitespace-nowrap">
           {Array.from({ length: 2 }).map((_, k) => (
@@ -328,8 +316,7 @@ function Index() {
       {/* WHY SPONSOR */}
       <section id="porque" className="relative py-12 md:py-16">
         <div className="absolute inset-0 -z-10">
-          <img src={insta4} alt="" className="h-full w-full object-cover opacity-20 grayscale" />
-          <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background" />
+          <div className="absolute inset-0 bg-gradient-to-b from-background via-[oklch(0.13_0.07_295)] to-background" />
         </div>
         <Ribbon className="top-10 right-0 h-40 w-60 opacity-40" flip />
 
@@ -348,7 +335,7 @@ function Index() {
           </div>
 
           <div className="md:hidden flex items-center gap-2 text-[10px] tracking-[0.3em] text-accent mb-3 uppercase"><span>←</span> Deslize para ver mais <span>→</span></div>
-          <div className="flex md:grid md:grid-cols-2 lg:grid-cols-3 gap-5 overflow-x-auto no-scrollbar snap-x snap-mandatory -mx-6 px-6 md:mx-0 md:px-0 md:overflow-visible">
+          <div className="flex md:grid md:grid-cols-2 lg:grid-cols-3 gap-5 overflow-x-auto no-scrollbar snap-x snap-mandatory -mx-6 px-6 md:mx-0 md:px-0 md:overflow-visible mt-10">
             {reasons.map(({ icon: Icon, title, desc }, i) => (
               <div key={title} className="snap-start shrink-0 w-[85%] sm:w-[60%] md:w-auto group relative rounded-2xl border border-border bg-card/60 backdrop-blur p-4 hover:border-primary/60 hover:bg-card hover:-translate-y-1 transition-all overflow-hidden">
                 <div className="absolute -top-12 -right-12 h-32 w-32 rounded-full bg-primary/20 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -378,83 +365,22 @@ function Index() {
               </div>
             </div>
           </div>
-        </div>
-      </section>
 
-      {/* GALLERY */}
-      <section id="galeria" className="relative py-12 md:py-16">
-        <div className="mx-auto max-w-6xl px-6">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
-            <div>
-              <div className="text-xs tracking-[0.3em] text-accent mb-4">A NOSSA ESSÊNCIA</div>
-              <h2 className="text-3xl md:text-4xl font-black leading-tight">
-                VOLEIBOL DE
-                <br />
-                <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">ALTO NÍVEL</span>
-              </h2>
-            </div>
-            <p className="md:text-right text-muted-foreground max-w-md text-lg">
-              Cada treino, cada jogo, cada vitória — sua marca presente nos momentos que importam.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-12 gap-4 md:gap-5">
-            {/* Main Instagram Highlight */}
-            <div className="col-span-12 md:col-span-8 relative rounded-3xl overflow-hidden h-[300px] md:h-[350px] group border border-border shadow-[var(--shadow-card)]">
-              <img src={insta1} alt="Elite Floripa em quadra" loading="lazy" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" />
-              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
-              <div className="absolute top-4 right-4 flex gap-2">
-                <div className="rounded-full bg-background/60 backdrop-blur-md p-2 border border-white/20">
-                  <Instagram className="h-4 w-4 text-accent" />
-                </div>
-              </div>
-              <div className="absolute bottom-6 left-6 right-6">
-                <div className="text-xs tracking-[0.3em] text-accent mb-2">DIRETO DO INSTAGRAM</div>
-                <div className="text-2xl md:text-3xl font-black">Nossa rotina de treinos e vitórias</div>
-              </div>
-            </div>
-
-            {/* Side Grid Items */}
-            <div className="col-span-6 md:col-span-4 relative rounded-3xl overflow-hidden h-[140px] md:h-[165px] group border border-border shadow-[var(--shadow-card)]">
-              <img src={insta2} alt="Treino Elite Floripa" loading="lazy" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" />
-              <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors" />
-            </div>
-            <div className="col-span-6 md:col-span-4 relative rounded-3xl overflow-hidden h-[140px] md:h-[165px] group border border-border shadow-[var(--shadow-card)]">
-              <img src={insta3} alt="Jogo Elite Floripa" loading="lazy" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" />
-              <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors" />
-            </div>
-
-            {/* Bottom Row */}
-            <div className="col-span-4 relative rounded-3xl overflow-hidden h-[120px] md:h-[180px] group border border-border shadow-[var(--shadow-card)]">
-              <img src={insta4} alt="Equipe" loading="lazy" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" />
-              <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors" />
-            </div>
-            <div className="col-span-4 relative rounded-3xl overflow-hidden h-[120px] md:h-[180px] group border border-border shadow-[var(--shadow-card)]">
-              <img src={insta5} alt="Foco" loading="lazy" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" />
-              <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors" />
-            </div>
-            <div className="col-span-4 relative rounded-3xl overflow-hidden h-[120px] md:h-[180px] group border border-border shadow-[var(--shadow-card)]">
-              <img src={insta6} alt="União" loading="lazy" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" />
-              <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors" />
-            </div>
-
-            <div className="col-span-12 relative rounded-3xl overflow-hidden py-8 group border border-primary/40 bg-gradient-to-r from-primary/10 via-card to-accent/10 shadow-[var(--shadow-glow)] flex flex-col items-center justify-center text-center">
-              <div className="flex -space-x-4 mb-4">
-                {[insta1, insta2, insta3].map((img, i) => (
-                  <div key={i} className="h-12 w-12 rounded-full border-2 border-background overflow-hidden shadow-lg">
-                    <img src={img} className="h-full w-full object-cover" />
-                  </div>
-                ))}
-              </div>
-              <div className="text-xs tracking-[0.3em] text-accent mb-2 uppercase">Siga nossa jornada</div>
-              <a 
-                href="https://instagram.com/elite_floripa" 
-                target="_blank" 
+          {/* Instagram call-out (text only — official handle) */}
+          <div className="mt-10 relative rounded-2xl border border-accent/30 bg-gradient-to-r from-[oklch(0.18_0.1_295)] to-[oklch(0.12_0.06_295)] backdrop-blur p-6 text-center overflow-hidden">
+            <div className="absolute -top-16 left-1/2 -translate-x-1/2 h-40 w-72 rounded-full bg-accent/20 blur-3xl" />
+            <div className="relative">
+              <div className="text-[10px] tracking-[0.35em] text-accent mb-2 uppercase">Acompanhe os bastidores</div>
+              <a
+                href="https://instagram.com/elite_floripa"
+                target="_blank"
                 rel="noopener noreferrer"
-                className="text-xl md:text-2xl font-black hover:text-accent transition-colors flex items-center gap-2"
+                className="inline-flex items-center gap-3 text-xl md:text-2xl font-black hover:text-accent transition-colors"
               >
-                @ELITE_FLORIPA <Instagram className="h-5 w-5" />
+                <Instagram className="h-6 w-6 text-accent" />
+                @ELITE_FLORIPA
               </a>
+              <p className="mt-3 text-xs text-muted-foreground">Conteúdo oficial do time, postado direto pela equipe.</p>
             </div>
           </div>
         </div>
@@ -463,8 +389,7 @@ function Index() {
       {/* PLANS */}
       <section id="planos" className="relative py-12 md:py-16">
         <div className="absolute inset-0 -z-10">
-          <img src={insta5} alt="" className="h-full w-full object-cover opacity-20 grayscale" />
-          <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background" />
+          <div className="absolute inset-0 bg-gradient-to-b from-background via-[oklch(0.12_0.06_295)] to-background" />
         </div>
 
         <div className="mx-auto max-w-6xl px-6">
@@ -481,7 +406,7 @@ function Index() {
             </p>
           </div>
 
-          <div className="lg:hidden flex items-center gap-2 text-[10px] tracking-[0.3em] text-accent mb-3 uppercase"><span>←</span> Deslize para ver mais <span>→</span></div>
+          <div className="lg:hidden flex items-center gap-2 text-[10px] tracking-[0.3em] text-accent mb-3 uppercase mt-8"><span>←</span> Deslize para ver mais <span>→</span></div>
           <div className="flex lg:grid lg:grid-cols-3 gap-6 overflow-x-auto overflow-y-visible no-scrollbar snap-x snap-mandatory -mx-6 px-6 pt-6 pb-6 lg:pt-8 lg:pb-4 lg:mx-0 lg:px-0 lg:overflow-visible">
             {plans.map((plan) => (
               <div
@@ -599,8 +524,7 @@ function Index() {
       {/* FINAL CTA */}
       <section id="contato" className="relative py-12 md:py-16">
         <div className="absolute inset-0 -z-10">
-          <img src={insta6} alt="" className="h-full w-full object-cover opacity-30 grayscale" />
-          <div className="absolute inset-0 bg-gradient-to-b from-background via-background/90 to-background" />
+          <div className="absolute inset-0 bg-gradient-to-b from-background via-[oklch(0.13_0.07_295)] to-background" />
         </div>
         <Ribbon className="bottom-0 left-0 h-40 w-60 opacity-40" />
         <Ribbon className="top-0 right-0 h-40 w-60 opacity-40" flip />
