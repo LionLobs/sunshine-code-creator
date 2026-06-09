@@ -15,15 +15,10 @@ import {
   Shield,
   Crown,
 } from "lucide-react";
-import logoAsset from "@/assets/logo.png.asset.json";
-import heroBgAsset from "@/assets/hero-bg.jpg.asset.json";
-import teamBgAsset from "@/assets/team-bg.jpg.asset.json";
-import ballBgAsset from "@/assets/ball-bg.jpg.asset.json";
-
-const logo = logoAsset.url;
-const heroBg = heroBgAsset.url;
-const teamBg = teamBgAsset.url;
-const ballBg = ballBgAsset.url;
+const logo = "/assets/logo.png";
+const heroBg = "/assets/hero-bg.jpg";
+const teamBg = "/assets/team-bg.jpg";
+const ballBg = "/assets/ball-bg.jpg";
 
 export const Route = createFileRoute("/")({
   component: Index,
