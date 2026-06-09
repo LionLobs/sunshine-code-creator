@@ -1,608 +1,393 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import {
-  Trophy, HeartPulse, Users, Target, Megaphone, Smartphone, Palette,
-  Handshake, Shirt, Instagram, FileImage, Star, BadgeCheck, TrendingUp,
-  Video, Award, Lock, ShieldCheck, MapPin, Heart, Crown,
-  ArrowRight, Sparkles, CheckCircle2, Quote, Eye,
+  Trophy, Users, Target, Instagram, MapPin, Calendar,
+  ArrowRight, Sparkles, ChevronRight, Mail, Phone,
+  Award, Flame, Shield, Crown,
 } from "lucide-react";
 import logoAsset from "@/assets/logo.png.asset.json";
+import heroBgAsset from "@/assets/hero-bg.jpg.asset.json";
+import teamBgAsset from "@/assets/team-bg.jpg.asset.json";
+import ballBgAsset from "@/assets/ball-bg.jpg.asset.json";
 
 const logo = logoAsset.url;
+const heroBg = heroBgAsset.url;
+const teamBg = teamBgAsset.url;
+const ballBg = ballBgAsset.url;
 
 export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const pillars = [
-  { icon: Trophy, label: "Alto Desempenho" },
-  { icon: HeartPulse, label: "Saúde e Disciplina" },
-  { icon: Users, label: "Formação de Pessoas" },
-  { icon: Target, label: "Foco em Resultados" },
+const categories = [
+  { age: "SUB-17", desc: "A base que constrói o futuro. Atletas entre 15 e 17 anos em formação técnica e mental.", icon: Flame },
+  { age: "SUB-19", desc: "A geração de transição. Disputando campeonatos estaduais e regionais de alto nível.", icon: Shield },
+  { age: "SUB-21", desc: "A elite da base. Pré-profissional, preparando atletas para o cenário nacional.", icon: Crown },
 ];
 
-const reasons = [
-  { icon: TrendingUp, title: "Sua marca vista por milhares", desc: "Mais de 10 mil pessoas alcançadas todos os meses entre jogos, redes sociais e ações presenciais na Grande Florianópolis." },
-  { icon: Users, title: "Conexão com um público fiel", desc: "Famílias, atletas, estudantes e torcedores que confiam, acompanham e consomem das marcas que apoiam o time." },
-  { icon: Heart, title: "Associação com valores que vendem", desc: "Saúde, disciplina e superação criam afinidade emocional imediata — o tipo de imagem que dinheiro nenhum em mídia compra." },
-  { icon: Megaphone, title: "Exposição contínua, não pontual", desc: "Sua marca presente em treinos, jogos, bastidores e conteúdos durante toda a temporada. Visibilidade que se acumula." },
-  { icon: Crown, title: "O peso de um projeto oficial", desc: "Reconhecido pela Prefeitura de Florianópolis. Sua empresa entra como parceira de uma instituição séria — não de uma promessa." },
-  { icon: ShieldCheck, title: "Impacto social que gera narrativa", desc: "Você apoia a formação de jovens atletas e ganha uma história real para contar aos seus clientes e às suas redes." },
+const values = [
+  { icon: Trophy, title: "Alto Desempenho", desc: "Treinos diários, metodologia profissional e cobrança real." },
+  { icon: Users, title: "Formação Humana", desc: "Disciplina, respeito e responsabilidade dentro e fora de quadra." },
+  { icon: Target, title: "Foco em Resultado", desc: "Cada temporada com metas claras — estaduais, regionais e nacionais." },
+  { icon: Shield, title: "Projeto Oficial", desc: "Reconhecido pela Prefeitura de Florianópolis." },
 ];
 
-const plans = [
-  {
-    tier: "Apoiador",
-    price: "250",
-    tagline: "Dê o primeiro passo com a gente",
-    medalColor: "from-orange-400 via-amber-500 to-orange-600",
-    glow: "shadow-[0_0_60px_-10px_rgba(251,146,60,0.35)]",
-    number: "00",
-    intro: null,
-    badge: null,
-    benefits: [
-      { icon: Megaphone, text: "Sua logo no story de agradecimento aos apoiadores" },
-      { icon: Instagram, text: "Menção no post oficial de parceiros do mês" },
-      { icon: Handshake, text: "Reconhecimento público como apoiador do projeto" },
-      { icon: Heart, text: "Participação direta na formação dos atletas" },
-    ],
-  },
-  {
-    tier: "Bronze",
-    price: "500",
-    tagline: "Comece a aparecer",
-    medalColor: "from-amber-700 via-amber-600 to-amber-500",
-    glow: "shadow-[0_0_60px_-10px_rgba(217,119,6,0.35)]",
-    number: "01",
-    intro: null,
-    badge: null,
-    benefits: [
-      { icon: Megaphone, text: "Sua logo nas redes sociais do time" },
-      { icon: Smartphone, text: "Divulgação em stories durante os campeonatos" },
-      { icon: Palette, text: "Marca aplicada em artes de jogos e resultados" },
-      { icon: Handshake, text: "Reconhecimento público como parceiro oficial" },
-    ],
-  },
-  {
-    tier: "Prata",
-    price: "800",
-    tagline: "A escolha de quem quer crescer junto",
-    medalColor: "from-slate-300 via-slate-200 to-slate-400",
-    glow: "shadow-[0_0_60px_-10px_rgba(203,213,225,0.35)]",
-    number: "02",
-    intro: "Bronze",
-    badge: "MAIS ESCOLHIDO",
-    benefits: [
-      { icon: Shirt, text: "Logo estampada na camisa de treino do time" },
-      { icon: Instagram, text: "Divulgação fixa no Instagram oficial" },
-      { icon: FileImage, text: "Marca em banner oficial da equipe" },
-      { icon: Star, text: "Prioridade em ações promocionais e ativações" },
-    ],
-  },
-  {
-    tier: "Ouro",
-    price: "1.000",
-    tagline: "Para marcas que querem liderar",
-    medalColor: "from-yellow-300 via-yellow-400 to-amber-500",
-    glow: "shadow-[0_0_80px_-10px_rgba(250,204,21,0.45)]",
-    number: "03",
-    intro: "Prata",
-    badge: "EXCLUSIVO — 1 VAGA POR SEGMENTO",
-    featured: true,
-    benefits: [
-      { icon: BadgeCheck, text: "Logo em DESTAQUE no uniforme oficial de jogo" },
-      { icon: TrendingUp, text: "Posição principal em todas as comunicações" },
-      { icon: Video, text: "Aparição em vídeos, reels e conteúdos do time" },
-      { icon: Award, text: "Presença ativa em campeonatos e eventos" },
-      { icon: Lock, text: "Exclusividade garantida no seu segmento" },
-      { icon: ShieldCheck, text: "Selo oficial de Parceiro Master Elite Florianópolis" },
-    ],
-  },
+const achievements = [
+  { year: "2024", title: "Campeão Estadual Sub-19", place: "Florianópolis" },
+  { year: "2024", title: "Vice Liga Catarinense Sub-21", place: "Joinville" },
+  { year: "2023", title: "3º Lugar Sul-Brasileiro Sub-17", place: "Curitiba" },
+  { year: "2023", title: "Campeão Metropolitano", place: "Grande Florianópolis" },
 ];
-
-const testimonials = [
-  {
-    quote: "Patrocinar o Elite é estar lado a lado de um projeto sério, com resultado e impacto real na comunidade. Nossa marca passou a ser reconhecida como apoiadora do esporte local — isso não tem preço.",
-    author: "Diretor Comercial",
-    role: "Parceiro Local",
-  },
-  {
-    quote: "Em poucos meses começamos a ouvir de clientes: 'vi vocês no time'. A visibilidade superou nossas expectativas e o retorno em imagem foi imediato.",
-    author: "Gerente de Marketing",
-    role: "Marca Patrocinadora",
-  },
-];
-
-function Ribbon({ className = "", flip = false }: { className?: string; flip?: boolean }) {
-  return (
-    <svg
-      className={`absolute pointer-events-none ${className}`}
-      viewBox="0 0 200 200"
-      preserveAspectRatio="none"
-      style={{ transform: flip ? "scaleX(-1)" : undefined }}
-    >
-      <defs>
-        <linearGradient id="ribbon-grad" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stopColor="oklch(0.55 0.24 300)" stopOpacity="0.9" />
-          <stop offset="100%" stopColor="oklch(0.3 0.14 295)" stopOpacity="0.4" />
-        </linearGradient>
-      </defs>
-      <polygon points="0,0 200,0 200,80 0,140" fill="url(#ribbon-grad)" />
-      <polygon points="0,140 200,80 200,100 0,160" fill="oklch(0.78 0.18 305 / 0.5)" />
-    </svg>
-  );
-}
-
-// Reusable dark-purple decorative panel (replaces photo blocks)
-function PurplePanel({ label, sub, className = "" }: { label: string; sub?: string; className?: string }) {
-  return (
-    <div className={`relative overflow-hidden rounded-2xl border border-primary/40 bg-gradient-to-br from-[oklch(0.22_0.12_295)] via-[oklch(0.16_0.08_295)] to-[oklch(0.1_0.05_295)] shadow-[var(--shadow-card)] ${className}`}>
-      <div className="absolute -top-16 -right-16 h-56 w-56 rounded-full bg-primary/30 blur-3xl" />
-      <div className="absolute -bottom-16 -left-16 h-56 w-56 rounded-full bg-accent/25 blur-3xl" />
-      <div className="absolute inset-0 opacity-[0.08] bg-[radial-gradient(circle_at_center,_white_1px,_transparent_1px)] [background-size:18px_18px]" />
-      <div className="relative h-full w-full p-5 flex flex-col justify-end">
-        {sub && <div className="text-[10px] font-bold tracking-[0.3em] text-accent uppercase">{sub}</div>}
-        <div className="text-sm md:text-base font-black tracking-wider uppercase text-foreground/90">{label}</div>
-      </div>
-    </div>
-  );
-}
 
 function Index() {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => {
-      setScrolled(window.scrollY > 30);
-    };
+    const onScroll = () => setScrolled(window.scrollY > 30);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
-      {/* Ambient background */}
+      {/* Ambient global */}
       <div className="pointer-events-none fixed inset-0 -z-10">
-        <div className="absolute top-0 left-1/4 h-[700px] w-[700px] rounded-full bg-primary/20 blur-[160px]" />
-        <div className="absolute top-1/3 right-0 h-[500px] w-[500px] rounded-full bg-accent/15 blur-[160px]" />
-        <div className="absolute bottom-0 left-0 h-[500px] w-[500px] rounded-full bg-primary/20 blur-[160px]" />
+        <div className="absolute top-0 left-1/4 h-[700px] w-[700px] rounded-full bg-primary/15 blur-[160px]" />
+        <div className="absolute bottom-0 right-0 h-[600px] w-[600px] rounded-full bg-accent/10 blur-[160px]" />
         <div className="absolute inset-0 opacity-[0.025] bg-[radial-gradient(circle_at_center,_white_1px,_transparent_1px)] [background-size:32px_32px]" />
       </div>
 
-      {/* Nav */}
+      {/* NAV */}
       <header className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${scrolled ? "bg-background/80 backdrop-blur-xl border-b border-border" : ""}`}>
-        <div className="mx-auto max-w-6xl px-6 py-4 flex items-center justify-between">
+        <div className="mx-auto max-w-7xl px-6 py-4 flex items-center justify-between">
           <a href="#top" className="flex items-center gap-3">
-            <img src={logo} alt="Elite Voleibol" className="h-9 w-auto drop-shadow-[0_0_18px_oklch(0.7_0.2_300_/_0.6)]" />
+            <img src={logo} alt="Elite Floripa Voleibol" className="h-10 w-auto drop-shadow-[0_0_18px_oklch(0.7_0.2_300_/_0.6)]" />
             <div className="hidden sm:block leading-tight">
-              <div className="text-sm font-bold tracking-wider">ELITE</div>
-              <div className="text-[10px] text-accent tracking-[0.25em]">VOLEIBOL</div>
+              <div className="text-sm font-black tracking-[0.18em]">ELITE FLORIPA</div>
+              <div className="text-[9px] text-accent tracking-[0.35em]">VOLEIBOL MASCULINO</div>
             </div>
           </a>
-          <nav className="hidden md:flex items-center gap-8 text-sm text-muted-foreground">
-            <a href="#porque" className="hover:text-foreground transition">Por que patrocinar</a>
-            <a href="#planos" className="hover:text-foreground transition">Planos</a>
+          <nav className="hidden lg:flex items-center gap-9 text-sm font-medium text-muted-foreground">
+            <a href="#sobre" className="hover:text-foreground transition">Sobre</a>
+            <a href="#categorias" className="hover:text-foreground transition">Categorias</a>
+            <a href="#conquistas" className="hover:text-foreground transition">Conquistas</a>
+            <a href="#instagram" className="hover:text-foreground transition">Instagram</a>
             <a href="#contato" className="hover:text-foreground transition">Contato</a>
           </nav>
-          <a href="#planos" className="hidden sm:inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-primary to-accent px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-[var(--shadow-glow)] hover:scale-105 transition-transform">
-            Escolher meu plano <ArrowRight className="h-4 w-4" />
-          </a>
-        </div>
-      </header>
-
-
-      {/* HERO */}
-      <section id="top" className="relative min-h-screen flex items-center pt-24 pb-16 overflow-hidden">
-        <div className="absolute inset-0 -z-20 bg-background" />
-        <div className="absolute inset-0 -z-15 overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-[oklch(0.2_0.12_295)] via-background to-[oklch(0.15_0.08_295)]" />
-          <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/50 to-background" />
-        </div>
-
-        <Ribbon className="top-0 left-0 h-48 w-72 opacity-60" />
-
-        <div className="mx-auto max-w-6xl px-6 grid lg:grid-cols-[1.1fr_1fr] gap-12 items-center relative z-10">
-          <div>
-            <div className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-4 py-1.5 text-xs font-medium text-accent backdrop-blur-sm mb-6">
-              <Sparkles className="h-3.5 w-3.5" />
-              PROJETO OFICIAL — PREFEITURA DE FLORIANÓPOLIS
-            </div>
-            <h1 className="text-4xl md:text-5xl xl:text-7xl font-black leading-[0.9] tracking-tight">
-              ELITE FLORIPA
-              <br />
-              <span className="bg-gradient-to-r from-primary via-accent to-primary-glow bg-clip-text text-transparent">
-                VOLEIBOL
-              </span>
-            </h1>
-            <p className="mt-5 text-lg md:text-2xl font-bold">
-              Sua marca onde a paixão
-              <br />
-              <span className="text-accent">acontece de verdade.</span>
-            </p>
-            <p className="mt-3 max-w-lg text-sm text-muted-foreground leading-relaxed">
-              Estamos selecionando um número limitado de empresas para caminhar com a gente nesta temporada. Escolha o plano que faz sentido para o seu negócio — e garanta sua marca antes que outra do seu segmento chegue primeiro.
-            </p>
-
-            <div className="mt-10 flex flex-wrap gap-4">
-              <a href="#planos" className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-primary to-accent px-5 py-3 text-sm font-semibold text-primary-foreground shadow-[var(--shadow-glow)] hover:scale-105 transition-transform">
-                Quero ver os planos <ArrowRight className="h-4 w-4" />
-              </a>
-              <a href="#porque" className="inline-flex items-center gap-2 rounded-full border border-border bg-card/50 backdrop-blur px-5 py-3 text-sm font-semibold hover:bg-card hover:border-primary/50 transition">
-                <Eye className="h-4 w-4" /> Entender o retorno
-              </a>
-            </div>
-
-            <div className="mt-14 grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6">
-              {pillars.map(({ icon: Icon, label }) => (
-                <div key={label} className="flex flex-col items-start gap-2 group">
-                  <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-primary/30 to-accent/20 border border-primary/40 group-hover:scale-110 transition-transform shadow-[0_8px_20px_-8px_oklch(0.5_0.2_300_/_0.5)]">
-                    <Icon className="h-5 w-5 text-accent" />
-                  </div>
-                  <div className="text-[11px] font-semibold tracking-wider text-muted-foreground uppercase leading-tight">{label}</div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Right column — official emblem card replacing photo collage */}
-          <div className="relative block mt-8 lg:mt-0">
-            <div className="relative rounded-3xl border border-primary/50 bg-gradient-to-br from-[oklch(0.22_0.14_295)] via-[oklch(0.15_0.09_295)] to-[oklch(0.1_0.05_295)] backdrop-blur-xl p-8 md:p-10 shadow-[var(--shadow-glow)] overflow-hidden">
-              <div className="absolute -top-24 -right-24 h-72 w-72 rounded-full bg-primary/40 blur-3xl" />
-              <div className="absolute -bottom-24 -left-24 h-72 w-72 rounded-full bg-accent/30 blur-3xl" />
-              <div className="absolute inset-0 opacity-[0.08] bg-[radial-gradient(circle_at_center,_white_1px,_transparent_1px)] [background-size:22px_22px]" />
-
-              <div className="relative flex flex-col items-center text-center">
-                <div className="text-[10px] tracking-[0.4em] text-accent">EMBLEMA OFICIAL</div>
-                <img src={logo} alt="Elite Voleibol Florianópolis" className="mt-6 h-44 md:h-56 w-auto drop-shadow-[0_0_60px_oklch(0.7_0.25_300_/_0.7)]" />
-                <div className="mt-8 text-2xl md:text-3xl font-black tracking-wider">ELITE FLORIPA</div>
-                <div className="text-xs tracking-[0.35em] text-accent mt-1">VOLEIBOL MASCULINO</div>
-
-                <div className="mt-8 grid grid-cols-3 gap-4 w-full">
-                  {[
-                    { v: "+50", l: "Atletas" },
-                    { v: "Sub 17·19·21", l: "Categorias" },
-                    { v: "Oficial", l: "Prefeitura" },
-                  ].map((s) => (
-                    <div key={s.l} className="rounded-xl border border-border/60 bg-background/40 backdrop-blur px-2 py-3">
-                      <div className="text-[11px] md:text-sm font-black bg-gradient-to-br from-primary-foreground to-accent bg-clip-text text-transparent">{s.v}</div>
-                      <div className="text-[9px] tracking-widest text-muted-foreground uppercase mt-1">{s.l}</div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-            <div className="absolute -bottom-3 left-2 sm:bottom-3 sm:left-3 rounded-2xl bg-card/95 border border-border backdrop-blur-xl px-4 py-3 shadow-[var(--shadow-card)] z-10">
-              <div className="text-[9px] tracking-widest text-muted-foreground">SEDE OFICIAL</div>
-              <div className="flex items-center gap-2 mt-1 font-semibold text-sm">
-                <MapPin className="h-4 w-4 text-accent" /> Florianópolis — SC
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="absolute bottom-6 right-8 text-4xl md:text-5xl font-black text-foreground/5 tracking-tighter select-none">01</div>
-      </section>
-
-      {/* STATS BAND */}
-      <section className="relative py-8 border-y border-border bg-gradient-to-r from-card/50 via-background to-card/50 backdrop-blur">
-        <div className="mx-auto max-w-6xl px-6 grid grid-cols-2 md:grid-cols-4 gap-8">
-          {[
-            { value: "+50", label: "Atletas masculinos em formação" },
-            { value: "Sub 17·19·21", label: "Categorias de base" },
-            { value: "365", label: "Dias de presença" },
-            { value: "+10K", label: "Alcance mensal" },
-          ].map((s) => (
-            <div key={s.label} className="text-center">
-              <div className="text-2xl md:text-3xl font-black bg-gradient-to-br from-primary-foreground via-accent to-primary bg-clip-text text-transparent">{s.value}</div>
-              <div className="mt-2 text-xs md:text-sm text-muted-foreground tracking-wider uppercase">{s.label}</div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* MARQUEE */}
-      <section className="relative py-6 border-b border-border overflow-hidden bg-gradient-to-r from-primary/10 via-background to-accent/10">
-        <div className="flex w-max animate-marquee gap-12 whitespace-nowrap">
-          {Array.from({ length: 2 }).map((_, k) => (
-            <div key={k} className="flex items-center gap-12 px-6">
-              {["ELITE FLORIANÓPOLIS", "•", "ALTO DESEMPENHO", "•", "PROJETO OFICIAL", "•", "VOLEIBOL DE BASE", "•", "+10K ALCANCE MENSAL", "•", "PATROCÍNIOS ABERTOS", "•"].map((w, i) => (
-                <span key={i} className="text-sm font-black tracking-[0.25em] text-accent/80">{w}</span>
-              ))}
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* WHY SPONSOR */}
-      <section id="porque" className="relative py-12 md:py-16">
-        <div className="absolute inset-0 -z-10">
-          <div className="absolute inset-0 bg-gradient-to-b from-background via-[oklch(0.13_0.07_295)] to-background" />
-        </div>
-        <Ribbon className="top-10 right-0 h-40 w-60 opacity-40" flip />
-
-        <div className="mx-auto max-w-6xl px-6">
-          <div className="max-w-3xl">
-            <div className="text-xs tracking-[0.3em] text-accent mb-4">04 — O QUE VOCÊ GANHA</div>
-            <h2 className="text-3xl md:text-4xl font-black leading-tight">
-              ENQUANTO VOCÊ LÊ ISSO,
-              <br />
-              <span className="text-accent">SEU CONCORRENTE TAMBÉM ESTÁ.</span>
-            </h2>
-            <div className="mt-4 h-1 w-24 bg-gradient-to-r from-primary to-accent rounded-full" />
-            <p className="mt-6 text-base text-muted-foreground max-w-2xl">
-              Patrocinar o Elite não é gasto — é a forma mais barata e mais humana de fazer sua marca aparecer todos os dias para milhares de pessoas em Florianópolis. <span className="text-foreground font-semibold">Quem chega primeiro garante o melhor espaço.</span>
-            </p>
-          </div>
-
-          <div className="md:hidden flex items-center gap-2 text-[10px] tracking-[0.3em] text-accent mb-3 uppercase"><span>←</span> Deslize para ver mais <span>→</span></div>
-          <div className="flex md:grid md:grid-cols-2 lg:grid-cols-3 gap-5 overflow-x-auto no-scrollbar snap-x snap-mandatory -mx-6 px-6 md:mx-0 md:px-0 md:overflow-visible mt-10">
-            {reasons.map(({ icon: Icon, title, desc }, i) => (
-              <div key={title} className="snap-start shrink-0 w-[85%] sm:w-[60%] md:w-auto group relative rounded-2xl border border-border bg-card/60 backdrop-blur p-4 hover:border-primary/60 hover:bg-card hover:-translate-y-1 transition-all overflow-hidden">
-                <div className="absolute -top-12 -right-12 h-32 w-32 rounded-full bg-primary/20 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
-                <div className="relative">
-                  <div className="flex items-center justify-between mb-5">
-                    <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-accent shadow-[var(--shadow-glow)]">
-                      <Icon className="h-4 w-4 text-primary-foreground" />
-                    </div>
-                    <div className="text-3xl font-black text-foreground/10 tracking-tighter">0{i + 1}</div>
-                  </div>
-                  <div className="text-sm font-bold leading-snug">{title}</div>
-                  <p className="mt-1.5 text-xs text-muted-foreground leading-relaxed">{desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-14 relative rounded-3xl border border-primary/40 bg-gradient-to-r from-primary/25 via-accent/10 to-primary/25 backdrop-blur p-6 md:p-8 overflow-hidden shadow-[var(--shadow-glow)]">
-            <div className="absolute -top-20 -right-20 h-72 w-72 rounded-full bg-accent/40 blur-3xl" />
-            <div className="absolute -bottom-20 -left-20 h-72 w-72 rounded-full bg-primary/40 blur-3xl" />
-            <div className="relative flex flex-col md:flex-row items-center gap-6">
-              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-primary to-accent shadow-[var(--shadow-glow)]">
-                <Handshake className="h-5 w-5 text-primary-foreground" />
-              </div>
-              <div className="text-center md:text-left text-base md:text-lg font-black leading-snug">
-                NÃO É SÓ UMA LOGO EM UMA CAMISA. É <span className="text-accent">A SUA MARCA SENDO LEMBRADA</span> TODO DIA, EM CADA JOGO, EM CADA POST, EM CADA CONVERSA.
-              </div>
-            </div>
-          </div>
-
-          {/* Instagram call-out (text only — official handle) */}
-          <div className="mt-10 relative rounded-2xl border border-accent/30 bg-gradient-to-r from-[oklch(0.18_0.1_295)] to-[oklch(0.12_0.06_295)] backdrop-blur p-6 text-center overflow-hidden">
-            <div className="absolute -top-16 left-1/2 -translate-x-1/2 h-40 w-72 rounded-full bg-accent/20 blur-3xl" />
-            <div className="relative">
-              <div className="text-[10px] tracking-[0.35em] text-accent mb-2 uppercase">Acompanhe os bastidores</div>
-              <a
-                href="https://instagram.com/elite_floripa"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-3 text-xl md:text-2xl font-black hover:text-accent transition-colors"
-              >
-                <Instagram className="h-6 w-6 text-accent" />
-                @ELITE_FLORIPA
-              </a>
-              <p className="mt-3 text-xs text-muted-foreground">Conteúdo oficial do time, postado direto pela equipe.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* PLANS */}
-      <section id="planos" className="relative py-12 md:py-16">
-        <div className="absolute inset-0 -z-10">
-          <div className="absolute inset-0 bg-gradient-to-b from-background via-[oklch(0.12_0.06_295)] to-background" />
-        </div>
-
-        <div className="mx-auto max-w-6xl px-6">
-          <div className="text-center max-w-3xl mx-auto">
-            <div className="text-xs tracking-[0.3em] text-accent mb-4">ESCOLHA SUA POSIÇÃO EM QUADRA</div>
-            <h2 className="text-3xl md:text-4xl font-black leading-tight">
-              QUAL DESSES TRÊS<br />
-              <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">FAZ MAIS SENTIDO</span>
-              <br />
-              PARA O SEU NEGÓCIO?
-            </h2>
-            <p className="mt-4 text-muted-foreground text-base">
-              A maioria das empresas que conversam com a gente escolhem o <span className="text-accent font-semibold">Prata</span> ou <span className="text-accent font-semibold">Ouro</span> — pela exposição que oferecem e pela exclusividade. Mas qualquer um dos três já coloca sua marca dentro do nosso universo.
-            </p>
-          </div>
-
-          <div className="lg:hidden flex items-center gap-2 text-[10px] tracking-[0.3em] text-accent mb-3 uppercase mt-8"><span>←</span> Deslize para ver mais <span>→</span></div>
-          <div className="flex lg:grid lg:grid-cols-3 gap-6 overflow-x-auto overflow-y-visible no-scrollbar snap-x snap-mandatory -mx-6 px-6 pt-6 pb-6 lg:pt-8 lg:pb-4 lg:mx-0 lg:px-0 lg:overflow-visible">
-            {plans.map((plan) => (
-              <div
-                key={plan.tier}
-                className={`snap-start shrink-0 w-[88%] sm:w-[70%] lg:w-auto relative rounded-2xl border bg-card/70 backdrop-blur-xl p-5 transition-all hover:-translate-y-2 group ${
-                  plan.featured
-                    ? `border-accent/60 lg:scale-[1.04] ${plan.glow}`
-                    : `border-border hover:border-primary/50 ${plan.glow}`
-                }`}
-              >
-                {plan.badge && (
-                  <div className={`absolute -top-3 left-1/2 -translate-x-1/2 rounded-full px-4 py-1 text-[10px] font-bold tracking-widest text-primary-foreground ${
-                    plan.featured ? "bg-gradient-to-r from-primary to-accent shadow-[var(--shadow-glow)]" : "bg-card border border-accent/50 text-accent"
-                  }`}>
-                    {plan.badge}
-                  </div>
-                )}
-
-                <div className="flex items-start justify-between">
-                  <div className="flex items-center gap-3">
-                    <div className={`relative flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br ${plan.medalColor} shadow-2xl`}>
-                      <Award className="h-6 w-6 text-background drop-shadow-lg" />
-                      <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 flex">
-                        <div className={`h-3 w-2 bg-gradient-to-b ${plan.medalColor} skew-x-12`} />
-                        <div className={`h-3 w-2 bg-gradient-to-b ${plan.medalColor} -skew-x-12`} />
-                      </div>
-                    </div>
-                    <div>
-                      <div className="text-[10px] tracking-widest text-muted-foreground">PATROCINADOR</div>
-                      <div className="text-xl font-black tracking-tight">{plan.tier.toUpperCase()}</div>
-                      <div className="text-[11px] text-accent font-semibold mt-0.5">{plan.tagline}</div>
-                    </div>
-                  </div>
-                  <div className="text-3xl font-black text-foreground/10 tracking-tighter">{plan.number}</div>
-                </div>
-
-                <div className="mt-5 rounded-xl bg-background/60 border border-border px-4 py-3 backdrop-blur">
-                  <div className="text-[10px] tracking-widest text-muted-foreground">INVESTIMENTO ÚNICO</div>
-                  <div className="mt-1 flex items-baseline gap-1">
-                    <span className="text-sm font-semibold text-muted-foreground">R$</span>
-                    <span className="text-3xl font-black bg-gradient-to-br from-primary-foreground to-accent bg-clip-text text-transparent">{plan.price}</span>
-                  </div>
-                </div>
-
-                {plan.intro && (
-                  <div className="mt-6 flex items-center gap-2 text-xs tracking-widest text-muted-foreground">
-                    TODOS OS BENEFÍCIOS DO PLANO <span className="text-accent font-bold">{plan.intro.toUpperCase()}</span>
-                    <span className="text-accent text-lg">+</span>
-                  </div>
-                )}
-
-                <div className="mt-4 space-y-2">
-                  {plan.benefits.map(({ icon: Icon, text }) => (
-                    <div key={text} className="flex items-start gap-3 rounded-xl bg-background/40 border border-border/50 p-3 hover:border-primary/40 transition-colors">
-                      <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-primary/30 to-accent/20 border border-primary/40">
-                        <Icon className="h-4 w-4 text-accent" />
-                      </div>
-                      <div className="text-xs leading-snug pt-1">{text}</div>
-                    </div>
-                  ))}
-                </div>
-
-                <div
-                  className={`mt-8 flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-bold ${
-                    plan.featured
-                      ? "bg-gradient-to-r from-primary to-accent text-primary-foreground shadow-[var(--shadow-glow)]"
-                      : "border border-border bg-background/40"
-                  }`}
-                >
-                  Quero o plano {plan.tier} <ArrowRight className="h-4 w-4" />
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-12 max-w-2xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2 rounded-full border border-accent/40 bg-accent/10 px-4 py-1.5 text-xs font-semibold tracking-widest text-accent mb-4">
-              <Sparkles className="h-3.5 w-3.5" /> VAGAS LIMITADAS POR TEMPORADA
-            </div>
-            <p className="text-base text-muted-foreground">
-              <span className="text-foreground font-semibold">Trabalhamos com poucos parceiros</span> para garantir que cada marca tenha real destaque. Quando um segmento é fechado, ele só reabre na próxima temporada.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* TESTIMONIALS */}
-      <section className="relative py-10 md:py-14">
-        <div className="mx-auto max-w-6xl px-6">
-          <div className="text-center max-w-2xl mx-auto mb-14">
-            <div className="text-xs tracking-[0.3em] text-accent mb-4">PROVA SOCIAL</div>
-            <h2 className="text-2xl md:text-3xl font-black">Quem já apostou na gente <span className="text-accent">não voltou atrás.</span></h2>
-          </div>
-          <div className="md:hidden flex items-center gap-2 text-[10px] tracking-[0.3em] text-accent mb-3 uppercase"><span>←</span> Deslize para ver mais <span>→</span></div>
-          <div className="flex md:grid md:grid-cols-2 gap-6 overflow-x-auto no-scrollbar snap-x snap-mandatory -mx-6 px-6 md:mx-0 md:px-0 md:overflow-visible">
-            {testimonials.map((t, i) => (
-              <div key={i} className="snap-start shrink-0 w-[88%] md:w-auto relative rounded-3xl border border-border bg-card/70 backdrop-blur p-6 md:p-8 shadow-[var(--shadow-card)] overflow-hidden">
-                <Quote className="absolute top-4 right-4 h-12 w-12 text-primary/20" />
-                <p className="text-base leading-relaxed font-medium">"{t.quote}"</p>
-                <div className="mt-6 flex items-center gap-3">
-                  <div className="h-10 w-10 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center font-bold text-primary-foreground">
-                    {t.author.charAt(0)}
-                  </div>
-                  <div>
-                    <div className="font-bold">{t.author}</div>
-                    <div className="text-xs text-muted-foreground tracking-wider">{t.role}</div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* FINAL CTA */}
-      <section id="contato" className="relative py-12 md:py-16">
-        <div className="absolute inset-0 -z-10">
-          <div className="absolute inset-0 bg-gradient-to-b from-background via-[oklch(0.13_0.07_295)] to-background" />
-        </div>
-        <Ribbon className="bottom-0 left-0 h-40 w-60 opacity-40" />
-        <Ribbon className="top-0 right-0 h-40 w-60 opacity-40" flip />
-
-        <div className="mx-auto max-w-4xl px-6">
-          <div className="relative rounded-[2rem] border border-primary/40 bg-gradient-to-br from-card via-background to-card backdrop-blur-xl p-5 md:p-8 overflow-hidden shadow-[var(--shadow-glow)]">
-            <div className="absolute -top-32 -right-32 h-96 w-96 rounded-full bg-primary/30 blur-3xl" />
-            <div className="absolute -bottom-32 -left-32 h-96 w-96 rounded-full bg-accent/25 blur-3xl" />
-
-            <div className="relative text-center">
-              <img src={logo} alt="Elite Voleibol" className="mx-auto h-16 w-auto drop-shadow-[0_0_40px_oklch(0.7_0.2_300_/_0.8)]" />
-              <div className="mt-6 text-xs tracking-[0.3em] text-accent">A DECISÃO É SUA</div>
-              <h2 className="mt-4 text-3xl md:text-4xl font-black leading-tight">
-                ESCOLHA O PLANO
-                <br />
-                <span className="bg-gradient-to-r from-primary via-accent to-primary-glow bg-clip-text text-transparent">
-                  E ME AVISE.
-                </span>
-              </h2>
-              <p className="mt-6 text-base text-muted-foreground max-w-2xl mx-auto">
-                É simples assim: escolha entre <span className="text-foreground font-semibold">Bronze, Prata ou Ouro</span>, me responda qual faz mais sentido para o seu negócio e eu já reservo sua vaga e cuido de todo o processo para sua marca entrar em quadra na próxima rodada.
-              </p>
-
-              <div className="mt-10 grid sm:grid-cols-3 gap-4">
-                {plans.map((p) => (
-                  <div
-                    key={p.tier}
-                    className={`rounded-2xl border p-5 text-left ${
-                      p.featured
-                        ? "border-accent/60 bg-gradient-to-br from-primary/20 to-accent/10 shadow-[var(--shadow-glow)]"
-                        : "border-border bg-background/40"
-                    }`}
-                  >
-                    <div className={`inline-flex items-center justify-center h-10 w-10 rounded-xl bg-gradient-to-br ${p.medalColor} shadow-lg mb-3`}>
-                      <Award className="h-5 w-5 text-background" />
-                    </div>
-                    <div className="text-xl font-black tracking-tight">{p.tier.toUpperCase()}</div>
-                    <div className="text-xs text-accent font-semibold">{p.tagline}</div>
-                    <div className="mt-3 text-2xl font-black">
-                      R$ {p.price}
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              <div className="mt-10 inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-primary to-accent px-6 py-3 text-sm font-bold text-primary-foreground shadow-[var(--shadow-glow)]">
-                <CheckCircle2 className="h-5 w-5" />
-                ME RESPONDA COM O PLANO ESCOLHIDO
-              </div>
-
-              <p className="mt-6 text-sm text-muted-foreground max-w-xl mx-auto">
-                <span className="text-foreground font-semibold">Quanto antes você decide, antes sua marca aparece</span> — e mais segmentos seguem disponíveis para o seu nicho.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="relative border-t border-border bg-background/80 backdrop-blur py-10">
-        <div className="mx-auto max-w-6xl px-6 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
-          <div className="flex items-center gap-3">
-            <img src={logo} alt="" className="h-8 w-auto opacity-90" />
-            <div>
-              <div className="tracking-widest font-bold text-foreground text-xs">ELITE FLORIANÓPOLIS</div>
-              <div className="text-[10px] tracking-widest text-accent">VOLEIBOL DE ALTO NÍVEL</div>
-            </div>
-          </div>
           <a
             href="https://instagram.com/elite_floripa"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-gradient-to-r from-primary/20 to-accent/20 px-4 py-2 text-xs font-bold tracking-widest text-foreground hover:from-primary/30 hover:to-accent/30 transition-colors"
+            className="hidden sm:inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-primary to-accent px-5 py-2.5 text-xs font-bold tracking-widest text-primary-foreground shadow-[var(--shadow-glow)] hover:scale-105 transition-transform"
           >
-            <Instagram className="h-4 w-4 text-accent" />
-            @ELITE_FLORIPA
+            <Instagram className="h-4 w-4" /> @ELITE_FLORIPA
           </a>
-          <div className="text-xs">© {new Date().getFullYear()} Elite Voleibol. Todos os direitos reservados.</div>
+        </div>
+      </header>
+
+      {/* HERO — full-bleed background photo */}
+      <section id="top" className="relative min-h-screen flex items-end pt-24 pb-16 overflow-hidden">
+        <div className="absolute inset-0 -z-10">
+          <img
+            src={heroBg}
+            alt="Elite Floripa em quadra"
+            className="h-full w-full object-cover"
+            width={1920}
+            height={1080}
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/85 to-background/40" />
+          <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/30 to-transparent" />
+          <div className="absolute inset-0 bg-primary/10 mix-blend-overlay" />
+        </div>
+
+        <div className="relative z-10 mx-auto max-w-7xl px-6 w-full">
+          <div className="max-w-3xl">
+            <div className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 backdrop-blur px-4 py-1.5 text-[10px] font-bold tracking-[0.3em] text-accent mb-8">
+              <Sparkles className="h-3 w-3" />
+              SITE OFICIAL · PROJETO RECONHECIDO PELA PREFEITURA
+            </div>
+            <h1 className="text-5xl md:text-7xl xl:text-8xl font-black leading-[0.85] tracking-tight">
+              ELITE
+              <br />
+              <span className="bg-gradient-to-r from-primary via-accent to-primary-glow bg-clip-text text-transparent">FLORIPA</span>
+            </h1>
+            <div className="mt-4 flex items-center gap-3">
+              <div className="h-[2px] w-16 bg-accent" />
+              <div className="text-xs md:text-sm font-bold tracking-[0.4em] text-accent uppercase">Voleibol Masculino · SC</div>
+            </div>
+            <p className="mt-8 max-w-xl text-lg md:text-xl text-foreground/85 leading-relaxed font-light">
+              Formando atletas e pessoas no mais alto nível do voleibol catarinense.
+              <span className="text-foreground font-semibold"> Base sólida. Treino diário. Resultado real.</span>
+            </p>
+
+            <div className="mt-10 flex flex-wrap gap-3">
+              <a href="#sobre" className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-primary to-accent px-6 py-3.5 text-sm font-bold text-primary-foreground shadow-[var(--shadow-glow)] hover:scale-105 transition-transform">
+                Conheça o projeto <ArrowRight className="h-4 w-4" />
+              </a>
+              <a href="#contato" className="inline-flex items-center gap-2 rounded-full border border-border bg-card/50 backdrop-blur px-6 py-3.5 text-sm font-bold hover:bg-card hover:border-primary/50 transition">
+                Entre em contato
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {/* Floating side meta */}
+        <div className="hidden lg:flex absolute right-8 bottom-12 flex-col items-end gap-2 z-10">
+          <div className="text-[10px] tracking-[0.4em] text-muted-foreground">SEDE</div>
+          <div className="flex items-center gap-2 text-sm font-bold">
+            <MapPin className="h-4 w-4 text-accent" /> Florianópolis · Santa Catarina
+          </div>
+        </div>
+      </section>
+
+      {/* STATS STRIP */}
+      <section className="relative border-y border-border bg-background/60 backdrop-blur-xl">
+        <div className="mx-auto max-w-7xl px-6 grid grid-cols-2 md:grid-cols-4 divide-x divide-border">
+          {[
+            { value: "+50", label: "Atletas ativos" },
+            { value: "3", label: "Categorias de base" },
+            { value: "+15", label: "Títulos conquistados" },
+            { value: "2018", label: "Fundação do projeto" },
+          ].map((s) => (
+            <div key={s.label} className="text-center py-8 px-2">
+              <div className="text-3xl md:text-4xl font-black bg-gradient-to-br from-primary-foreground via-accent to-primary bg-clip-text text-transparent">{s.value}</div>
+              <div className="mt-2 text-[10px] md:text-xs text-muted-foreground tracking-[0.25em] uppercase">{s.label}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* SOBRE — full bleed bg */}
+      <section id="sobre" className="relative py-24 md:py-32 overflow-hidden">
+        <div className="absolute inset-0 -z-10">
+          <img src={teamBg} alt="" loading="lazy" className="h-full w-full object-cover opacity-25" width={1920} height={1080} />
+          <div className="absolute inset-0 bg-gradient-to-b from-background via-background/80 to-background" />
+          <div className="absolute inset-0 bg-primary/15 mix-blend-multiply" />
+        </div>
+
+        <div className="mx-auto max-w-7xl px-6 grid lg:grid-cols-[1fr_1.3fr] gap-16 items-center">
+          <div>
+            <div className="text-[10px] tracking-[0.4em] text-accent mb-6">01 — O PROJETO</div>
+            <h2 className="text-4xl md:text-5xl font-black leading-[0.95] tracking-tight">
+              MAIS QUE UM TIME.
+              <br />
+              <span className="text-accent">UM PROJETO DE VIDA.</span>
+            </h2>
+            <div className="mt-6 h-1 w-20 bg-gradient-to-r from-primary to-accent rounded-full" />
+          </div>
+
+          <div className="space-y-6 text-base md:text-lg text-foreground/80 leading-relaxed font-light">
+            <p>
+              O <span className="text-foreground font-semibold">Elite Floripa</span> é um projeto oficial de voleibol masculino de base, sediado em Florianópolis e reconhecido pela Prefeitura. Nossa missão é formar atletas e pessoas em três categorias: <span className="text-accent font-semibold">Sub-17, Sub-19 e Sub-21</span>.
+            </p>
+            <p>
+              Trabalhamos com metodologia profissional, treinos diários, estrutura completa e cobrança real — porque acreditamos que disciplina e amor pelo esporte caminham juntos.
+            </p>
+            <p>
+              Atuamos em campeonatos estaduais, regionais e nacionais — sempre representando Florianópolis com orgulho.
+            </p>
+          </div>
+        </div>
+
+        {/* Values grid */}
+        <div className="mx-auto max-w-7xl px-6 mt-20 grid grid-cols-2 lg:grid-cols-4 gap-4">
+          {values.map(({ icon: Icon, title, desc }) => (
+            <div key={title} className="group relative rounded-2xl border border-border bg-card/70 backdrop-blur-xl p-5 hover:border-primary/60 hover:-translate-y-1 transition-all overflow-hidden">
+              <div className="absolute -top-10 -right-10 h-28 w-28 rounded-full bg-primary/30 blur-2xl opacity-0 group-hover:opacity-100 transition" />
+              <div className="relative">
+                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-accent shadow-[var(--shadow-glow)] mb-4">
+                  <Icon className="h-5 w-5 text-primary-foreground" />
+                </div>
+                <div className="text-sm font-bold tracking-wide">{title}</div>
+                <p className="mt-1.5 text-xs text-muted-foreground leading-relaxed">{desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* CATEGORIAS */}
+      <section id="categorias" className="relative py-24 md:py-32">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="max-w-3xl mb-16">
+            <div className="text-[10px] tracking-[0.4em] text-accent mb-6">02 — CATEGORIAS</div>
+            <h2 className="text-4xl md:text-5xl font-black leading-[0.95] tracking-tight">
+              TRÊS GERAÇÕES.<br />
+              <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">UMA MESMA QUADRA.</span>
+            </h2>
+            <p className="mt-6 text-base md:text-lg text-muted-foreground font-light max-w-2xl">
+              Cada categoria com treinos próprios, treinadores especializados e calendário de competições alinhado ao seu nível de desenvolvimento.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-5">
+            {categories.map(({ age, desc, icon: Icon }, i) => (
+              <div
+                key={age}
+                className="group relative rounded-3xl border border-border bg-card/60 backdrop-blur-xl overflow-hidden hover:border-primary/60 transition-all"
+              >
+                {/* image background per card */}
+                <div className="absolute inset-0 -z-10 opacity-30 group-hover:opacity-50 transition-opacity">
+                  <img src={i === 0 ? heroBg : i === 1 ? teamBg : ballBg} alt="" loading="lazy" className="h-full w-full object-cover" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-card via-card/80 to-card/40" />
+                </div>
+
+                <div className="relative p-7 md:p-8 h-full flex flex-col min-h-[340px]">
+                  <div className="flex items-start justify-between">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-accent shadow-[var(--shadow-glow)]">
+                      <Icon className="h-5 w-5 text-primary-foreground" />
+                    </div>
+                    <div className="text-5xl font-black text-foreground/10 tracking-tighter">0{i + 1}</div>
+                  </div>
+                  <div className="mt-auto">
+                    <div className="text-3xl md:text-4xl font-black tracking-tight">{age}</div>
+                    <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{desc}</p>
+                    <div className="mt-6 inline-flex items-center gap-2 text-[10px] font-bold tracking-[0.3em] text-accent uppercase">
+                      Treinos diários <ChevronRight className="h-3 w-3" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CONQUISTAS — full bleed ball bg */}
+      <section id="conquistas" className="relative py-24 md:py-32 overflow-hidden">
+        <div className="absolute inset-0 -z-10">
+          <img src={ballBg} alt="" loading="lazy" className="h-full w-full object-cover opacity-30" width={1920} height={1080} />
+          <div className="absolute inset-0 bg-gradient-to-b from-background via-background/75 to-background" />
+          <div className="absolute inset-0 bg-accent/10 mix-blend-multiply" />
+        </div>
+
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
+            <div>
+              <div className="text-[10px] tracking-[0.4em] text-accent mb-6">03 — CONQUISTAS</div>
+              <h2 className="text-4xl md:text-5xl font-black leading-[0.95] tracking-tight">
+                NOSSA<br />
+                <span className="text-accent">TRAJETÓRIA.</span>
+              </h2>
+            </div>
+            <p className="md:text-right text-muted-foreground max-w-md text-base md:text-lg font-light">
+              Cada título é fruto de anos de trabalho silencioso de atletas, técnicos e famílias.
+            </p>
+          </div>
+
+          <div className="space-y-3">
+            {achievements.map((a, i) => (
+              <div
+                key={i}
+                className="group relative grid grid-cols-[80px_1fr_auto] md:grid-cols-[120px_1fr_auto] items-center gap-4 md:gap-8 rounded-2xl border border-border bg-card/70 backdrop-blur-xl p-5 md:p-7 hover:border-primary/50 hover:bg-card transition-all"
+              >
+                <div className="text-3xl md:text-5xl font-black bg-gradient-to-br from-primary-foreground to-accent bg-clip-text text-transparent tracking-tighter">{a.year}</div>
+                <div>
+                  <div className="text-base md:text-xl font-bold leading-snug">{a.title}</div>
+                  <div className="text-xs text-muted-foreground tracking-wider mt-1 flex items-center gap-1.5">
+                    <MapPin className="h-3 w-3" /> {a.place}
+                  </div>
+                </div>
+                <Award className="h-6 w-6 md:h-8 md:w-8 text-accent opacity-50 group-hover:opacity-100 transition" />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* INSTAGRAM CTA */}
+      <section id="instagram" className="relative py-24 md:py-32 overflow-hidden">
+        <div className="absolute inset-0 -z-10">
+          <img src={teamBg} alt="" loading="lazy" className="h-full w-full object-cover opacity-40" width={1920} height={1080} />
+          <div className="absolute inset-0 bg-gradient-to-br from-background via-background/60 to-background" />
+        </div>
+
+        <div className="mx-auto max-w-5xl px-6 text-center">
+          <div className="text-[10px] tracking-[0.4em] text-accent mb-6">04 — REDES SOCIAIS</div>
+          <h2 className="text-4xl md:text-6xl font-black leading-[0.95] tracking-tight">
+            ACOMPANHE TUDO
+            <br />
+            <span className="bg-gradient-to-r from-primary via-accent to-primary-glow bg-clip-text text-transparent">EM TEMPO REAL.</span>
+          </h2>
+          <p className="mt-6 text-base md:text-lg text-muted-foreground font-light max-w-2xl mx-auto">
+            Bastidores, treinos, jogos e conquistas — tudo postado pela equipe oficial do Elite Floripa, todos os dias.
+          </p>
+
+          <a
+            href="https://instagram.com/elite_floripa"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group mt-12 inline-flex items-center gap-4 rounded-full border border-primary/40 bg-gradient-to-r from-primary/20 via-card to-accent/20 backdrop-blur-xl px-8 py-5 shadow-[var(--shadow-glow)] hover:scale-105 transition-transform"
+          >
+            <div className="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-primary to-accent shadow-[var(--shadow-glow)]">
+              <Instagram className="h-6 w-6 text-primary-foreground" />
+            </div>
+            <div className="text-left">
+              <div className="text-[10px] tracking-[0.3em] text-accent font-bold">SIGA NO INSTAGRAM</div>
+              <div className="text-xl md:text-2xl font-black tracking-tight group-hover:text-accent transition">@elite_floripa</div>
+            </div>
+            <ArrowRight className="h-5 w-5 ml-2 group-hover:translate-x-1 transition" />
+          </a>
+        </div>
+      </section>
+
+      {/* CONTATO */}
+      <section id="contato" className="relative py-24 md:py-32">
+        <div className="mx-auto max-w-5xl px-6">
+          <div className="relative rounded-[2.5rem] border border-primary/40 bg-gradient-to-br from-card via-background to-card backdrop-blur-xl p-8 md:p-14 overflow-hidden shadow-[var(--shadow-glow)]">
+            <div className="absolute -top-32 -right-32 h-96 w-96 rounded-full bg-primary/30 blur-3xl" />
+            <div className="absolute -bottom-32 -left-32 h-96 w-96 rounded-full bg-accent/25 blur-3xl" />
+
+            <div className="relative text-center">
+              <img src={logo} alt="Elite Floripa" className="mx-auto h-20 w-auto drop-shadow-[0_0_40px_oklch(0.7_0.2_300_/_0.8)]" />
+              <div className="mt-8 text-[10px] tracking-[0.4em] text-accent">05 — FALE COM A GENTE</div>
+              <h2 className="mt-4 text-3xl md:text-5xl font-black leading-tight tracking-tight">
+                QUER FAZER PARTE<br />
+                <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">DO ELITE?</span>
+              </h2>
+              <p className="mt-6 text-base md:text-lg text-muted-foreground font-light max-w-xl mx-auto">
+                Atletas, famílias, escolas, imprensa ou interessados — entre em contato. Estamos sempre abertos a quem quer somar com o projeto.
+              </p>
+
+              <div className="mt-12 grid sm:grid-cols-3 gap-4">
+                <a href="https://instagram.com/elite_floripa" target="_blank" rel="noopener noreferrer" className="group rounded-2xl border border-border bg-background/40 p-5 hover:border-primary/50 hover:bg-background/60 transition text-left">
+                  <Instagram className="h-5 w-5 text-accent mb-3" />
+                  <div className="text-[10px] tracking-[0.3em] text-muted-foreground font-bold">INSTAGRAM</div>
+                  <div className="text-sm font-bold mt-1">@elite_floripa</div>
+                </a>
+                <a href="mailto:contato@elitefloripa.com.br" className="group rounded-2xl border border-border bg-background/40 p-5 hover:border-primary/50 hover:bg-background/60 transition text-left">
+                  <Mail className="h-5 w-5 text-accent mb-3" />
+                  <div className="text-[10px] tracking-[0.3em] text-muted-foreground font-bold">E-MAIL</div>
+                  <div className="text-sm font-bold mt-1 break-all">contato@elitefloripa.com.br</div>
+                </a>
+                <div className="rounded-2xl border border-border bg-background/40 p-5 text-left">
+                  <MapPin className="h-5 w-5 text-accent mb-3" />
+                  <div className="text-[10px] tracking-[0.3em] text-muted-foreground font-bold">SEDE</div>
+                  <div className="text-sm font-bold mt-1">Florianópolis — SC</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FOOTER */}
+      <footer className="relative border-t border-border bg-background/80 backdrop-blur py-10">
+        <div className="mx-auto max-w-7xl px-6 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
+          <div className="flex items-center gap-3">
+            <img src={logo} alt="" className="h-9 w-auto opacity-90" />
+            <div>
+              <div className="tracking-[0.18em] font-black text-foreground text-xs">ELITE FLORIPA</div>
+              <div className="text-[9px] tracking-[0.35em] text-accent">VOLEIBOL MASCULINO</div>
+            </div>
+          </div>
+          <div className="flex items-center gap-6 text-xs">
+            <a href="#sobre" className="hover:text-foreground transition">Sobre</a>
+            <a href="#categorias" className="hover:text-foreground transition">Categorias</a>
+            <a href="#conquistas" className="hover:text-foreground transition">Conquistas</a>
+            <a href="#contato" className="hover:text-foreground transition">Contato</a>
+          </div>
+          <div className="text-[10px] tracking-widest">© {new Date().getFullYear()} ELITE FLORIPA · TODOS OS DIREITOS RESERVADOS</div>
         </div>
       </footer>
     </div>
