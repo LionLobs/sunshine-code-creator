@@ -11,7 +11,7 @@ import heroTeam from "@/assets/hero-team.jpg";
 import playerCelebrate from "@/assets/player-celebrate.jpg";
 import actionImg from "@/assets/action.jpg";
 import teamHug from "@/assets/team-hug.jpg";
-import spike from "@/assets/spike.jpg";
+
 import huddle from "@/assets/huddle.jpg";
 import ball from "@/assets/ball.jpg";
 import teamPhoto from "@/assets/team-photo.jpg";
