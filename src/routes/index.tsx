@@ -16,6 +16,12 @@ import huddle from "@/assets/huddle.jpg";
 import ball from "@/assets/ball.jpg";
 import teamPhoto from "@/assets/team-photo.jpg";
 import teamHuddle from "@/assets/team-huddle.jpg";
+import insta1 from "@/assets/insta-1.jpg";
+import insta2 from "@/assets/insta-2.jpg";
+import insta3 from "@/assets/insta-3.jpg";
+import insta4 from "@/assets/insta-4.jpg";
+import insta5 from "@/assets/insta-5.jpg";
+import insta6 from "@/assets/insta-6.jpg";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -389,42 +395,62 @@ function Index() {
           </div>
 
           <div className="grid grid-cols-12 gap-4 md:gap-5">
-            <div className="col-span-12 md:col-span-8 relative rounded-3xl overflow-hidden h-[300px] md:h-[220px] sm:h-[300px] group border border-border shadow-[var(--shadow-card)]">
-              <img src={teamPhoto} alt="Equipe Elite Floripa masculina" loading="lazy" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" />
-              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
+            {/* Main Instagram Highlight */}
+            <div className="col-span-12 md:col-span-8 relative rounded-3xl overflow-hidden h-[300px] md:h-[350px] group border border-border shadow-[var(--shadow-card)]">
+              <img src={insta1} alt="Elite Floripa em quadra" loading="lazy" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" />
+              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
+              <div className="absolute top-4 right-4 flex gap-2">
+                <div className="rounded-full bg-background/60 backdrop-blur-md p-2 border border-white/20">
+                  <Instagram className="h-4 w-4 text-accent" />
+                </div>
+              </div>
               <div className="absolute bottom-6 left-6 right-6">
-                <div className="text-xs tracking-[0.3em] text-accent mb-2">PREPARAÇÃO</div>
-                <div className="text-3xl md:text-4xl font-black">Estratégia e união antes de cada jogo</div>
+                <div className="text-xs tracking-[0.3em] text-accent mb-2">DIRETO DO INSTAGRAM</div>
+                <div className="text-2xl md:text-3xl font-black">Nossa rotina de treinos e vitórias</div>
               </div>
             </div>
-            <div className="col-span-12 md:col-span-4 relative rounded-3xl overflow-hidden h-[300px] md:h-[220px] sm:h-[300px] group border border-border shadow-[var(--shadow-card)]">
-              <img src={teamHuddle} alt="Equipe Elite Floripa reunida em quadra" loading="lazy" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" />
-              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
-              <div className="absolute bottom-6 left-6 right-6">
-                <div className="text-xs tracking-[0.3em] text-accent mb-2">EXECUÇÃO</div>
-                <div className="text-2xl md:text-3xl font-black">Técnica de elite</div>
-              </div>
+
+            {/* Side Grid Items */}
+            <div className="col-span-6 md:col-span-4 relative rounded-3xl overflow-hidden h-[140px] md:h-[165px] group border border-border shadow-[var(--shadow-card)]">
+              <img src={insta2} alt="Treino Elite Floripa" loading="lazy" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" />
+              <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors" />
             </div>
-            <div className="col-span-6 md:col-span-4 relative rounded-3xl overflow-hidden h-[240px] group border border-border shadow-[var(--shadow-card)]">
-              <img src={teamHug} alt="Comemoração" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent" />
-              <div className="absolute bottom-4 left-4">
-                <div className="text-xs tracking-[0.3em] text-accent mb-1">VITÓRIA</div>
-                <div className="text-base font-black">Celebração em equipe</div>
-              </div>
+            <div className="col-span-6 md:col-span-4 relative rounded-3xl overflow-hidden h-[140px] md:h-[165px] group border border-border shadow-[var(--shadow-card)]">
+              <img src={insta3} alt="Jogo Elite Floripa" loading="lazy" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" />
+              <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors" />
             </div>
-            <div className="col-span-6 md:col-span-4 relative rounded-3xl overflow-hidden h-[240px] group border border-border shadow-[var(--shadow-card)]">
-              <img src={actionImg} alt="Quadra" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent" />
-              <div className="absolute bottom-4 left-4">
-                <div className="text-xs tracking-[0.3em] text-accent mb-1">QUADRA</div>
-                <div className="text-base font-black">Momentos decisivos</div>
-              </div>
+
+            {/* Bottom Row */}
+            <div className="col-span-4 relative rounded-3xl overflow-hidden h-[120px] md:h-[180px] group border border-border shadow-[var(--shadow-card)]">
+              <img src={insta4} alt="Equipe" loading="lazy" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" />
+              <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors" />
             </div>
-            <div className="col-span-12 md:col-span-4 relative rounded-3xl overflow-hidden h-[240px] group border border-primary/40 bg-gradient-to-br from-primary/30 via-card to-accent/20 shadow-[var(--shadow-glow)] flex flex-col items-center justify-center p-6 text-center">
-              <img src={logo} alt="Elite Voleibol" className="h-12 w-auto mx-auto drop-shadow-[0_0_25px_oklch(0.7_0.2_300_/_0.7)]" />
-              <div className="mt-4 text-xs tracking-[0.3em] text-accent">DESDE A BASE</div>
-              <div className="mt-1 text-xl font-black">Formando atletas e campeões</div>
+            <div className="col-span-4 relative rounded-3xl overflow-hidden h-[120px] md:h-[180px] group border border-border shadow-[var(--shadow-card)]">
+              <img src={insta5} alt="Foco" loading="lazy" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" />
+              <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors" />
+            </div>
+            <div className="col-span-4 relative rounded-3xl overflow-hidden h-[120px] md:h-[180px] group border border-border shadow-[var(--shadow-card)]">
+              <img src={insta6} alt="União" loading="lazy" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" />
+              <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors" />
+            </div>
+
+            <div className="col-span-12 relative rounded-3xl overflow-hidden py-8 group border border-primary/40 bg-gradient-to-r from-primary/10 via-card to-accent/10 shadow-[var(--shadow-glow)] flex flex-col items-center justify-center text-center">
+              <div className="flex -space-x-4 mb-4">
+                {[insta1, insta2, insta3].map((img, i) => (
+                  <div key={i} className="h-12 w-12 rounded-full border-2 border-background overflow-hidden shadow-lg">
+                    <img src={img} className="h-full w-full object-cover" />
+                  </div>
+                ))}
+              </div>
+              <div className="text-xs tracking-[0.3em] text-accent mb-2 uppercase">Siga nossa jornada</div>
+              <a 
+                href="https://instagram.com/elite_floripa" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-xl md:text-2xl font-black hover:text-accent transition-colors flex items-center gap-2"
+              >
+                @ELITE_FLORIPA <Instagram className="h-5 w-5" />
+              </a>
             </div>
           </div>
         </div>
