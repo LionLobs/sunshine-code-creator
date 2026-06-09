@@ -186,19 +186,20 @@ function Index() {
 
       {/* HERO */}
       <section id="top" className="relative min-h-screen flex items-center pt-24 pb-16 overflow-hidden">
-        {/* Solid backdrop */}
+        {/* Elite Purple Background Layer */}
         <div className="absolute inset-0 -z-20 bg-background" />
-
-        {/* Subtle right-edge purple glow */}
-        <div className="absolute inset-y-0 right-0 w-1/2 -z-10 pointer-events-none bg-gradient-to-l from-primary/15 via-primary/5 to-transparent" />
+        <div className="absolute inset-0 -z-15 overflow-hidden">
+          <img 
+            src={insta1} 
+            alt="" 
+            className="h-full w-full object-cover opacity-30 grayscale-[0.5] contrast-125" 
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/95 via-background/80 to-background" />
+          <div className="absolute inset-0 bg-primary/20 mix-blend-multiply" />
+        </div>
 
         {/* Brand ribbon - top left like the visual ID */}
         <Ribbon className="top-0 left-0 h-48 w-72 opacity-60" />
-
-        <div className="lg:hidden absolute top-24 right-4 z-20 h-28 w-24 overflow-hidden rounded-2xl border border-primary/40 bg-card/60 shadow-[var(--shadow-card)]">
-          <img src={teamPhoto} alt="Equipe Elite Floripa" loading="eager" className="h-full w-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-t from-background/50 to-transparent" />
-        </div>
 
         <div className="mx-auto max-w-6xl px-6 grid lg:grid-cols-[1.1fr_1fr] gap-12 items-center relative z-10">
           <div>
@@ -250,24 +251,24 @@ function Index() {
                 <div className="relative overflow-hidden rounded-2xl border border-border shadow-[var(--shadow-card)] h-[180px] sm:h-[260px] lg:h-[300px] group">
                   <img src={teamPhoto} alt="Equipe Elite Floripa Voleibol Masculino" loading="eager" className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-700" />
                   <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/10 to-transparent" />
-                  <div className="absolute bottom-3 left-3 text-[10px] font-bold tracking-widest text-accent">EQUIPE</div>
+                  <div className="absolute bottom-3 left-3 text-[10px] font-bold tracking-widest text-accent uppercase">@elite_floripa</div>
                 </div>
                 <div className="relative overflow-hidden rounded-2xl border border-border shadow-[var(--shadow-card)] h-[180px] sm:h-[260px] lg:h-[300px] group">
-                  <img src={actionImg} alt="Ação de jogo" loading="lazy" className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                  <img src={insta2} alt="Ação de jogo" loading="lazy" className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-700" />
                   <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/10 to-transparent" />
-                  <div className="absolute bottom-3 left-3 text-[10px] font-bold tracking-widest text-accent">FOCO</div>
+                  <div className="absolute bottom-3 left-3 text-[10px] font-bold tracking-widest text-accent uppercase">FOCO</div>
                 </div>
               </div>
               <div className="space-y-3 sm:space-y-4">
                 <div className="relative overflow-hidden rounded-2xl border border-border shadow-[var(--shadow-card)] h-[180px] sm:h-[260px] lg:h-[300px] group">
                   <img src={teamHuddle} alt="Equipe Elite Floripa reunida em quadra" loading="eager" className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-700" />
                   <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/10 to-transparent" />
-                  <div className="absolute bottom-3 left-3 text-[10px] font-bold tracking-widest text-accent">UNIÃO</div>
+                  <div className="absolute bottom-3 left-3 text-[10px] font-bold tracking-widest text-accent uppercase">UNIÃO</div>
                 </div>
                 <div className="relative overflow-hidden rounded-2xl border border-border shadow-[var(--shadow-card)] h-[180px] sm:h-[260px] lg:h-[300px] group">
-                  <img src={huddle} alt="Huddle do time" loading="lazy" className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                  <img src={insta3} alt="Huddle do time" loading="lazy" className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-700" />
                   <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/10 to-transparent" />
-                  <div className="absolute bottom-3 left-3 text-[10px] font-bold tracking-widest text-accent">GARRA</div>
+                  <div className="absolute bottom-3 left-3 text-[10px] font-bold tracking-widest text-accent uppercase">GARRA</div>
                 </div>
               </div>
             </div>
