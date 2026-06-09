@@ -280,41 +280,9 @@ function Index() {
         </div>
       </section>
 
-      {/* INSTAGRAM */}
-      <section id="instagram" className="relative py-24 md:py-32 overflow-hidden">
-        <div className="absolute inset-0 -z-10">
-          <img src={teamBg} alt="" loading="lazy" className="h-full w-full object-cover opacity-40" width={1920} height={1080} />
-          <div className="absolute inset-0 bg-gradient-to-br from-background via-background/60 to-background" />
-        </div>
+      {/* INSTAGRAM FEED */}
+      <InstagramFeed />
 
-        <div className="mx-auto max-w-5xl px-6 text-center">
-          <div className="text-[10px] tracking-[0.4em] text-accent mb-6">04 — REDES SOCIAIS</div>
-          <h2 className="text-4xl md:text-6xl font-black leading-[0.95] tracking-tight">
-            ACOMPANHE TUDO
-            <br />
-            <span className="bg-gradient-to-r from-primary via-accent to-primary-glow bg-clip-text text-transparent">EM TEMPO REAL.</span>
-          </h2>
-          <p className="mt-6 text-base md:text-lg text-muted-foreground font-light max-w-2xl mx-auto">
-            Bastidores, treinos, jogos e conquistas — tudo postado pela equipe oficial do Elite Floripa, todos os dias.
-          </p>
-
-          <a
-            href="https://instagram.com/elite_floripa"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group mt-12 inline-flex items-center gap-4 rounded-full border border-primary/40 bg-gradient-to-r from-primary/20 via-card to-accent/20 backdrop-blur-xl px-8 py-5 shadow-[var(--shadow-glow)] hover:scale-105 transition-transform"
-          >
-            <div className="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-primary to-accent shadow-[var(--shadow-glow)]">
-              <Instagram className="h-6 w-6 text-primary-foreground" />
-            </div>
-            <div className="text-left">
-              <div className="text-[10px] tracking-[0.3em] text-accent font-bold">SIGA NO INSTAGRAM</div>
-              <div className="text-xl md:text-2xl font-black tracking-tight group-hover:text-accent transition">@elite_floripa</div>
-            </div>
-            <ArrowRight className="h-5 w-5 ml-2 group-hover:translate-x-1 transition" />
-          </a>
-        </div>
-      </section>
 
       {/* CONTATO */}
       <section id="contato" className="relative py-24 md:py-32">
@@ -378,3 +346,92 @@ function Index() {
     </div>
   );
 }
+
+// Edite estes URLs com posts reais do @elite_floripa
+const INSTAGRAM_POSTS = [
+  "https://www.instagram.com/elite_floripa/",
+  "https://www.instagram.com/elite_floripa/",
+  "https://www.instagram.com/elite_floripa/",
+  "https://www.instagram.com/elite_floripa/",
+  "https://www.instagram.com/elite_floripa/",
+  "https://www.instagram.com/elite_floripa/",
+];
+
+declare global {
+  interface Window {
+    instgrm?: { Embeds: { process: () => void } };
+  }
+}
+
+function InstagramFeed() {
+  useEffect(() => {
+    const SRC = "https://www.instagram.com/embed.js";
+    const existing = document.querySelector<HTMLScriptElement>(`script[src="${SRC}"]`);
+    if (!existing) {
+      const s = document.createElement("script");
+      s.src = SRC;
+      s.async = true;
+      document.body.appendChild(s);
+    } else if (window.instgrm) {
+      window.instgrm.Embeds.process();
+    }
+  }, []);
+
+  return (
+    <section id="instagram" className="relative py-24 md:py-32 overflow-hidden">
+      <div className="absolute inset-0 -z-10">
+        <div className="absolute inset-0 bg-gradient-to-br from-background via-card to-background" />
+        <div className="absolute top-0 left-1/3 h-[500px] w-[500px] rounded-full bg-primary/20 blur-[140px]" />
+        <div className="absolute bottom-0 right-1/4 h-[500px] w-[500px] rounded-full bg-accent/15 blur-[140px]" />
+      </div>
+
+      <div className="mx-auto max-w-7xl px-6">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
+          <div className="max-w-2xl">
+            <div className="text-[10px] tracking-[0.4em] text-accent mb-6">04 — FEED OFICIAL</div>
+            <h2 className="text-4xl md:text-6xl font-black leading-[0.95] tracking-tight">
+              DIRETO DO<br />
+              <span className="bg-gradient-to-r from-primary via-accent to-primary-glow bg-clip-text text-transparent">@elite_floripa</span>
+            </h2>
+            <p className="mt-6 text-base md:text-lg text-muted-foreground font-light">
+              Bastidores, treinos, jogos e conquistas — postado em tempo real pela equipe oficial.
+            </p>
+          </div>
+
+          <a
+            href="https://instagram.com/elite_floripa"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group inline-flex items-center gap-3 rounded-full border border-primary/40 bg-gradient-to-r from-primary/20 to-accent/20 backdrop-blur-xl px-6 py-3.5 shadow-[var(--shadow-glow)] hover:scale-105 transition-transform self-start"
+          >
+            <Instagram className="h-5 w-5 text-accent" />
+            <span className="text-xs font-bold tracking-[0.25em]">SEGUIR</span>
+            <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition" />
+          </a>
+        </div>
+
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {INSTAGRAM_POSTS.map((url, i) => (
+            <div
+              key={i}
+              className="group relative rounded-3xl border border-border bg-card/60 backdrop-blur-xl overflow-hidden hover:border-primary/50 transition-all p-3"
+            >
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 pointer-events-none" />
+              <blockquote
+                className="instagram-media relative !m-0 !min-w-0 !w-full !bg-transparent !border-0 !shadow-none"
+                data-instgrm-permalink={url}
+                data-instgrm-version="14"
+                style={{ background: "transparent" }}
+              >
+                <a href={url} target="_blank" rel="noopener noreferrer" className="block aspect-square flex items-center justify-center text-muted-foreground text-xs tracking-widest">
+                  CARREGANDO POST DO INSTAGRAM…
+                </a>
+              </blockquote>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
