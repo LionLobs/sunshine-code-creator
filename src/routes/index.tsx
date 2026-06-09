@@ -7,13 +7,6 @@ import {
   ArrowRight, Sparkles, CheckCircle2, Quote, Eye,
 } from "lucide-react";
 import logo from "@/assets/logo.png";
-import heroTeam from "@/assets/hero-team.jpg";
-import playerCelebrate from "@/assets/player-celebrate.jpg";
-import actionImg from "@/assets/action.jpg";
-import teamHug from "@/assets/team-hug.jpg";
-
-import huddle from "@/assets/huddle.jpg";
-import ball from "@/assets/ball.jpg";
 import teamPhoto from "@/assets/team-photo.jpg";
 import teamHuddle from "@/assets/team-huddle.jpg";
 import insta1 from "@/assets/insta-1.jpg";
