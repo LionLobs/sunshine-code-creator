@@ -280,41 +280,9 @@ function Index() {
         </div>
       </section>
 
-      {/* INSTAGRAM */}
-      <section id="instagram" className="relative py-24 md:py-32 overflow-hidden">
-        <div className="absolute inset-0 -z-10">
-          <img src={teamBg} alt="" loading="lazy" className="h-full w-full object-cover opacity-40" width={1920} height={1080} />
-          <div className="absolute inset-0 bg-gradient-to-br from-background via-background/60 to-background" />
-        </div>
+      {/* INSTAGRAM FEED */}
+      <InstagramFeed />
 
-        <div className="mx-auto max-w-5xl px-6 text-center">
-          <div className="text-[10px] tracking-[0.4em] text-accent mb-6">04 — REDES SOCIAIS</div>
-          <h2 className="text-4xl md:text-6xl font-black leading-[0.95] tracking-tight">
-            ACOMPANHE TUDO
-            <br />
-            <span className="bg-gradient-to-r from-primary via-accent to-primary-glow bg-clip-text text-transparent">EM TEMPO REAL.</span>
-          </h2>
-          <p className="mt-6 text-base md:text-lg text-muted-foreground font-light max-w-2xl mx-auto">
-            Bastidores, treinos, jogos e conquistas — tudo postado pela equipe oficial do Elite Floripa, todos os dias.
-          </p>
-
-          <a
-            href="https://instagram.com/elite_floripa"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group mt-12 inline-flex items-center gap-4 rounded-full border border-primary/40 bg-gradient-to-r from-primary/20 via-card to-accent/20 backdrop-blur-xl px-8 py-5 shadow-[var(--shadow-glow)] hover:scale-105 transition-transform"
-          >
-            <div className="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-primary to-accent shadow-[var(--shadow-glow)]">
-              <Instagram className="h-6 w-6 text-primary-foreground" />
-            </div>
-            <div className="text-left">
-              <div className="text-[10px] tracking-[0.3em] text-accent font-bold">SIGA NO INSTAGRAM</div>
-              <div className="text-xl md:text-2xl font-black tracking-tight group-hover:text-accent transition">@elite_floripa</div>
-            </div>
-            <ArrowRight className="h-5 w-5 ml-2 group-hover:translate-x-1 transition" />
-          </a>
-        </div>
-      </section>
 
       {/* CONTATO */}
       <section id="contato" className="relative py-24 md:py-32">
