@@ -1,8 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import {
-  Trophy, Users, Target, Instagram, MapPin, Calendar,
-  ArrowRight, Sparkles, ChevronRight, Mail, Phone,
+  Trophy, Users, Target, Instagram, MapPin,
+  ArrowRight, Sparkles, ChevronRight, Mail,
   Award, Flame, Shield, Crown,
 } from "lucide-react";
 import logoAsset from "@/assets/logo.png.asset.json";
@@ -29,7 +29,7 @@ const values = [
   { icon: Trophy, title: "Alto Desempenho", desc: "Treinos diários, metodologia profissional e cobrança real." },
   { icon: Users, title: "Formação Humana", desc: "Disciplina, respeito e responsabilidade dentro e fora de quadra." },
   { icon: Target, title: "Foco em Resultado", desc: "Cada temporada com metas claras — estaduais, regionais e nacionais." },
-  { icon: Shield, title: "Projeto Oficial", desc: "Reconhecido pela Prefeitura de Florianópolis." },
+  { icon: Shield, title: "Time Oficial", desc: "Reconhecido pela Prefeitura de Florianópolis." },
 ];
 
 const achievements = [
@@ -68,7 +68,7 @@ function Index() {
             </div>
           </a>
           <nav className="hidden lg:flex items-center gap-9 text-sm font-medium text-muted-foreground">
-            <a href="#sobre" className="hover:text-foreground transition">Sobre</a>
+            <a href="#sobre" className="hover:text-foreground transition">O Time</a>
             <a href="#categorias" className="hover:text-foreground transition">Categorias</a>
             <a href="#conquistas" className="hover:text-foreground transition">Conquistas</a>
             <a href="#instagram" className="hover:text-foreground transition">Instagram</a>
@@ -85,16 +85,10 @@ function Index() {
         </div>
       </header>
 
-      {/* HERO — full-bleed background photo */}
+      {/* HERO */}
       <section id="top" className="relative min-h-screen flex items-end pt-24 pb-16 overflow-hidden">
         <div className="absolute inset-0 -z-10">
-          <img
-            src={heroBg}
-            alt="Elite Floripa em quadra"
-            className="h-full w-full object-cover"
-            width={1920}
-            height={1080}
-          />
+          <img src={heroBg} alt="Elite Floripa em quadra" className="h-full w-full object-cover" width={1920} height={1080} />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/85 to-background/40" />
           <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/30 to-transparent" />
           <div className="absolute inset-0 bg-primary/10 mix-blend-overlay" />
@@ -104,7 +98,7 @@ function Index() {
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 backdrop-blur px-4 py-1.5 text-[10px] font-bold tracking-[0.3em] text-accent mb-8">
               <Sparkles className="h-3 w-3" />
-              SITE OFICIAL · PROJETO RECONHECIDO PELA PREFEITURA
+              SITE OFICIAL · TIME RECONHECIDO PELA PREFEITURA
             </div>
             <h1 className="text-5xl md:text-7xl xl:text-8xl font-black leading-[0.85] tracking-tight">
               ELITE
@@ -122,7 +116,7 @@ function Index() {
 
             <div className="mt-10 flex flex-wrap gap-3">
               <a href="#sobre" className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-primary to-accent px-6 py-3.5 text-sm font-bold text-primary-foreground shadow-[var(--shadow-glow)] hover:scale-105 transition-transform">
-                Conheça o projeto <ArrowRight className="h-4 w-4" />
+                Conheça o time <ArrowRight className="h-4 w-4" />
               </a>
               <a href="#contato" className="inline-flex items-center gap-2 rounded-full border border-border bg-card/50 backdrop-blur px-6 py-3.5 text-sm font-bold hover:bg-card hover:border-primary/50 transition">
                 Entre em contato
@@ -131,7 +125,6 @@ function Index() {
           </div>
         </div>
 
-        {/* Floating side meta */}
         <div className="hidden lg:flex absolute right-8 bottom-12 flex-col items-end gap-2 z-10">
           <div className="text-[10px] tracking-[0.4em] text-muted-foreground">SEDE</div>
           <div className="flex items-center gap-2 text-sm font-bold">
@@ -140,14 +133,14 @@ function Index() {
         </div>
       </section>
 
-      {/* STATS STRIP */}
+      {/* STATS */}
       <section className="relative border-y border-border bg-background/60 backdrop-blur-xl">
         <div className="mx-auto max-w-7xl px-6 grid grid-cols-2 md:grid-cols-4 divide-x divide-border">
           {[
             { value: "+50", label: "Atletas ativos" },
             { value: "3", label: "Categorias de base" },
             { value: "+15", label: "Títulos conquistados" },
-            { value: "2018", label: "Fundação do projeto" },
+            { value: "2018", label: "Fundação do time" },
           ].map((s) => (
             <div key={s.label} className="text-center py-8 px-2">
               <div className="text-3xl md:text-4xl font-black bg-gradient-to-br from-primary-foreground via-accent to-primary bg-clip-text text-transparent">{s.value}</div>
@@ -157,7 +150,7 @@ function Index() {
         </div>
       </section>
 
-      {/* SOBRE — full bleed bg */}
+      {/* SOBRE */}
       <section id="sobre" className="relative py-24 md:py-32 overflow-hidden">
         <div className="absolute inset-0 -z-10">
           <img src={teamBg} alt="" loading="lazy" className="h-full w-full object-cover opacity-25" width={1920} height={1080} />
@@ -167,18 +160,18 @@ function Index() {
 
         <div className="mx-auto max-w-7xl px-6 grid lg:grid-cols-[1fr_1.3fr] gap-16 items-center">
           <div>
-            <div className="text-[10px] tracking-[0.4em] text-accent mb-6">01 — O PROJETO</div>
+            <div className="text-[10px] tracking-[0.4em] text-accent mb-6">01 — O TIME</div>
             <h2 className="text-4xl md:text-5xl font-black leading-[0.95] tracking-tight">
               MAIS QUE UM TIME.
               <br />
-              <span className="text-accent">UM PROJETO DE VIDA.</span>
+              <span className="text-accent">UMA FAMÍLIA.</span>
             </h2>
             <div className="mt-6 h-1 w-20 bg-gradient-to-r from-primary to-accent rounded-full" />
           </div>
 
           <div className="space-y-6 text-base md:text-lg text-foreground/80 leading-relaxed font-light">
             <p>
-              O <span className="text-foreground font-semibold">Elite Floripa</span> é um projeto oficial de voleibol masculino de base, sediado em Florianópolis e reconhecido pela Prefeitura. Nossa missão é formar atletas e pessoas em três categorias: <span className="text-accent font-semibold">Sub-17, Sub-19 e Sub-21</span>.
+              O <span className="text-foreground font-semibold">Elite Floripa</span> é um time oficial de voleibol masculino de base, sediado em Florianópolis e reconhecido pela Prefeitura. Formamos atletas e pessoas em três categorias: <span className="text-accent font-semibold">Sub-17, Sub-19 e Sub-21</span>.
             </p>
             <p>
               Trabalhamos com metodologia profissional, treinos diários, estrutura completa e cobrança real — porque acreditamos que disciplina e amor pelo esporte caminham juntos.
@@ -189,7 +182,6 @@ function Index() {
           </div>
         </div>
 
-        {/* Values grid */}
         <div className="mx-auto max-w-7xl px-6 mt-20 grid grid-cols-2 lg:grid-cols-4 gap-4">
           {values.map(({ icon: Icon, title, desc }) => (
             <div key={title} className="group relative rounded-2xl border border-border bg-card/70 backdrop-blur-xl p-5 hover:border-primary/60 hover:-translate-y-1 transition-all overflow-hidden">
@@ -222,11 +214,7 @@ function Index() {
 
           <div className="grid md:grid-cols-3 gap-5">
             {categories.map(({ age, desc, icon: Icon }, i) => (
-              <div
-                key={age}
-                className="group relative rounded-3xl border border-border bg-card/60 backdrop-blur-xl overflow-hidden hover:border-primary/60 transition-all"
-              >
-                {/* image background per card */}
+              <div key={age} className="group relative rounded-3xl border border-border bg-card/60 backdrop-blur-xl overflow-hidden hover:border-primary/60 transition-all">
                 <div className="absolute inset-0 -z-10 opacity-30 group-hover:opacity-50 transition-opacity">
                   <img src={i === 0 ? heroBg : i === 1 ? teamBg : ballBg} alt="" loading="lazy" className="h-full w-full object-cover" />
                   <div className="absolute inset-0 bg-gradient-to-t from-card via-card/80 to-card/40" />
@@ -253,7 +241,7 @@ function Index() {
         </div>
       </section>
 
-      {/* CONQUISTAS — full bleed ball bg */}
+      {/* CONQUISTAS */}
       <section id="conquistas" className="relative py-24 md:py-32 overflow-hidden">
         <div className="absolute inset-0 -z-10">
           <img src={ballBg} alt="" loading="lazy" className="h-full w-full object-cover opacity-30" width={1920} height={1080} />
@@ -277,10 +265,7 @@ function Index() {
 
           <div className="space-y-3">
             {achievements.map((a, i) => (
-              <div
-                key={i}
-                className="group relative grid grid-cols-[80px_1fr_auto] md:grid-cols-[120px_1fr_auto] items-center gap-4 md:gap-8 rounded-2xl border border-border bg-card/70 backdrop-blur-xl p-5 md:p-7 hover:border-primary/50 hover:bg-card transition-all"
-              >
+              <div key={i} className="group relative grid grid-cols-[80px_1fr_auto] md:grid-cols-[120px_1fr_auto] items-center gap-4 md:gap-8 rounded-2xl border border-border bg-card/70 backdrop-blur-xl p-5 md:p-7 hover:border-primary/50 hover:bg-card transition-all">
                 <div className="text-3xl md:text-5xl font-black bg-gradient-to-br from-primary-foreground to-accent bg-clip-text text-transparent tracking-tighter">{a.year}</div>
                 <div>
                   <div className="text-base md:text-xl font-bold leading-snug">{a.title}</div>
@@ -295,7 +280,7 @@ function Index() {
         </div>
       </section>
 
-      {/* INSTAGRAM CTA */}
+      {/* INSTAGRAM */}
       <section id="instagram" className="relative py-24 md:py-32 overflow-hidden">
         <div className="absolute inset-0 -z-10">
           <img src={teamBg} alt="" loading="lazy" className="h-full w-full object-cover opacity-40" width={1920} height={1080} />
@@ -346,7 +331,7 @@ function Index() {
                 <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">DO ELITE?</span>
               </h2>
               <p className="mt-6 text-base md:text-lg text-muted-foreground font-light max-w-xl mx-auto">
-                Atletas, famílias, escolas, imprensa ou interessados — entre em contato. Estamos sempre abertos a quem quer somar com o projeto.
+                Atletas, famílias, escolas, imprensa ou interessados — entre em contato. O time está sempre aberto a quem quer somar.
               </p>
 
               <div className="mt-12 grid sm:grid-cols-3 gap-4">
@@ -382,7 +367,7 @@ function Index() {
             </div>
           </div>
           <div className="flex items-center gap-6 text-xs">
-            <a href="#sobre" className="hover:text-foreground transition">Sobre</a>
+            <a href="#sobre" className="hover:text-foreground transition">O Time</a>
             <a href="#categorias" className="hover:text-foreground transition">Categorias</a>
             <a href="#conquistas" className="hover:text-foreground transition">Conquistas</a>
             <a href="#contato" className="hover:text-foreground transition">Contato</a>
