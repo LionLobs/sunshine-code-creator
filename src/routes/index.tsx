@@ -589,7 +589,7 @@ function Index() {
       {/* FINAL CTA */}
       <section id="contato" className="relative py-12 md:py-16">
         <div className="absolute inset-0 -z-10">
-          <img src={teamHug} alt="" className="h-full w-full object-cover opacity-25" />
+          <img src={insta6} alt="" className="h-full w-full object-cover opacity-30 grayscale" />
           <div className="absolute inset-0 bg-gradient-to-b from-background via-background/90 to-background" />
         </div>
         <Ribbon className="bottom-0 left-0 h-40 w-60 opacity-40" />
