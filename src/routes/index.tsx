@@ -28,7 +28,7 @@ const instaPhotos = [
   "/assets/photos/action-1.jpg",
   "/assets/photos/group.jpg",
   "/assets/photos/team-4.jpg",
-  "/assets/photos/trophy.jpg",
+
 ];
 
 export const Route = createFileRoute("/")({
