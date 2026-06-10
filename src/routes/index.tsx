@@ -153,6 +153,7 @@ function Index() {
             className="h-full w-full object-cover"
             width={1920}
             height={1080}
+            fetchPriority="high"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/85 to-background/40" />
           <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/30 to-transparent" />
@@ -161,53 +162,72 @@ function Index() {
 
         <div className="relative z-10 mx-auto max-w-7xl px-6 w-full">
           <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 backdrop-blur px-4 py-1.5 text-[10px] font-bold tracking-[0.3em] text-accent mb-8">
-              <Sparkles className="h-3 w-3" />
-              SITE OFICIAL · TIME RECONHECIDO PELA PREFEITURA
+            <div className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 backdrop-blur px-4 py-1.5 text-[10px] font-bold tracking-[0.3em] text-accent mb-6">
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-75" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
+              </span>
+              TIME OFICIAL · FLORIANÓPOLIS · SC
             </div>
             <h1 className="text-5xl md:text-7xl xl:text-8xl font-black leading-[0.85] tracking-tight">
-              ELITE
+              FORMANDO
               <br />
               <span className="bg-gradient-to-r from-primary via-accent to-primary-glow bg-clip-text text-transparent">
-                FLORIPA
+                CAMPEÕES
               </span>
+              <br />
+              <span className="text-foreground/90">DE VÔLEI.</span>
             </h1>
-            <div className="mt-4 flex items-center gap-3">
-              <div className="h-[2px] w-16 bg-accent" />
-              <div className="text-xs md:text-sm font-bold tracking-[0.4em] text-accent uppercase">
-                Voleibol Masculino · SC
-              </div>
-            </div>
-            <p className="mt-8 max-w-xl text-lg md:text-xl text-foreground/85 leading-relaxed font-light">
-              Formando atletas e pessoas no mais alto nível do voleibol catarinense.
-              <span className="text-foreground font-semibold">
-                {" "}
-                Base sólida. Treino diário. Resultado real.
-              </span>
+
+            <p className="mt-8 max-w-xl text-base md:text-xl text-foreground/85 leading-relaxed font-light">
+              Escola oficial de voleibol masculino em Florianópolis. Treinamos atletas das
+              categorias{" "}
+              <span className="text-accent font-semibold">Sub-17, Sub-19 e Sub-21</span> para
+              competir no mais alto nível — estadual, regional e nacional.
             </p>
 
-            <div className="mt-10 flex flex-wrap gap-3">
-              <a
-                href="#sobre"
-                className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-primary to-accent px-6 py-3.5 text-sm font-bold text-primary-foreground shadow-[var(--shadow-glow)] hover:scale-105 transition-transform"
-              >
-                Conheça o time <ArrowRight className="h-4 w-4" />
-              </a>
+            <div className="mt-8 flex flex-wrap items-center gap-3">
               <a
                 href="#contato"
+                className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-primary to-accent px-6 py-3.5 text-sm font-bold text-primary-foreground shadow-[var(--shadow-glow)] hover:scale-105 transition-transform"
+              >
+                Quero treinar no Elite <ArrowRight className="h-4 w-4" />
+              </a>
+              <a
+                href="#categorias"
                 className="inline-flex items-center gap-2 rounded-full border border-border bg-card/50 backdrop-blur px-6 py-3.5 text-sm font-bold hover:bg-card hover:border-primary/50 transition"
               >
-                Entre em contato
+                Ver categorias
               </a>
+            </div>
+
+            <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3 text-xs text-muted-foreground">
+              <div className="flex items-center gap-2">
+                <Trophy className="h-4 w-4 text-accent" />
+                <span>+15 títulos</span>
+              </div>
+              <div className="h-3 w-px bg-border hidden sm:block" />
+              <div className="flex items-center gap-2">
+                <Users className="h-4 w-4 text-accent" />
+                <span>+50 atletas ativos</span>
+              </div>
+              <div className="h-3 w-px bg-border hidden sm:block" />
+              <div className="flex items-center gap-2">
+                <MapPin className="h-4 w-4 text-accent" />
+                <span>Florianópolis · SC</span>
+              </div>
             </div>
           </div>
         </div>
 
-        <div className="hidden lg:flex absolute right-8 bottom-12 flex-col items-end gap-2 z-10">
-          <div className="text-[10px] tracking-[0.4em] text-muted-foreground">SEDE</div>
-          <div className="flex items-center gap-2 text-sm font-bold">
-            <MapPin className="h-4 w-4 text-accent" /> Florianópolis · Santa Catarina
-          </div>
+        <div className="absolute bottom-6 inset-x-0 z-10 flex justify-center">
+          <a
+            href="#sobre"
+            className="flex flex-col items-center gap-2 text-[10px] tracking-[0.4em] text-muted-foreground hover:text-accent transition"
+          >
+            <span>ROLE PARA EXPLORAR</span>
+            <ChevronRight className="h-4 w-4 rotate-90 animate-bounce" />
+          </a>
         </div>
       </section>
 
