@@ -16,9 +16,20 @@ import {
   Crown,
 } from "lucide-react";
 const logo = "/assets/logo.png";
-const heroBg = "/assets/hero-bg.jpg";
-const teamBg = "/assets/team-bg.jpg";
-const ballBg = "/assets/ball-bg.jpg";
+const heroBg = "/assets/photos/action-1.jpg";
+const teamBg = "/assets/photos/team-3.jpg";
+const ballBg = "/assets/photos/spike.jpg";
+const instaPhotos = [
+  "/assets/photos/team-1.jpg",
+  "/assets/photos/spike.jpg",
+  "/assets/photos/team-2.jpg",
+  "/assets/photos/block.jpg",
+  "/assets/photos/huddle.jpg",
+  "/assets/photos/action-1.jpg",
+  "/assets/photos/group.jpg",
+  "/assets/photos/team-4.jpg",
+  "/assets/photos/trophy.jpg",
+];
 
 export const Route = createFileRoute("/")({
   component: Index,
