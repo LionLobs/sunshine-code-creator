@@ -432,6 +432,27 @@ function Index() {
             Floripa, todos os dias.
           </p>
 
+          <div className="mt-12 grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
+            {instaPhotos.map((src, i) => (
+              <a
+                key={i}
+                href="https://instagram.com/elite_floripa"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative aspect-square overflow-hidden rounded-2xl border border-border hover:border-primary/60 transition"
+              >
+                <img
+                  src={src}
+                  alt={`Elite Floripa Voleibol ${i + 1}`}
+                  loading="lazy"
+                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition" />
+                <Instagram className="absolute bottom-3 right-3 h-5 w-5 text-primary-foreground opacity-0 group-hover:opacity-100 transition" />
+              </a>
+            ))}
+          </div>
+
           <a
             href="https://instagram.com/elite_floripa"
             target="_blank"
