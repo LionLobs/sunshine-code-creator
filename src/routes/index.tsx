@@ -173,7 +173,7 @@ function Index() {
               FORMANDO
               <br />
               <span className="bg-gradient-to-r from-primary via-accent to-primary-glow bg-clip-text text-transparent">
-                CAMPEÕES
+                ATLETAS
               </span>
               <br />
               <span className="text-foreground/90">DE VÔLEI.</span>
