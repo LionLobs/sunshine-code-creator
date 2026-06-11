@@ -398,24 +398,40 @@ function Home() {
           <h2 className="text-3xl md:text-5xl font-black tracking-tighter mb-10">
             Acompanhe tudo no <span className="text-accent">Instagram</span>.
           </h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-            {instaPhotos.slice(0, 8).map((src, i) => (
-              <a
-                key={i}
-                href="https://instagram.com/elite_floripa"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group relative aspect-square overflow-hidden rounded-2xl border border-border hover:border-primary/60 transition"
-              >
-                <img
-                  src={src}
-                  alt={`Elite Floripa ${i + 1}`}
-                  loading="lazy"
-                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-                <Instagram className="absolute bottom-3 right-3 h-5 w-5 text-primary-foreground opacity-0 group-hover:opacity-100 transition" />
-              </a>
+          <div className="relative space-y-4 [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)] [mask-image:radial-gradient(ellipse_at_center,black_55%,transparent_95%)]">
+            {[
+              { dir: "animate-[marquee_45s_linear_infinite]", set: instaPhotos.slice(0, 6) },
+              { dir: "animate-[marquee_60s_linear_infinite_reverse]", set: instaPhotos.slice(0, 6).reverse() },
+            ].map((row, r) => (
+              <div key={r} className="flex gap-4 w-max will-change-transform" style={{ animation: undefined }}>
+                <div className={`flex gap-4 ${row.dir}`}>
+                  {[...row.set, ...row.set, ...row.set].map((src, i) => (
+                    <a
+                      key={`${r}-${i}`}
+                      href="https://instagram.com/elite_floripa"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group relative h-44 w-44 md:h-56 md:w-56 shrink-0 overflow-hidden rounded-3xl border border-border/60 hover:border-primary/60 transition shadow-[var(--shadow-card)]"
+                      style={{
+                        transform: `translateY(${(i % 3) * 6 - 6}px) rotate(${((i % 5) - 2) * 0.8}deg)`,
+                      }}
+                    >
+                      <img
+                        src={src}
+                        alt={`Elite Floripa ${i + 1}`}
+                        loading="lazy"
+                        className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                      />
+                      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/70 via-background/0 to-background/20" />
+                      <div className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-white/5 rounded-3xl" />
+                      <Instagram className="absolute bottom-3 right-3 h-5 w-5 text-primary-foreground opacity-0 group-hover:opacity-100 transition" />
+                    </a>
+                  ))}
+                </div>
+              </div>
             ))}
+            <div className="pointer-events-none absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-background to-transparent" />
+            <div className="pointer-events-none absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-background to-transparent" />
           </div>
         </div>
       </section>
