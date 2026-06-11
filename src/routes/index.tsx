@@ -137,7 +137,7 @@ function Home() {
       <Header />
 
       {/* HERO */}
-      <section className="relative min-h-screen flex items-end pt-24 pb-16 overflow-hidden isolate">
+      <section className="relative min-h-[100svh] flex items-end pt-24 pb-4 md:pb-16 overflow-hidden isolate">
         <div className="absolute inset-0 z-0">
           <img
             src={heroBg}
