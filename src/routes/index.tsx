@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
+import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import {
   Trophy,
   Users,
@@ -14,7 +15,11 @@ import {
   Flame,
   Shield,
   Crown,
+  ChevronLeft,
+  Quote,
 } from "lucide-react";
+import { InfiniteMovingCards } from "@/components/infinite-moving-cards";
+import { Button } from "@/components/ui/button";
 const logo = "/assets/logo.png";
 const heroBg = "/assets/photos/action-1.jpg";
 const teamBg = "/assets/photos/team-3.jpg";
@@ -81,6 +86,14 @@ const achievements = [
 
 function Index() {
   const [scrolled, setScrolled] = useState(false);
+  const containerRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end end"],
+  });
+
+  const opacity = useTransform(scrollYProgress, [0, 0.05], [1, 0]);
+  const scale = useTransform(scrollYProgress, [0, 0.05], [1, 0.9]);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 30);
@@ -89,7 +102,8 @@ function Index() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
+    <div ref={containerRef} className="min-h-screen bg-background text-foreground overflow-x-hidden selection:bg-primary selection:text-primary-foreground">
+
       {/* Ambient global */}
       <div className="pointer-events-none fixed inset-0 -z-10">
         <div className="absolute top-0 left-1/4 h-[700px] w-[700px] rounded-full bg-primary/15 blur-[160px]" />
@@ -99,18 +113,21 @@ function Index() {
 
       {/* NAV */}
       <header
-        className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${scrolled ? "bg-background/80 backdrop-blur-xl border-b border-border" : ""}`}
+        className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${scrolled ? "bg-background/80 backdrop-blur-xl border-b border-border py-3" : "py-6"}`}
       >
-        <div className="mx-auto max-w-7xl px-6 py-4 flex items-center justify-between">
-          <a href="#top" className="flex items-center gap-3">
-            <img
-              src={logo}
-              alt="Elite Floripa Voleibol"
-              className="h-10 w-auto drop-shadow-[0_0_18px_oklch(0.7_0.2_300_/_0.6)]"
-            />
+        <div className="mx-auto max-w-7xl px-6 flex items-center justify-between">
+          <a href="#top" className="flex items-center gap-3 group">
+            <div className="relative">
+              <img
+                src={logo}
+                alt="Elite Floripa Voleibol"
+                className="h-10 w-auto drop-shadow-[0_0_18px_oklch(0.7_0.2_300_/_0.6)] group-hover:scale-110 transition-transform duration-300"
+              />
+              {scrolled && <div className="absolute -inset-2 bg-primary/20 blur-xl rounded-full animate-glow-pulse" />}
+            </div>
             <div className="hidden sm:block leading-tight">
-              <div className="text-sm font-black tracking-[0.18em]">ELITE FLORIPA</div>
-              <div className="text-[9px] text-accent tracking-[0.35em]">VOLEIBOL MASCULINO</div>
+              <div className="text-sm font-black tracking-[0.18em] group-hover:text-primary transition-colors">ELITE FLORIPA</div>
+              <div className="text-[9px] text-accent tracking-[0.35em] font-bold">VOLEIBOL MASCULINO</div>
             </div>
           </a>
           <nav className="hidden lg:flex items-center gap-9 text-sm font-medium text-muted-foreground">
@@ -142,8 +159,9 @@ function Index() {
       </header>
 
       {/* HERO */}
-      <section
+      <motion.section
         id="top"
+        style={{ opacity, scale }}
         className="relative min-h-screen flex items-end pt-24 pb-16 overflow-hidden"
       >
         <div className="absolute inset-0 -z-10">
@@ -229,7 +247,7 @@ function Index() {
             <ChevronRight className="h-4 w-4 rotate-90 animate-bounce" />
           </a>
         </div>
-      </section>
+      </motion.section>
 
       {/* STATS */}
       <section className="relative border-y border-border bg-background/60 backdrop-blur-xl">
@@ -297,20 +315,24 @@ function Index() {
         </div>
 
         <div className="mx-auto max-w-7xl px-6 mt-20 grid grid-cols-2 lg:grid-cols-4 gap-4">
-          {values.map(({ icon: Icon, title, desc }) => (
-            <div
+          {values.map(({ icon: Icon, title, desc }, i) => (
+            <motion.div
               key={title}
-              className="group relative rounded-2xl border border-border bg-card/70 backdrop-blur-xl p-5 hover:border-primary/60 hover:-translate-y-1 transition-all overflow-hidden"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1 }}
+              className="group relative rounded-2xl border border-border bg-card/70 backdrop-blur-xl p-6 hover:border-primary/60 hover:-translate-y-2 transition-all duration-300 overflow-hidden shadow-lg"
             >
-              <div className="absolute -top-10 -right-10 h-28 w-28 rounded-full bg-primary/30 blur-2xl opacity-0 group-hover:opacity-100 transition" />
+              <div className="absolute -top-10 -right-10 h-28 w-28 rounded-full bg-primary/20 blur-2xl opacity-0 group-hover:opacity-100 transition duration-500" />
               <div className="relative">
-                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-accent shadow-[var(--shadow-glow)] mb-4">
-                  <Icon className="h-5 w-5 text-primary-foreground" />
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-accent shadow-[var(--shadow-glow)] mb-4 group-hover:scale-110 transition-transform">
+                  <Icon className="h-6 w-6 text-primary-foreground" />
                 </div>
-                <div className="text-sm font-bold tracking-wide">{title}</div>
-                <p className="mt-1.5 text-xs text-muted-foreground leading-relaxed">{desc}</p>
+                <div className="text-base font-black tracking-tight">{title}</div>
+                <p className="mt-2 text-xs text-muted-foreground leading-relaxed font-medium">{desc}</p>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </section>
@@ -318,12 +340,17 @@ function Index() {
       {/* CATEGORIAS */}
       <section id="categorias" className="relative py-24 md:py-32">
         <div className="mx-auto max-w-7xl px-6">
-          <div className="max-w-3xl mb-16">
-            <div className="text-[10px] tracking-[0.4em] text-accent mb-6">02 — CATEGORIAS</div>
-            <h2 className="text-4xl md:text-5xl font-black leading-[0.95] tracking-tight">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="max-w-3xl mb-16"
+          >
+            <div className="text-[10px] tracking-[0.4em] text-accent mb-6 font-black">02 — CATEGORIAS</div>
+            <h2 className="text-4xl md:text-5xl lg:text-7xl font-black leading-[0.95] tracking-tighter">
               TRÊS GERAÇÕES.
               <br />
-              <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent italic">
                 UMA MESMA QUADRA.
               </span>
             </h2>
@@ -331,96 +358,71 @@ function Index() {
               Cada categoria com treinos próprios, treinadores especializados e calendário de
               competições alinhado ao seu nível de desenvolvimento.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-5">
+          <div className="grid md:grid-cols-3 gap-6">
             {categories.map(({ age, desc, icon: Icon }, i) => (
-              <div
+              <motion.div
                 key={age}
-                className="group relative rounded-3xl border border-border bg-card/60 backdrop-blur-xl overflow-hidden hover:border-primary/60 transition-all"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="group relative rounded-[2rem] border border-border bg-card/40 backdrop-blur-xl overflow-hidden hover:border-primary/60 transition-all duration-500 shadow-xl"
               >
-                <div className="absolute inset-0 -z-10 opacity-30 group-hover:opacity-50 transition-opacity">
+                <div className="absolute inset-0 -z-10 opacity-20 group-hover:opacity-40 transition-opacity duration-700">
                   <img
                     src={i === 0 ? heroBg : i === 1 ? teamBg : ballBg}
                     alt=""
                     loading="lazy"
-                    className="h-full w-full object-cover"
+                    className="h-full w-full object-cover scale-105 group-hover:scale-110 transition-transform duration-1000"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-card via-card/80 to-card/40" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-card via-card/90 to-transparent" />
                 </div>
 
-                <div className="relative p-7 md:p-8 h-full flex flex-col min-h-[340px]">
+                <div className="relative p-8 h-full flex flex-col min-h-[400px]">
                   <div className="flex items-start justify-between">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-accent shadow-[var(--shadow-glow)]">
-                      <Icon className="h-5 w-5 text-primary-foreground" />
+                    <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-primary to-accent shadow-[var(--shadow-glow)] group-hover:rotate-6 transition-transform">
+                      <Icon className="h-6 w-6 text-primary-foreground" />
                     </div>
-                    <div className="text-5xl font-black text-foreground/10 tracking-tighter">
+                    <div className="text-6xl font-black text-foreground/5 tracking-tighter group-hover:text-primary/10 transition-colors">
                       0{i + 1}
                     </div>
                   </div>
                   <div className="mt-auto">
-                    <div className="text-3xl md:text-4xl font-black tracking-tight">{age}</div>
-                    <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{desc}</p>
-                    <div className="mt-6 inline-flex items-center gap-2 text-[10px] font-bold tracking-[0.3em] text-accent uppercase">
-                      Treinos diários <ChevronRight className="h-3 w-3" />
+                    <div className="text-4xl font-black tracking-tighter mb-2 group-hover:translate-x-1 transition-transform">{age}</div>
+                    <p className="mt-3 text-sm text-muted-foreground leading-relaxed font-medium">{desc}</p>
+                    <div className="mt-8 flex items-center justify-between">
+                      <div className="inline-flex items-center gap-2 text-[10px] font-black tracking-[0.3em] text-accent uppercase">
+                        Treinos diários
+                      </div>
+                      <div className="h-10 w-10 rounded-full border border-border flex items-center justify-center group-hover:bg-primary group-hover:border-primary transition-all">
+                        <ChevronRight className="h-4 w-4 text-foreground group-hover:text-primary-foreground" />
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CONQUISTAS */}
-      <section id="conquistas" className="relative py-24 md:py-32 overflow-hidden">
-        <div className="absolute inset-0 -z-10">
-          <img
-            src={ballBg}
-            alt=""
-            loading="lazy"
-            className="h-full w-full object-cover opacity-30"
-            width={1920}
-            height={1080}
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-background via-background/75 to-background" />
-          <div className="absolute inset-0 bg-accent/10 mix-blend-multiply" />
+      {/* INFINITE ACHIEVEMENTS */}
+      <section id="conquistas" className="relative py-24 md:py-32 overflow-hidden bg-muted/20">
+        <div className="mx-auto max-w-7xl px-6 mb-12">
+          <motion.div
+             initial={{ opacity: 0, x: -20 }}
+             whileInView={{ opacity: 1, x: 0 }}
+             viewport={{ once: true }}
+          >
+            <div className="text-[10px] tracking-[0.4em] text-accent mb-6 font-black">03 — CONQUISTAS</div>
+            <h2 className="text-4xl md:text-6xl font-black tracking-tighter">HISTÓRICO DE <span className="text-accent italic">ELITE.</span></h2>
+          </motion.div>
         </div>
-
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
-            <div>
-              <div className="text-[10px] tracking-[0.4em] text-accent mb-6">03 — CONQUISTAS</div>
-              <h2 className="text-4xl md:text-5xl font-black leading-[0.95] tracking-tight">
-                NOSSA
-                <br />
-                <span className="text-accent">TRAJETÓRIA.</span>
-              </h2>
-            </div>
-            <p className="md:text-right text-muted-foreground max-w-md text-base md:text-lg font-light">
-              Cada título é fruto de anos de trabalho silencioso de atletas, técnicos e famílias.
-            </p>
-          </div>
-
-          <div className="space-y-3">
-            {achievements.map((a, i) => (
-              <div
-                key={i}
-                className="group relative grid grid-cols-[80px_1fr_auto] md:grid-cols-[120px_1fr_auto] items-center gap-4 md:gap-8 rounded-2xl border border-border bg-card/70 backdrop-blur-xl p-5 md:p-7 hover:border-primary/50 hover:bg-card transition-all"
-              >
-                <div className="text-3xl md:text-5xl font-black bg-gradient-to-br from-primary-foreground to-accent bg-clip-text text-transparent tracking-tighter">
-                  {a.year}
-                </div>
-                <div>
-                  <div className="text-base md:text-xl font-bold leading-snug">{a.title}</div>
-                  <div className="text-xs text-muted-foreground tracking-wider mt-1 flex items-center gap-1.5">
-                    <MapPin className="h-3 w-3" /> {a.place}
-                  </div>
-                </div>
-                <Award className="h-6 w-6 md:h-8 md:w-8 text-accent opacity-50 group-hover:opacity-100 transition" />
-              </div>
-            ))}
-          </div>
+        <InfiniteMovingCards items={achievements} direction="right" speed="slow" />
+        <div className="mt-4">
+          <InfiniteMovingCards items={[...achievements].reverse()} direction="left" speed="normal" />
         </div>
       </section>
 
@@ -495,69 +497,88 @@ function Index() {
         </div>
       </section>
 
+      {/* TESTIMONIALS / QUOTE */}
+      <section className="relative py-24 md:py-32 overflow-hidden bg-accent/5">
+        <div className="mx-auto max-w-4xl px-6 text-center">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="relative"
+          >
+            <Quote className="h-20 w-20 text-primary/10 absolute -top-10 -left-10" />
+            <h2 className="text-2xl md:text-4xl font-black italic leading-tight text-foreground/90">
+              "NOSSO OBJETIVO NÃO É APENAS VENCER JOGOS, MAS FORMAR CIDADÃOS QUE ENTENDEM O VALOR DA DISCIPLINA, DO RESPEITO E DO TRABALHO EM EQUIPE."
+            </h2>
+            <div className="mt-8 flex flex-col items-center">
+              <div className="h-1 w-12 bg-primary mb-4 rounded-full" />
+              <div className="text-sm font-black tracking-widest text-accent uppercase">Comissão Técnica</div>
+              <div className="text-[10px] text-muted-foreground tracking-widest mt-1">ELITE FLORIPA VOLEIBOL</div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* CONTATO */}
       <section id="contato" className="relative py-24 md:py-32">
         <div className="mx-auto max-w-5xl px-6">
-          <div className="relative rounded-[2.5rem] border border-primary/40 bg-gradient-to-br from-card via-background to-card backdrop-blur-xl p-8 md:p-14 overflow-hidden shadow-[var(--shadow-glow)]">
-            <div className="absolute -top-32 -right-32 h-96 w-96 rounded-full bg-primary/30 blur-3xl" />
-            <div className="absolute -bottom-32 -left-32 h-96 w-96 rounded-full bg-accent/25 blur-3xl" />
+          <motion.div 
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="relative rounded-[3rem] border border-primary/30 bg-gradient-to-br from-card/80 via-background to-card/80 backdrop-blur-3xl p-8 md:p-20 overflow-hidden shadow-2xl"
+          >
+            <div className="absolute -top-40 -right-40 h-[500px] w-[500px] rounded-full bg-primary/10 blur-[120px] animate-pulse" />
+            <div className="absolute -bottom-40 -left-40 h-[500px] w-[500px] rounded-full bg-accent/10 blur-[120px] animate-pulse" />
 
             <div className="relative text-center">
-              <img
+              <motion.img
+                initial={{ scale: 0.8, opacity: 0 }}
+                whileInView={{ scale: 1, opacity: 1 }}
+                viewport={{ once: true }}
                 src={logo}
                 alt="Elite Floripa"
-                className="mx-auto h-20 w-auto drop-shadow-[0_0_40px_oklch(0.7_0.2_300_/_0.8)]"
+                className="mx-auto h-24 w-auto drop-shadow-[0_0_50px_oklch(0.7_0.2_300_/_0.6)] mb-10"
               />
-              <div className="mt-8 text-[10px] tracking-[0.4em] text-accent">
+              <div className="text-[10px] tracking-[0.5em] text-accent font-black mb-4">
                 05 — FALE COM A GENTE
               </div>
-              <h2 className="mt-4 text-3xl md:text-5xl font-black leading-tight tracking-tight">
-                QUER FAZER PARTE
+              <h2 className="text-4xl md:text-7xl font-black leading-[0.9] tracking-tighter mb-8">
+                PRONTO PARA
                 <br />
-                <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                  DO ELITE?
+                <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent italic">
+                  O PRÓXIMO NÍVEL?
                 </span>
               </h2>
-              <p className="mt-6 text-base md:text-lg text-muted-foreground font-light max-w-xl mx-auto">
-                Atletas, famílias, escolas, imprensa ou interessados — entre em contato. O time está
-                sempre aberto a quem quer somar.
+              <p className="text-base md:text-xl text-muted-foreground font-medium max-w-2xl mx-auto mb-12">
+                Seja você um atleta talentoso ou um parceiro querendo apoiar o esporte catarinense, sua jornada começa aqui.
               </p>
 
-              <div className="mt-12 grid sm:grid-cols-3 gap-4">
-                <a
-                  href="https://instagram.com/elite_floripa"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group rounded-2xl border border-border bg-background/40 p-5 hover:border-primary/50 hover:bg-background/60 transition text-left"
-                >
-                  <Instagram className="h-5 w-5 text-accent mb-3" />
-                  <div className="text-[10px] tracking-[0.3em] text-muted-foreground font-bold">
-                    INSTAGRAM
-                  </div>
-                  <div className="text-sm font-bold mt-1">@elite_floripa</div>
-                </a>
-                <a
-                  href="mailto:contato@elitefloripa.com.br"
-                  className="group rounded-2xl border border-border bg-background/40 p-5 hover:border-primary/50 hover:bg-background/60 transition text-left"
-                >
-                  <Mail className="h-5 w-5 text-accent mb-3" />
-                  <div className="text-[10px] tracking-[0.3em] text-muted-foreground font-bold">
-                    E-MAIL
-                  </div>
-                  <div className="text-sm font-bold mt-1 break-all">
-                    contato@elitefloripa.com.br
-                  </div>
-                </a>
-                <div className="rounded-2xl border border-border bg-background/40 p-5 text-left">
-                  <MapPin className="h-5 w-5 text-accent mb-3" />
-                  <div className="text-[10px] tracking-[0.3em] text-muted-foreground font-bold">
-                    SEDE
-                  </div>
-                  <div className="text-sm font-bold mt-1">Florianópolis — SC</div>
-                </div>
+              <div className="grid sm:grid-cols-3 gap-6">
+                {[
+                  { icon: Instagram, label: "INSTAGRAM", value: "@elite_floripa", href: "https://instagram.com/elite_floripa" },
+                  { icon: Mail, label: "E-MAIL", value: "contato@elitefloripa.com.br", href: "mailto:contato@elitefloripa.com.br" },
+                  { icon: MapPin, label: "LOCALIZAÇÃO", value: "Florianópolis, SC", href: null },
+                ].map((item, i) => (
+                  <motion.a
+                    key={item.label}
+                    href={item.href || "#"}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.1 * i }}
+                    className="group flex flex-col items-center p-8 rounded-[2rem] border border-border bg-background/20 hover:border-primary/50 hover:bg-background/40 transition-all duration-300 shadow-lg"
+                  >
+                    <div className="h-14 w-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
+                      <item.icon className="h-6 w-6 text-primary group-hover:text-inherit" />
+                    </div>
+                    <div className="text-[10px] tracking-[0.3em] text-muted-foreground font-black mb-1">{item.label}</div>
+                    <div className="text-sm font-bold truncate w-full px-2 text-center">{item.value}</div>
+                  </motion.a>
+                ))}
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
