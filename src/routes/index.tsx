@@ -191,17 +191,15 @@ function Index() {
               FORMANDO
               <br />
               <span className="bg-gradient-to-r from-primary via-accent to-primary-glow bg-clip-text text-transparent">
-                ATLETAS
+                ATLETAS.
               </span>
-              <br />
-              <span className="text-foreground/90">DE VÔLEI.</span>
             </h1>
 
             <p className="mt-8 max-w-xl text-base md:text-xl text-foreground/85 leading-relaxed font-light">
-              Escola oficial de voleibol masculino em Florianópolis. Treinamos atletas das
+              Equipe de voleibol masculino em Florianópolis. Treinamos atletas das
               categorias{" "}
               <span className="text-accent font-semibold">Sub-17, Sub-19 e Sub-21</span> para
-              competir no mais alto nível — estadual, regional e nacional.
+              competir no mais alto nível: estadual, regional e nacional.
             </p>
 
             <div className="mt-8 flex flex-wrap items-center gap-3">
