@@ -145,8 +145,8 @@ function Home() {
             height={1080}
             fetchPriority="high"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/85 to-background/40" />
-          <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/30 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-background/10" />
+          <div className="absolute inset-0 bg-gradient-to-r from-background/70 via-background/10 to-transparent" />
           <div className="absolute inset-0 bg-primary/10 mix-blend-overlay" />
         </div>
 
