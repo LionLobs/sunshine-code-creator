@@ -23,11 +23,13 @@ import { InfiniteMovingCards } from "@/components/infinite-moving-cards";
 import heroServeAsset from "@/assets/hero-serve.png.asset.json";
 import sub17Asset from "@/assets/sub17-team.jpg.asset.json";
 import sub19Asset from "@/assets/sub19-team.jpg.asset.json";
+import sub21Asset from "@/assets/sub21-team.jpg.asset.json";
 
 const logo = "/assets/logo.png";
 const heroBg = heroServeAsset.url;
 const sub17Bg = sub17Asset.url;
 const sub19Bg = sub19Asset.url;
+const sub21Bg = sub21Asset.url;
 const teamBg = "/assets/photos/team-3.jpg";
 const ballBg = "/assets/photos/spike.jpg";
 
