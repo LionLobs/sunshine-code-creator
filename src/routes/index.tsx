@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
+import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import {
   Trophy,
   Users,
@@ -14,7 +15,11 @@ import {
   Flame,
   Shield,
   Crown,
+  ChevronLeft,
+  Quote,
 } from "lucide-react";
+import { InfiniteMovingCards } from "@/components/infinite-moving-cards";
+import { Button } from "@/components/ui/button";
 const logo = "/assets/logo.png";
 const heroBg = "/assets/photos/action-1.jpg";
 const teamBg = "/assets/photos/team-3.jpg";
@@ -81,6 +86,14 @@ const achievements = [
 
 function Index() {
   const [scrolled, setScrolled] = useState(false);
+  const containerRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end end"],
+  });
+
+  const opacity = useTransform(scrollYProgress, [0, 0.05], [1, 0]);
+  const scale = useTransform(scrollYProgress, [0, 0.05], [1, 0.9]);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 30);
@@ -89,7 +102,8 @@ function Index() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
+    <div ref={containerRef} className="min-h-screen bg-background text-foreground overflow-x-hidden selection:bg-primary selection:text-primary-foreground">
+
       {/* Ambient global */}
       <div className="pointer-events-none fixed inset-0 -z-10">
         <div className="absolute top-0 left-1/4 h-[700px] w-[700px] rounded-full bg-primary/15 blur-[160px]" />
@@ -142,8 +156,9 @@ function Index() {
       </header>
 
       {/* HERO */}
-      <section
+      <motion.section
         id="top"
+        style={{ opacity, scale }}
         className="relative min-h-screen flex items-end pt-24 pb-16 overflow-hidden"
       >
         <div className="absolute inset-0 -z-10">
@@ -229,7 +244,7 @@ function Index() {
             <ChevronRight className="h-4 w-4 rotate-90 animate-bounce" />
           </a>
         </div>
-      </section>
+      </motion.section>
 
       {/* STATS */}
       <section className="relative border-y border-border bg-background/60 backdrop-blur-xl">
@@ -318,12 +333,17 @@ function Index() {
       {/* CATEGORIAS */}
       <section id="categorias" className="relative py-24 md:py-32">
         <div className="mx-auto max-w-7xl px-6">
-          <div className="max-w-3xl mb-16">
-            <div className="text-[10px] tracking-[0.4em] text-accent mb-6">02 — CATEGORIAS</div>
-            <h2 className="text-4xl md:text-5xl font-black leading-[0.95] tracking-tight">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="max-w-3xl mb-16"
+          >
+            <div className="text-[10px] tracking-[0.4em] text-accent mb-6 font-black">02 — CATEGORIAS</div>
+            <h2 className="text-4xl md:text-5xl lg:text-7xl font-black leading-[0.95] tracking-tighter">
               TRÊS GERAÇÕES.
               <br />
-              <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent italic">
                 UMA MESMA QUADRA.
               </span>
             </h2>
@@ -331,96 +351,71 @@ function Index() {
               Cada categoria com treinos próprios, treinadores especializados e calendário de
               competições alinhado ao seu nível de desenvolvimento.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-5">
+          <div className="grid md:grid-cols-3 gap-6">
             {categories.map(({ age, desc, icon: Icon }, i) => (
-              <div
+              <motion.div
                 key={age}
-                className="group relative rounded-3xl border border-border bg-card/60 backdrop-blur-xl overflow-hidden hover:border-primary/60 transition-all"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="group relative rounded-[2rem] border border-border bg-card/40 backdrop-blur-xl overflow-hidden hover:border-primary/60 transition-all duration-500 shadow-xl"
               >
-                <div className="absolute inset-0 -z-10 opacity-30 group-hover:opacity-50 transition-opacity">
+                <div className="absolute inset-0 -z-10 opacity-20 group-hover:opacity-40 transition-opacity duration-700">
                   <img
                     src={i === 0 ? heroBg : i === 1 ? teamBg : ballBg}
                     alt=""
                     loading="lazy"
-                    className="h-full w-full object-cover"
+                    className="h-full w-full object-cover scale-105 group-hover:scale-110 transition-transform duration-1000"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-card via-card/80 to-card/40" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-card via-card/90 to-transparent" />
                 </div>
 
-                <div className="relative p-7 md:p-8 h-full flex flex-col min-h-[340px]">
+                <div className="relative p-8 h-full flex flex-col min-h-[400px]">
                   <div className="flex items-start justify-between">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-accent shadow-[var(--shadow-glow)]">
-                      <Icon className="h-5 w-5 text-primary-foreground" />
+                    <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-primary to-accent shadow-[var(--shadow-glow)] group-hover:rotate-6 transition-transform">
+                      <Icon className="h-6 w-6 text-primary-foreground" />
                     </div>
-                    <div className="text-5xl font-black text-foreground/10 tracking-tighter">
+                    <div className="text-6xl font-black text-foreground/5 tracking-tighter group-hover:text-primary/10 transition-colors">
                       0{i + 1}
                     </div>
                   </div>
                   <div className="mt-auto">
-                    <div className="text-3xl md:text-4xl font-black tracking-tight">{age}</div>
-                    <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{desc}</p>
-                    <div className="mt-6 inline-flex items-center gap-2 text-[10px] font-bold tracking-[0.3em] text-accent uppercase">
-                      Treinos diários <ChevronRight className="h-3 w-3" />
+                    <div className="text-4xl font-black tracking-tighter mb-2 group-hover:translate-x-1 transition-transform">{age}</div>
+                    <p className="mt-3 text-sm text-muted-foreground leading-relaxed font-medium">{desc}</p>
+                    <div className="mt-8 flex items-center justify-between">
+                      <div className="inline-flex items-center gap-2 text-[10px] font-black tracking-[0.3em] text-accent uppercase">
+                        Treinos diários
+                      </div>
+                      <div className="h-10 w-10 rounded-full border border-border flex items-center justify-center group-hover:bg-primary group-hover:border-primary transition-all">
+                        <ChevronRight className="h-4 w-4 text-foreground group-hover:text-primary-foreground" />
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CONQUISTAS */}
-      <section id="conquistas" className="relative py-24 md:py-32 overflow-hidden">
-        <div className="absolute inset-0 -z-10">
-          <img
-            src={ballBg}
-            alt=""
-            loading="lazy"
-            className="h-full w-full object-cover opacity-30"
-            width={1920}
-            height={1080}
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-background via-background/75 to-background" />
-          <div className="absolute inset-0 bg-accent/10 mix-blend-multiply" />
+      {/* INFINITE ACHIEVEMENTS */}
+      <section id="conquistas" className="relative py-24 md:py-32 overflow-hidden bg-muted/20">
+        <div className="mx-auto max-w-7xl px-6 mb-12">
+          <motion.div
+             initial={{ opacity: 0, x: -20 }}
+             whileInView={{ opacity: 1, x: 0 }}
+             viewport={{ once: true }}
+          >
+            <div className="text-[10px] tracking-[0.4em] text-accent mb-6 font-black">03 — CONQUISTAS</div>
+            <h2 className="text-4xl md:text-6xl font-black tracking-tighter">HISTÓRICO DE <span className="text-accent italic">ELITE.</span></h2>
+          </motion.div>
         </div>
-
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
-            <div>
-              <div className="text-[10px] tracking-[0.4em] text-accent mb-6">03 — CONQUISTAS</div>
-              <h2 className="text-4xl md:text-5xl font-black leading-[0.95] tracking-tight">
-                NOSSA
-                <br />
-                <span className="text-accent">TRAJETÓRIA.</span>
-              </h2>
-            </div>
-            <p className="md:text-right text-muted-foreground max-w-md text-base md:text-lg font-light">
-              Cada título é fruto de anos de trabalho silencioso de atletas, técnicos e famílias.
-            </p>
-          </div>
-
-          <div className="space-y-3">
-            {achievements.map((a, i) => (
-              <div
-                key={i}
-                className="group relative grid grid-cols-[80px_1fr_auto] md:grid-cols-[120px_1fr_auto] items-center gap-4 md:gap-8 rounded-2xl border border-border bg-card/70 backdrop-blur-xl p-5 md:p-7 hover:border-primary/50 hover:bg-card transition-all"
-              >
-                <div className="text-3xl md:text-5xl font-black bg-gradient-to-br from-primary-foreground to-accent bg-clip-text text-transparent tracking-tighter">
-                  {a.year}
-                </div>
-                <div>
-                  <div className="text-base md:text-xl font-bold leading-snug">{a.title}</div>
-                  <div className="text-xs text-muted-foreground tracking-wider mt-1 flex items-center gap-1.5">
-                    <MapPin className="h-3 w-3" /> {a.place}
-                  </div>
-                </div>
-                <Award className="h-6 w-6 md:h-8 md:w-8 text-accent opacity-50 group-hover:opacity-100 transition" />
-              </div>
-            ))}
-          </div>
+        <InfiniteMovingCards items={achievements} direction="right" speed="slow" />
+        <div className="mt-4">
+          <InfiniteMovingCards items={[...achievements].reverse()} direction="left" speed="normal" />
         </div>
       </section>
 
