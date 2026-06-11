@@ -251,10 +251,10 @@ function Index() {
       <section className="relative border-y border-border bg-background/60 backdrop-blur-xl">
         <div className="mx-auto max-w-7xl px-6 grid grid-cols-2 md:grid-cols-4 divide-x divide-border">
           {[
-            { value: "+50", label: "Atletas ativos" },
+            { value: "2024", label: "Fundação do time" },
             { value: "3", label: "Categorias de base" },
-            { value: "+15", label: "Títulos conquistados" },
-            { value: "2018", label: "Fundação do time" },
+            { value: "Sub-17/19/21", label: "Faixas etárias" },
+            { value: "SC", label: "Base em Florianópolis" },
           ].map((s) => (
             <div key={s.label} className="text-center py-8 px-2">
               <div className="text-3xl md:text-4xl font-black bg-gradient-to-br from-primary-foreground via-accent to-primary bg-clip-text text-transparent">
