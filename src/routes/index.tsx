@@ -137,7 +137,7 @@ function Home() {
       <Header />
 
       {/* HERO */}
-      <section className="relative min-h-screen flex items-end pt-24 pb-16 overflow-hidden isolate">
+      <section className="relative min-h-[100svh] flex items-end pt-24 pb-4 md:pb-16 overflow-hidden isolate">
         <div className="absolute inset-0 z-0">
           <img
             src={heroBg}
@@ -147,33 +147,33 @@ function Home() {
             height={1080}
             fetchPriority="high"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-background/10" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 via-40% to-transparent" />
           <div className="absolute inset-0 bg-gradient-to-r from-background/70 via-background/10 to-transparent" />
           <div className="absolute inset-0 bg-primary/10 mix-blend-overlay" />
         </div>
 
         <div className="relative z-10 mx-auto max-w-7xl px-6 w-full">
           <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 backdrop-blur px-4 py-1.5 text-[10px] font-bold tracking-[0.3em] text-accent mb-6">
+            <div className="hidden md:inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 backdrop-blur px-4 py-1.5 text-[10px] font-bold tracking-[0.3em] text-accent mb-6">
               <span className="relative flex h-2 w-2">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-75" />
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
               </span>
               TIME OFICIAL · FLORIANÓPOLIS · SC
             </div>
-            <h1 className="text-5xl md:text-7xl xl:text-8xl font-black leading-[0.85] tracking-tight">
+            <h1 className="text-4xl md:text-7xl xl:text-8xl font-black leading-[0.85] tracking-tight">
               FORMANDO
               <br />
               <span className="bg-gradient-to-r from-primary via-accent to-primary-glow bg-clip-text text-transparent">
                 ATLETAS.
               </span>
             </h1>
-            <p className="mt-8 max-w-xl text-base md:text-xl text-foreground/85 leading-relaxed font-light">
+            <p className="mt-4 md:mt-8 max-w-xl text-sm md:text-xl text-foreground/85 leading-relaxed font-light">
               Equipe de voleibol masculino em Florianópolis. Treinamos atletas das categorias{" "}
               <span className="text-accent font-semibold">Sub-17, Sub-19 e Sub-21</span> para competir
               no mais alto nível: estadual, regional e nacional.
             </p>
-            <div className="mt-8 flex flex-wrap items-center gap-3">
+            <div className="mt-5 md:mt-8 flex flex-wrap items-center gap-3">
               <a
                 href="#contato"
                 className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-primary to-accent px-6 py-3.5 text-sm font-bold text-primary-foreground shadow-[var(--shadow-glow)] hover:scale-105 transition-transform"
@@ -187,7 +187,7 @@ function Home() {
                 Ver categorias
               </a>
             </div>
-            <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3 text-xs text-muted-foreground">
+            <div className="mt-6 md:mt-10 flex flex-wrap items-center gap-x-6 gap-y-3 text-xs text-muted-foreground">
               <div className="flex items-center gap-2">
                 <Trophy className="h-4 w-4 text-accent" />
                 <span>Desde 2024</span>
