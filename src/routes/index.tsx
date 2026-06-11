@@ -20,8 +20,10 @@ import {
 } from "lucide-react";
 import { InfiniteMovingCards } from "@/components/infinite-moving-cards";
 
+import heroServeAsset from "@/assets/hero-serve.png.asset.json";
+
 const logo = "/assets/logo.png";
-const heroBg = "/assets/photos/action-1.jpg";
+const heroBg = heroServeAsset.url;
 const teamBg = "/assets/photos/team-3.jpg";
 const ballBg = "/assets/photos/spike.jpg";
 
