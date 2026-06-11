@@ -1,9 +1,112 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { Trophy, Users, MapPin, ArrowRight } from "lucide-react";
-import { SiteHeader } from "@/components/site-header";
-import { SiteFooter } from "@/components/site-footer";
-import { heroBg, values } from "@/lib/site-data";
+import {
+  Trophy,
+  Users,
+  Target,
+  Shield,
+  Flame,
+  Crown,
+  Calendar,
+  Instagram,
+  Mail,
+  MapPin,
+  ArrowRight,
+  ChevronRight,
+  Quote,
+  Menu,
+  X,
+} from "lucide-react";
+import { InfiniteMovingCards } from "@/components/infinite-moving-cards";
+
+const logo = "/assets/logo.png";
+const heroBg = "/assets/photos/action-1.jpg";
+const teamBg = "/assets/photos/team-3.jpg";
+const ballBg = "/assets/photos/spike.jpg";
+
+const instaPhotos = [
+  "/assets/photos/team-1.jpg",
+  "/assets/photos/spike.jpg",
+  "/assets/photos/team-2.jpg",
+  "/assets/photos/block.jpg",
+  "/assets/photos/huddle.jpg",
+  "/assets/photos/action-1.jpg",
+  "/assets/photos/group.jpg",
+  "/assets/photos/team-4.jpg",
+];
+
+const categories = [
+  {
+    age: "SUB-17",
+    desc: "A base que constrói o futuro. Atletas entre 15 e 17 anos em formação técnica e mental.",
+    icon: Flame,
+  },
+  {
+    age: "SUB-19",
+    desc: "A geração de transição. Disputando campeonatos estaduais e regionais de alto nível.",
+    icon: Shield,
+  },
+  {
+    age: "SUB-21",
+    desc: "A elite da base. Pré-profissional, preparando atletas para o cenário nacional.",
+    icon: Crown,
+  },
+];
+
+const values = [
+  {
+    icon: Trophy,
+    title: "Alto Desempenho",
+    desc: "Treinos às terças e quintas com metodologia profissional e cobrança real.",
+  },
+  {
+    icon: Users,
+    title: "Formação Humana",
+    desc: "Disciplina, respeito e responsabilidade dentro e fora de quadra.",
+  },
+  {
+    icon: Target,
+    title: "Foco em Resultado",
+    desc: "Cada temporada com metas claras — estaduais, regionais e nacionais.",
+  },
+  {
+    icon: Shield,
+    title: "Time Oficial",
+    desc: "Reconhecido pela Prefeitura de Florianópolis.",
+  },
+];
+
+const achievements = [
+  { year: "2024", title: "Fundação do time Elite", place: "Florianópolis · SC" },
+  { year: "2024", title: "Primeira temporada de treinos", place: "Categorias Sub-17 a Sub-21" },
+  { year: "2025", title: "Estreia em competições estaduais", place: "Santa Catarina" },
+  { year: "2026", title: "Temporada em andamento", place: "Estadual · Regional · Nacional" },
+];
+
+const sections = [
+  { id: "sobre", label: "O Time" },
+  { id: "categorias", label: "Categorias" },
+  { id: "conquistas", label: "Conquistas" },
+  { id: "contato", label: "Contato" },
+];
+
+const contactItems = [
+  { icon: Calendar, label: "TREINOS", value: "Terças & Quintas", href: null as string | null },
+  {
+    icon: Instagram,
+    label: "INSTAGRAM",
+    value: "@elite_floripa",
+    href: "https://instagram.com/elite_floripa",
+  },
+  {
+    icon: Mail,
+    label: "E-MAIL",
+    value: "contato@elitefloripa.com.br",
+    href: "mailto:contato@elitefloripa.com.br",
+  },
+  { icon: MapPin, label: "LOCALIZAÇÃO", value: "Florianópolis, SC", href: null },
+];
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -12,7 +115,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Equipe oficial de voleibol masculino em Florianópolis. Formação de atletas Sub-17, Sub-19 e Sub-21 para competições estaduais, regionais e nacionais.",
+          "Equipe oficial de voleibol masculino em Florianópolis. Formação de atletas Sub-17, Sub-19 e Sub-21. Treinos às terças e quintas.",
       },
       { property: "og:title", content: "Elite Floripa — Voleibol Masculino" },
       {
@@ -29,7 +132,7 @@ function Home() {
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden selection:bg-primary selection:text-primary-foreground">
       <Ambient />
-      <SiteHeader />
+      <Header />
 
       {/* HERO */}
       <section className="relative min-h-screen flex items-end pt-24 pb-16 overflow-hidden">
@@ -69,24 +172,18 @@ function Home() {
               no mais alto nível: estadual, regional e nacional.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-3">
-              <Link
-                to="/contato"
+              <a
+                href="#contato"
                 className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-primary to-accent px-6 py-3.5 text-sm font-bold text-primary-foreground shadow-[var(--shadow-glow)] hover:scale-105 transition-transform"
               >
                 Quero treinar no Elite <ArrowRight className="h-4 w-4" />
-              </Link>
-              <Link
-                to="/categorias"
+              </a>
+              <a
+                href="#categorias"
                 className="inline-flex items-center gap-2 rounded-full border border-border bg-card/50 backdrop-blur px-6 py-3.5 text-sm font-bold hover:bg-card hover:border-primary/50 transition"
               >
                 Ver categorias
-              </Link>
-              <Link
-                to="/patrocinadores"
-                className="inline-flex items-center gap-2 rounded-full border border-accent/40 bg-accent/10 backdrop-blur px-6 py-3.5 text-sm font-bold text-accent hover:bg-accent/20 transition"
-              >
-                Seja patrocinador
-              </Link>
+              </a>
             </div>
             <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3 text-xs text-muted-foreground">
               <div className="flex items-center gap-2">
@@ -114,7 +211,7 @@ function Home() {
           {[
             { value: "2024", label: "Fundação do time" },
             { value: "3", label: "Categorias de base" },
-            { value: "Ter/Qui", label: "Dias de treino" },
+            { value: "Ter & Qui", label: "Dias de treino" },
             { value: "SC", label: "Base em Florianópolis" },
           ].map((s) => (
             <div key={s.label} className="text-center py-8 px-2">
@@ -129,8 +226,8 @@ function Home() {
         </div>
       </section>
 
-      {/* VALUES PREVIEW */}
-      <section className="relative py-24 md:py-32">
+      {/* SOBRE / VALUES */}
+      <section id="sobre" className="relative py-24 md:py-32 scroll-mt-24">
         <div className="mx-auto max-w-7xl px-6">
           <div className="max-w-3xl mb-12">
             <div className="text-[10px] tracking-[0.4em] text-accent mb-6 font-black">
@@ -142,6 +239,11 @@ function Home() {
                 UM PROJETO.
               </span>
             </h2>
+            <p className="mt-6 text-base md:text-lg text-muted-foreground font-light">
+              O Elite Floripa é um time oficial de voleibol masculino de base, fundado em 2024 e
+              reconhecido pela Prefeitura de Florianópolis. Formamos atletas e pessoas com
+              metodologia profissional, disciplina e cobrança real.
+            </p>
           </div>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
             {values.map(({ icon: Icon, title, desc }, i) => (
@@ -166,19 +268,324 @@ function Home() {
               </motion.div>
             ))}
           </div>
-          <div className="mt-10">
-            <Link
-              to="/sobre"
-              className="inline-flex items-center gap-2 text-sm font-bold text-accent hover:gap-3 transition-all"
-            >
-              Conheça o time <ArrowRight className="h-4 w-4" />
-            </Link>
+        </div>
+      </section>
+
+      {/* CATEGORIAS */}
+      <section id="categorias" className="relative py-20 md:py-28 scroll-mt-24">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="max-w-3xl mb-12">
+            <div className="text-[10px] tracking-[0.4em] text-accent mb-6 font-black">
+              CATEGORIAS
+            </div>
+            <h2 className="text-4xl md:text-6xl font-black tracking-tighter">
+              TRÊS GERAÇÕES.{" "}
+              <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent italic">
+                UMA MESMA QUADRA.
+              </span>
+            </h2>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6">
+            {categories.map(({ age, desc, icon: Icon }, i) => (
+              <motion.div
+                key={age}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="group relative rounded-[2rem] border border-border bg-card/40 backdrop-blur-xl overflow-hidden hover:border-primary/60 transition-all duration-500 shadow-xl"
+              >
+                <div className="absolute inset-0 -z-10 opacity-20 group-hover:opacity-40 transition-opacity duration-700">
+                  <img
+                    src={i === 0 ? heroBg : i === 1 ? teamBg : ballBg}
+                    alt=""
+                    loading="lazy"
+                    className="h-full w-full object-cover scale-105 group-hover:scale-110 transition-transform duration-1000"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-card via-card/90 to-transparent" />
+                </div>
+
+                <div className="relative p-8 h-full flex flex-col min-h-[420px]">
+                  <div className="flex items-start justify-between">
+                    <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-primary to-accent shadow-[var(--shadow-glow)] group-hover:rotate-6 transition-transform">
+                      <Icon className="h-6 w-6 text-primary-foreground" />
+                    </div>
+                    <div className="text-6xl font-black text-foreground/5 tracking-tighter group-hover:text-primary/10 transition-colors">
+                      0{i + 1}
+                    </div>
+                  </div>
+                  <div className="mt-auto">
+                    <div className="text-4xl font-black tracking-tighter mb-2 group-hover:translate-x-1 transition-transform">
+                      {age}
+                    </div>
+                    <p className="mt-3 text-sm text-muted-foreground leading-relaxed font-medium">
+                      {desc}
+                    </p>
+                    <div className="mt-8 flex items-center justify-between">
+                      <div className="inline-flex items-center gap-2 text-[10px] font-black tracking-[0.3em] text-accent uppercase">
+                        <Calendar className="h-3 w-3" /> Ter & Qui
+                      </div>
+                      <div className="h-10 w-10 rounded-full border border-border flex items-center justify-center group-hover:bg-primary group-hover:border-primary transition-all">
+                        <ChevronRight className="h-4 w-4 text-foreground group-hover:text-primary-foreground" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
 
-      <SiteFooter />
+      {/* QUOTE */}
+      <section className="relative py-20 md:py-28 bg-accent/5">
+        <div className="mx-auto max-w-4xl px-6 text-center">
+          <Quote className="h-16 w-16 text-primary/15 mx-auto mb-4" />
+          <h2 className="text-2xl md:text-4xl font-black italic leading-tight text-foreground/90">
+            "NOSSO OBJETIVO NÃO É APENAS VENCER JOGOS, MAS FORMAR CIDADÃOS QUE ENTENDEM O VALOR DA
+            DISCIPLINA, DO RESPEITO E DO TRABALHO EM EQUIPE."
+          </h2>
+          <div className="mt-8 text-sm font-black tracking-widest text-accent uppercase">
+            Comissão Técnica
+          </div>
+        </div>
+      </section>
+
+      {/* CONQUISTAS */}
+      <section id="conquistas" className="relative py-20 md:py-28 scroll-mt-24">
+        <div className="mx-auto max-w-7xl px-6 mb-12">
+          <div className="text-[10px] tracking-[0.4em] text-accent mb-6 font-black">
+            CONQUISTAS
+          </div>
+          <h2 className="text-4xl md:text-6xl font-black tracking-tighter">
+            HISTÓRICO DE <span className="text-accent italic">ELITE.</span>
+          </h2>
+        </div>
+
+        <div className="relative overflow-hidden bg-muted/20 py-8">
+          <InfiniteMovingCards items={achievements} direction="right" speed="slow" />
+          <div className="mt-4">
+            <InfiniteMovingCards
+              items={[...achievements].reverse()}
+              direction="left"
+              speed="normal"
+            />
+          </div>
+        </div>
+
+        <div className="mx-auto max-w-5xl px-6 mt-16">
+          <ol className="relative border-l border-border/60 pl-8 space-y-10">
+            {achievements.map((a) => (
+              <li key={a.year + a.title} className="relative">
+                <span className="absolute -left-[37px] top-1 h-4 w-4 rounded-full bg-gradient-to-br from-primary to-accent shadow-[var(--shadow-glow)]" />
+                <div className="text-xs tracking-[0.3em] text-accent font-black mb-1">
+                  {a.year}
+                </div>
+                <div className="text-xl md:text-2xl font-black tracking-tight">{a.title}</div>
+                <div className="text-sm text-muted-foreground mt-1">📍 {a.place}</div>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      {/* INSTAGRAM */}
+      <section className="relative py-20 md:py-28">
+        <div className="mx-auto max-w-6xl px-6 text-center">
+          <div className="text-[10px] tracking-[0.4em] text-accent mb-6 font-black">
+            BASTIDORES
+          </div>
+          <h2 className="text-3xl md:text-5xl font-black tracking-tighter mb-10">
+            Acompanhe tudo no <span className="text-accent">Instagram</span>.
+          </h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+            {instaPhotos.slice(0, 8).map((src, i) => (
+              <a
+                key={i}
+                href="https://instagram.com/elite_floripa"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative aspect-square overflow-hidden rounded-2xl border border-border hover:border-primary/60 transition"
+              >
+                <img
+                  src={src}
+                  alt={`Elite Floripa ${i + 1}`}
+                  loading="lazy"
+                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+                <Instagram className="absolute bottom-3 right-3 h-5 w-5 text-primary-foreground opacity-0 group-hover:opacity-100 transition" />
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CONTATO */}
+      <section id="contato" className="relative py-20 md:py-28 scroll-mt-24">
+        <div className="mx-auto max-w-5xl px-6">
+          <div className="relative rounded-[3rem] border border-primary/30 bg-gradient-to-br from-card/80 via-background to-card/80 backdrop-blur-3xl p-8 md:p-16 overflow-hidden shadow-2xl">
+            <div className="absolute -top-40 -right-40 h-[500px] w-[500px] rounded-full bg-primary/10 blur-[120px] animate-pulse" />
+            <div className="absolute -bottom-40 -left-40 h-[500px] w-[500px] rounded-full bg-accent/10 blur-[120px] animate-pulse" />
+
+            <div className="relative text-center">
+              <img
+                src={logo}
+                alt="Elite Floripa"
+                className="mx-auto h-20 w-auto drop-shadow-[0_0_50px_oklch(0.7_0.2_300_/_0.6)] mb-8"
+              />
+              <div className="text-[10px] tracking-[0.5em] text-accent font-black mb-4">
+                FALE COM A GENTE
+              </div>
+              <h2 className="text-4xl md:text-7xl font-black leading-[0.9] tracking-tighter mb-6">
+                PRONTO PARA
+                <br />
+                <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent italic">
+                  O PRÓXIMO NÍVEL?
+                </span>
+              </h2>
+              <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto mb-12">
+                Seja você um atleta querendo treinar com a gente ou uma marca buscando parceria, é
+                só chamar.
+              </p>
+
+              <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                {contactItems.map((item, i) => (
+                  <motion.a
+                    key={item.label}
+                    href={item.href || "#"}
+                    target={item.href?.startsWith("http") ? "_blank" : undefined}
+                    rel={item.href?.startsWith("http") ? "noopener noreferrer" : undefined}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.1 * i }}
+                    className="group flex flex-col items-center p-6 rounded-[2rem] border border-border bg-background/20 hover:border-primary/50 hover:bg-background/40 transition-all duration-300 shadow-lg"
+                  >
+                    <div className="h-14 w-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-primary transition-all duration-300">
+                      <item.icon className="h-6 w-6 text-primary group-hover:text-primary-foreground" />
+                    </div>
+                    <div className="text-[10px] tracking-[0.3em] text-muted-foreground font-black mb-1">
+                      {item.label}
+                    </div>
+                    <div className="text-sm font-bold truncate w-full px-2 text-center">
+                      {item.value}
+                    </div>
+                  </motion.a>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <Footer />
     </div>
+  );
+}
+
+function Header() {
+  const [scrolled, setScrolled] = useState(false);
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 30);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  return (
+    <header
+      className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${
+        scrolled || open
+          ? "bg-background/85 backdrop-blur-xl border-b border-border py-3"
+          : "py-5"
+      }`}
+    >
+      <div className="mx-auto max-w-7xl px-6 flex items-center justify-between">
+        <a href="#top" className="flex items-center gap-3 group" onClick={() => setOpen(false)}>
+          <img
+            src={logo}
+            alt="Elite Floripa Voleibol"
+            className="h-10 w-auto drop-shadow-[0_0_18px_oklch(0.7_0.2_300_/_0.6)] group-hover:scale-110 transition-transform duration-300"
+          />
+          <div className="hidden sm:block leading-tight">
+            <div className="text-sm font-black tracking-[0.18em] group-hover:text-primary transition-colors">
+              ELITE FLORIPA
+            </div>
+            <div className="text-[9px] text-accent tracking-[0.35em] font-bold">
+              VOLEIBOL MASCULINO
+            </div>
+          </div>
+        </a>
+
+        <nav className="hidden lg:flex items-center gap-8 text-sm font-medium text-muted-foreground">
+          {sections.map((s) => (
+            <a key={s.id} href={`#${s.id}`} className="hover:text-foreground transition">
+              {s.label}
+            </a>
+          ))}
+        </nav>
+
+        <div className="flex items-center gap-3">
+          <a
+            href="https://instagram.com/elite_floripa"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden sm:inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-primary to-accent px-4 py-2 text-[11px] font-bold tracking-widest text-primary-foreground shadow-[var(--shadow-glow)] hover:scale-105 transition-transform"
+          >
+            <Instagram className="h-4 w-4" /> @ELITE_FLORIPA
+          </a>
+          <button
+            onClick={() => setOpen((v) => !v)}
+            aria-label="Abrir menu"
+            className="lg:hidden h-10 w-10 inline-flex items-center justify-center rounded-full border border-border bg-card/60 backdrop-blur"
+          >
+            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </button>
+        </div>
+      </div>
+
+      {open && (
+        <div className="lg:hidden mx-auto max-w-7xl px-6 mt-3 pb-2">
+          <nav className="flex flex-col gap-1 rounded-2xl border border-border bg-card/80 backdrop-blur-xl p-3">
+            {sections.map((s) => (
+              <a
+                key={s.id}
+                href={`#${s.id}`}
+                onClick={() => setOpen(false)}
+                className="px-4 py-3 rounded-xl text-sm font-semibold text-muted-foreground hover:bg-muted/40 hover:text-foreground transition"
+              >
+                {s.label}
+              </a>
+            ))}
+          </nav>
+        </div>
+      )}
+    </header>
+  );
+}
+
+function Footer() {
+  return (
+    <footer className="relative border-t border-border bg-background/80 backdrop-blur py-10 mt-10">
+      <div className="mx-auto max-w-7xl px-6 flex flex-col md:flex-row items-center justify-between gap-6 text-sm text-muted-foreground">
+        <div className="flex items-center gap-3">
+          <img src={logo} alt="" className="h-9 w-auto opacity-90" />
+          <div>
+            <div className="tracking-[0.18em] font-black text-foreground text-xs">
+              ELITE FLORIPA
+            </div>
+            <div className="text-[9px] tracking-[0.35em] text-accent">
+              VOLEIBOL MASCULINO
+            </div>
+          </div>
+        </div>
+        <div className="text-[10px] tracking-widest text-center md:text-right">
+          © {new Date().getFullYear()} ELITE FLORIPA
+          <br className="md:hidden" /> · TODOS OS DIREITOS RESERVADOS
+        </div>
+      </div>
+    </footer>
   );
 }
 
