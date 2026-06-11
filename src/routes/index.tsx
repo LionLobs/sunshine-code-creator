@@ -113,18 +113,21 @@ function Index() {
 
       {/* NAV */}
       <header
-        className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${scrolled ? "bg-background/80 backdrop-blur-xl border-b border-border" : ""}`}
+        className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${scrolled ? "bg-background/80 backdrop-blur-xl border-b border-border py-3" : "py-6"}`}
       >
-        <div className="mx-auto max-w-7xl px-6 py-4 flex items-center justify-between">
-          <a href="#top" className="flex items-center gap-3">
-            <img
-              src={logo}
-              alt="Elite Floripa Voleibol"
-              className="h-10 w-auto drop-shadow-[0_0_18px_oklch(0.7_0.2_300_/_0.6)]"
-            />
+        <div className="mx-auto max-w-7xl px-6 flex items-center justify-between">
+          <a href="#top" className="flex items-center gap-3 group">
+            <div className="relative">
+              <img
+                src={logo}
+                alt="Elite Floripa Voleibol"
+                className="h-10 w-auto drop-shadow-[0_0_18px_oklch(0.7_0.2_300_/_0.6)] group-hover:scale-110 transition-transform duration-300"
+              />
+              {scrolled && <div className="absolute -inset-2 bg-primary/20 blur-xl rounded-full animate-glow-pulse" />}
+            </div>
             <div className="hidden sm:block leading-tight">
-              <div className="text-sm font-black tracking-[0.18em]">ELITE FLORIPA</div>
-              <div className="text-[9px] text-accent tracking-[0.35em]">VOLEIBOL MASCULINO</div>
+              <div className="text-sm font-black tracking-[0.18em] group-hover:text-primary transition-colors">ELITE FLORIPA</div>
+              <div className="text-[9px] text-accent tracking-[0.35em] font-bold">VOLEIBOL MASCULINO</div>
             </div>
           </a>
           <nav className="hidden lg:flex items-center gap-9 text-sm font-medium text-muted-foreground">
@@ -312,20 +315,24 @@ function Index() {
         </div>
 
         <div className="mx-auto max-w-7xl px-6 mt-20 grid grid-cols-2 lg:grid-cols-4 gap-4">
-          {values.map(({ icon: Icon, title, desc }) => (
-            <div
+          {values.map(({ icon: Icon, title, desc }, i) => (
+            <motion.div
               key={title}
-              className="group relative rounded-2xl border border-border bg-card/70 backdrop-blur-xl p-5 hover:border-primary/60 hover:-translate-y-1 transition-all overflow-hidden"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1 }}
+              className="group relative rounded-2xl border border-border bg-card/70 backdrop-blur-xl p-6 hover:border-primary/60 hover:-translate-y-2 transition-all duration-300 overflow-hidden shadow-lg"
             >
-              <div className="absolute -top-10 -right-10 h-28 w-28 rounded-full bg-primary/30 blur-2xl opacity-0 group-hover:opacity-100 transition" />
+              <div className="absolute -top-10 -right-10 h-28 w-28 rounded-full bg-primary/20 blur-2xl opacity-0 group-hover:opacity-100 transition duration-500" />
               <div className="relative">
-                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-accent shadow-[var(--shadow-glow)] mb-4">
-                  <Icon className="h-5 w-5 text-primary-foreground" />
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-accent shadow-[var(--shadow-glow)] mb-4 group-hover:scale-110 transition-transform">
+                  <Icon className="h-6 w-6 text-primary-foreground" />
                 </div>
-                <div className="text-sm font-bold tracking-wide">{title}</div>
-                <p className="mt-1.5 text-xs text-muted-foreground leading-relaxed">{desc}</p>
+                <div className="text-base font-black tracking-tight">{title}</div>
+                <p className="mt-2 text-xs text-muted-foreground leading-relaxed font-medium">{desc}</p>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </section>
