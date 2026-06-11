@@ -66,7 +66,7 @@ const values = [
   {
     icon: Trophy,
     title: "Alto Desempenho",
-    desc: "Treinos às terças e quintas com metodologia profissional e cobrança real.",
+    desc: "Treinos às terças, quintas e sextas com metodologia profissional e cobrança real.",
   },
   {
     icon: Users,
@@ -100,7 +100,7 @@ const sections = [
 ];
 
 const contactItems = [
-  { icon: Calendar, label: "TREINOS", value: "Terças & Quintas", href: null as string | null },
+  { icon: Calendar, label: "TREINOS", value: "Ter, Qui & Sex", href: null as string | null },
   {
     icon: Instagram,
     label: "INSTAGRAM",
@@ -123,12 +123,12 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Equipe oficial de voleibol masculino em Florianópolis. Formação de atletas Sub-17, Sub-19 e Sub-21. Treinos às terças e quintas.",
+          "Equipe oficial de voleibol masculino em Florianópolis. Formação de atletas Sub-17, Sub-19 e Sub-21. Treinos às terças, quintas e sextas.",
       },
       { property: "og:title", content: "Elite Floripa — Voleibol Masculino" },
       {
         property: "og:description",
-        content: "Formando atletas em Florianópolis · Treinos terças e quintas.",
+        content: "Formando atletas em Florianópolis · Treinos terças, quintas e sextas.",
       },
       { property: "og:image", content: heroBg },
     ],
@@ -219,7 +219,7 @@ function Home() {
           {[
             { value: "2024", label: "Fundação do time" },
             { value: "3", label: "Categorias de base" },
-            { value: "Ter & Qui", label: "Dias de treino" },
+            { value: "Ter, Qui & Sex", label: "Dias de treino" },
             { value: "SC", label: "Base em Florianópolis" },
           ].map((s) => (
             <div key={s.label} className="text-center py-8 px-2">
@@ -331,7 +331,7 @@ function Home() {
                     </p>
                     <div className="mt-8 flex items-center justify-between">
                       <div className="inline-flex items-center gap-2 text-[10px] font-black tracking-[0.3em] text-accent uppercase">
-                        <Calendar className="h-3 w-3" /> Ter & Qui
+                        <Calendar className="h-3 w-3" /> Ter, Qui & Sex
                       </div>
                       <div className="h-10 w-10 rounded-full border border-border flex items-center justify-center group-hover:bg-primary group-hover:border-primary transition-all">
                         <ChevronRight className="h-4 w-4 text-foreground group-hover:text-primary-foreground" />
