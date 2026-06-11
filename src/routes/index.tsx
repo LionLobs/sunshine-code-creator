@@ -17,6 +17,7 @@ import {
   Crown,
   ChevronLeft,
   Quote,
+  Calendar,
 } from "lucide-react";
 import { InfiniteMovingCards } from "@/components/infinite-moving-cards";
 import { Button } from "@/components/ui/button";
