@@ -392,7 +392,7 @@ function Index() {
                     <p className="mt-3 text-sm text-muted-foreground leading-relaxed font-medium">{desc}</p>
                     <div className="mt-8 flex items-center justify-between">
                       <div className="inline-flex items-center gap-2 text-[10px] font-black tracking-[0.3em] text-accent uppercase">
-                        Treinos diários
+                        Ter & Qui
                       </div>
                       <div className="h-10 w-10 rounded-full border border-border flex items-center justify-center group-hover:bg-primary group-hover:border-primary transition-all">
                         <ChevronRight className="h-4 w-4 text-foreground group-hover:text-primary-foreground" />
