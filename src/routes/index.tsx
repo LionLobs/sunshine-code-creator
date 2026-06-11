@@ -78,10 +78,10 @@ const values = [
 ];
 
 const achievements = [
-  { year: "2024", title: "Campeão Estadual Sub-19", place: "Florianópolis" },
-  { year: "2024", title: "Vice Liga Catarinense Sub-21", place: "Joinville" },
-  { year: "2023", title: "3º Lugar Sul-Brasileiro Sub-17", place: "Curitiba" },
-  { year: "2023", title: "Campeão Metropolitano", place: "Grande Florianópolis" },
+  { year: "2024", title: "Fundação do time Elite", place: "Florianópolis · SC" },
+  { year: "2024", title: "Primeira temporada de treinos", place: "Categorias Sub-17 a Sub-21" },
+  { year: "2025", title: "Estreia em competições estaduais", place: "Santa Catarina" },
+  { year: "2026", title: "Temporada em andamento", place: "Estadual · Regional · Nacional" },
 ];
 
 function Index() {
