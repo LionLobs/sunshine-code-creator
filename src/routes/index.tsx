@@ -552,8 +552,9 @@ function Index() {
                 Seja você um atleta talentoso ou um parceiro querendo apoiar o esporte catarinense, sua jornada começa aqui.
               </p>
 
-              <div className="grid sm:grid-cols-3 gap-6">
+              <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 {[
+                  { icon: Calendar, label: "TREINOS", value: "Terças & Quintas", href: null },
                   { icon: Instagram, label: "INSTAGRAM", value: "@elite_floripa", href: "https://instagram.com/elite_floripa" },
                   { icon: Mail, label: "E-MAIL", value: "contato@elitefloripa.com.br", href: "mailto:contato@elitefloripa.com.br" },
                   { icon: MapPin, label: "LOCALIZAÇÃO", value: "Florianópolis, SC", href: null },
