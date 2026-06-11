@@ -22,10 +22,12 @@ import { InfiniteMovingCards } from "@/components/infinite-moving-cards";
 
 import heroServeAsset from "@/assets/hero-serve.png.asset.json";
 import sub17Asset from "@/assets/sub17-team.jpg.asset.json";
+import sub19Asset from "@/assets/sub19-team.jpg.asset.json";
 
 const logo = "/assets/logo.png";
 const heroBg = heroServeAsset.url;
 const sub17Bg = sub17Asset.url;
+const sub19Bg = sub19Asset.url;
 const teamBg = "/assets/photos/team-3.jpg";
 const ballBg = "/assets/photos/spike.jpg";
 
@@ -301,7 +303,7 @@ function Home() {
               >
                 <div className="absolute inset-0 -z-10 opacity-20 group-hover:opacity-40 transition-opacity duration-700">
                   <img
-                    src={i === 0 ? sub17Bg : i === 1 ? teamBg : ballBg}
+                    src={i === 0 ? sub17Bg : i === 1 ? sub19Bg : ballBg}
                     alt=""
                     loading="lazy"
                     className="h-full w-full object-cover scale-105 group-hover:scale-110 transition-transform duration-1000"
