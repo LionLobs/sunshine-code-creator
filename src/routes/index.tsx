@@ -305,7 +305,7 @@ function Home() {
               >
                 <div className="absolute inset-0 -z-10 opacity-20 group-hover:opacity-40 transition-opacity duration-700">
                   <img
-                    src={i === 0 ? sub17Bg : i === 1 ? sub19Bg : ballBg}
+                    src={i === 0 ? sub17Bg : i === 1 ? sub19Bg : sub21Bg}
                     alt=""
                     loading="lazy"
                     className="h-full w-full object-cover scale-105 group-hover:scale-110 transition-transform duration-1000"
