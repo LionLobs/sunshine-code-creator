@@ -220,12 +220,12 @@ function Index() {
             <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3 text-xs text-muted-foreground">
               <div className="flex items-center gap-2">
                 <Trophy className="h-4 w-4 text-accent" />
-                <span>+15 títulos</span>
+                <span>Desde 2024</span>
               </div>
               <div className="h-3 w-px bg-border hidden sm:block" />
               <div className="flex items-center gap-2">
                 <Users className="h-4 w-4 text-accent" />
-                <span>+50 atletas ativos</span>
+                <span>3 categorias de base</span>
               </div>
               <div className="h-3 w-px bg-border hidden sm:block" />
               <div className="flex items-center gap-2">
