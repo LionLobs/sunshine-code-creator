@@ -17,6 +17,7 @@ import {
   Crown,
   ChevronLeft,
   Quote,
+  Calendar,
 } from "lucide-react";
 import { InfiniteMovingCards } from "@/components/infinite-moving-cards";
 import { Button } from "@/components/ui/button";
@@ -62,7 +63,7 @@ const values = [
   {
     icon: Trophy,
     title: "Alto Desempenho",
-    desc: "Treinos diários, metodologia profissional e cobrança real.",
+    desc: "Treinos às terças e quintas com metodologia profissional e cobrança real.",
   },
   {
     icon: Users,
@@ -78,10 +79,10 @@ const values = [
 ];
 
 const achievements = [
-  { year: "2024", title: "Campeão Estadual Sub-19", place: "Florianópolis" },
-  { year: "2024", title: "Vice Liga Catarinense Sub-21", place: "Joinville" },
-  { year: "2023", title: "3º Lugar Sul-Brasileiro Sub-17", place: "Curitiba" },
-  { year: "2023", title: "Campeão Metropolitano", place: "Grande Florianópolis" },
+  { year: "2024", title: "Fundação do time Elite", place: "Florianópolis · SC" },
+  { year: "2024", title: "Primeira temporada de treinos", place: "Categorias Sub-17 a Sub-21" },
+  { year: "2025", title: "Estreia em competições estaduais", place: "Santa Catarina" },
+  { year: "2026", title: "Temporada em andamento", place: "Estadual · Regional · Nacional" },
 ];
 
 function Index() {
@@ -220,12 +221,12 @@ function Index() {
             <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3 text-xs text-muted-foreground">
               <div className="flex items-center gap-2">
                 <Trophy className="h-4 w-4 text-accent" />
-                <span>+15 títulos</span>
+                <span>Desde 2024</span>
               </div>
               <div className="h-3 w-px bg-border hidden sm:block" />
               <div className="flex items-center gap-2">
                 <Users className="h-4 w-4 text-accent" />
-                <span>+50 atletas ativos</span>
+                <span>3 categorias de base</span>
               </div>
               <div className="h-3 w-px bg-border hidden sm:block" />
               <div className="flex items-center gap-2">
@@ -251,10 +252,10 @@ function Index() {
       <section className="relative border-y border-border bg-background/60 backdrop-blur-xl">
         <div className="mx-auto max-w-7xl px-6 grid grid-cols-2 md:grid-cols-4 divide-x divide-border">
           {[
-            { value: "+50", label: "Atletas ativos" },
+            { value: "2024", label: "Fundação do time" },
             { value: "3", label: "Categorias de base" },
-            { value: "+15", label: "Títulos conquistados" },
-            { value: "2018", label: "Fundação do time" },
+            { value: "Sub-17/19/21", label: "Faixas etárias" },
+            { value: "SC", label: "Base em Florianópolis" },
           ].map((s) => (
             <div key={s.label} className="text-center py-8 px-2">
               <div className="text-3xl md:text-4xl font-black bg-gradient-to-br from-primary-foreground via-accent to-primary bg-clip-text text-transparent">
@@ -392,7 +393,7 @@ function Index() {
                     <p className="mt-3 text-sm text-muted-foreground leading-relaxed font-medium">{desc}</p>
                     <div className="mt-8 flex items-center justify-between">
                       <div className="inline-flex items-center gap-2 text-[10px] font-black tracking-[0.3em] text-accent uppercase">
-                        Treinos diários
+                        Ter & Qui
                       </div>
                       <div className="h-10 w-10 rounded-full border border-border flex items-center justify-center group-hover:bg-primary group-hover:border-primary transition-all">
                         <ChevronRight className="h-4 w-4 text-foreground group-hover:text-primary-foreground" />
@@ -552,8 +553,9 @@ function Index() {
                 Seja você um atleta talentoso ou um parceiro querendo apoiar o esporte catarinense, sua jornada começa aqui.
               </p>
 
-              <div className="grid sm:grid-cols-3 gap-6">
+              <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 {[
+                  { icon: Calendar, label: "TREINOS", value: "Terças & Quintas", href: null },
                   { icon: Instagram, label: "INSTAGRAM", value: "@elite_floripa", href: "https://instagram.com/elite_floripa" },
                   { icon: Mail, label: "E-MAIL", value: "contato@elitefloripa.com.br", href: "mailto:contato@elitefloripa.com.br" },
                   { icon: MapPin, label: "LOCALIZAÇÃO", value: "Florianópolis, SC", href: null },
