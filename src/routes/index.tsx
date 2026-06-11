@@ -78,10 +78,10 @@ const values = [
 ];
 
 const achievements = [
-  { year: "2024", title: "Campeão Estadual Sub-19", place: "Florianópolis" },
-  { year: "2024", title: "Vice Liga Catarinense Sub-21", place: "Joinville" },
-  { year: "2023", title: "3º Lugar Sul-Brasileiro Sub-17", place: "Curitiba" },
-  { year: "2023", title: "Campeão Metropolitano", place: "Grande Florianópolis" },
+  { year: "2024", title: "Fundação do time Elite", place: "Florianópolis · SC" },
+  { year: "2024", title: "Primeira temporada de treinos", place: "Categorias Sub-17 a Sub-21" },
+  { year: "2025", title: "Estreia em competições estaduais", place: "Santa Catarina" },
+  { year: "2026", title: "Temporada em andamento", place: "Estadual · Regional · Nacional" },
 ];
 
 function Index() {
@@ -220,12 +220,12 @@ function Index() {
             <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3 text-xs text-muted-foreground">
               <div className="flex items-center gap-2">
                 <Trophy className="h-4 w-4 text-accent" />
-                <span>+15 títulos</span>
+                <span>Desde 2024</span>
               </div>
               <div className="h-3 w-px bg-border hidden sm:block" />
               <div className="flex items-center gap-2">
                 <Users className="h-4 w-4 text-accent" />
-                <span>+50 atletas ativos</span>
+                <span>3 categorias de base</span>
               </div>
               <div className="h-3 w-px bg-border hidden sm:block" />
               <div className="flex items-center gap-2">
@@ -251,10 +251,10 @@ function Index() {
       <section className="relative border-y border-border bg-background/60 backdrop-blur-xl">
         <div className="mx-auto max-w-7xl px-6 grid grid-cols-2 md:grid-cols-4 divide-x divide-border">
           {[
-            { value: "+50", label: "Atletas ativos" },
+            { value: "2024", label: "Fundação do time" },
             { value: "3", label: "Categorias de base" },
-            { value: "+15", label: "Títulos conquistados" },
-            { value: "2018", label: "Fundação do time" },
+            { value: "Sub-17/19/21", label: "Faixas etárias" },
+            { value: "SC", label: "Base em Florianópolis" },
           ].map((s) => (
             <div key={s.label} className="text-center py-8 px-2">
               <div className="text-3xl md:text-4xl font-black bg-gradient-to-br from-primary-foreground via-accent to-primary bg-clip-text text-transparent">
