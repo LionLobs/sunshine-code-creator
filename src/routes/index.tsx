@@ -62,7 +62,7 @@ const values = [
   {
     icon: Trophy,
     title: "Alto Desempenho",
-    desc: "Treinos diários, metodologia profissional e cobrança real.",
+    desc: "Treinos às terças e quintas com metodologia profissional e cobrança real.",
   },
   {
     icon: Users,
