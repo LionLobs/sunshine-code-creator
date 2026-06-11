@@ -168,12 +168,12 @@ function Home() {
                 ATLETAS.
               </span>
             </h1>
-            <p className="mt-8 max-w-xl text-base md:text-xl text-foreground/85 leading-relaxed font-light">
+            <p className="mt-4 md:mt-8 max-w-xl text-sm md:text-xl text-foreground/85 leading-relaxed font-light">
               Equipe de voleibol masculino em Florianópolis. Treinamos atletas das categorias{" "}
               <span className="text-accent font-semibold">Sub-17, Sub-19 e Sub-21</span> para competir
               no mais alto nível: estadual, regional e nacional.
             </p>
-            <div className="mt-8 flex flex-wrap items-center gap-3">
+            <div className="mt-5 md:mt-8 flex flex-wrap items-center gap-3">
               <a
                 href="#contato"
                 className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-primary to-accent px-6 py-3.5 text-sm font-bold text-primary-foreground shadow-[var(--shadow-glow)] hover:scale-105 transition-transform"
@@ -187,7 +187,7 @@ function Home() {
                 Ver categorias
               </a>
             </div>
-            <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3 text-xs text-muted-foreground">
+            <div className="mt-6 md:mt-10 flex flex-wrap items-center gap-x-6 gap-y-3 text-xs text-muted-foreground">
               <div className="flex items-center gap-2">
                 <Trophy className="h-4 w-4 text-accent" />
                 <span>Desde 2024</span>
