@@ -154,14 +154,14 @@ function Home() {
 
         <div className="relative z-10 mx-auto max-w-7xl px-6 w-full">
           <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 backdrop-blur px-4 py-1.5 text-[10px] font-bold tracking-[0.3em] text-accent mb-6">
+            <div className="hidden md:inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 backdrop-blur px-4 py-1.5 text-[10px] font-bold tracking-[0.3em] text-accent mb-6">
               <span className="relative flex h-2 w-2">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-75" />
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
               </span>
               TIME OFICIAL · FLORIANÓPOLIS · SC
             </div>
-            <h1 className="text-5xl md:text-7xl xl:text-8xl font-black leading-[0.85] tracking-tight">
+            <h1 className="text-4xl md:text-7xl xl:text-8xl font-black leading-[0.85] tracking-tight">
               FORMANDO
               <br />
               <span className="bg-gradient-to-r from-primary via-accent to-primary-glow bg-clip-text text-transparent">
