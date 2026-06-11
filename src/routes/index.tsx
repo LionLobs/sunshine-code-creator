@@ -497,69 +497,88 @@ function Index() {
         </div>
       </section>
 
+      {/* TESTIMONIALS / QUOTE */}
+      <section className="relative py-24 md:py-32 overflow-hidden bg-accent/5">
+        <div className="mx-auto max-w-4xl px-6 text-center">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="relative"
+          >
+            <Quote className="h-20 w-20 text-primary/10 absolute -top-10 -left-10" />
+            <h2 className="text-2xl md:text-4xl font-black italic leading-tight text-foreground/90">
+              "NOSSO OBJETIVO NÃO É APENAS VENCER JOGOS, MAS FORMAR CIDADÃOS QUE ENTENDEM O VALOR DA DISCIPLINA, DO RESPEITO E DO TRABALHO EM EQUIPE."
+            </h2>
+            <div className="mt-8 flex flex-col items-center">
+              <div className="h-1 w-12 bg-primary mb-4 rounded-full" />
+              <div className="text-sm font-black tracking-widest text-accent uppercase">Comissão Técnica</div>
+              <div className="text-[10px] text-muted-foreground tracking-widest mt-1">ELITE FLORIPA VOLEIBOL</div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* CONTATO */}
       <section id="contato" className="relative py-24 md:py-32">
         <div className="mx-auto max-w-5xl px-6">
-          <div className="relative rounded-[2.5rem] border border-primary/40 bg-gradient-to-br from-card via-background to-card backdrop-blur-xl p-8 md:p-14 overflow-hidden shadow-[var(--shadow-glow)]">
-            <div className="absolute -top-32 -right-32 h-96 w-96 rounded-full bg-primary/30 blur-3xl" />
-            <div className="absolute -bottom-32 -left-32 h-96 w-96 rounded-full bg-accent/25 blur-3xl" />
+          <motion.div 
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="relative rounded-[3rem] border border-primary/30 bg-gradient-to-br from-card/80 via-background to-card/80 backdrop-blur-3xl p-8 md:p-20 overflow-hidden shadow-2xl"
+          >
+            <div className="absolute -top-40 -right-40 h-[500px] w-[500px] rounded-full bg-primary/10 blur-[120px] animate-pulse" />
+            <div className="absolute -bottom-40 -left-40 h-[500px] w-[500px] rounded-full bg-accent/10 blur-[120px] animate-pulse" />
 
             <div className="relative text-center">
-              <img
+              <motion.img
+                initial={{ scale: 0.8, opacity: 0 }}
+                whileInView={{ scale: 1, opacity: 1 }}
+                viewport={{ once: true }}
                 src={logo}
                 alt="Elite Floripa"
-                className="mx-auto h-20 w-auto drop-shadow-[0_0_40px_oklch(0.7_0.2_300_/_0.8)]"
+                className="mx-auto h-24 w-auto drop-shadow-[0_0_50px_oklch(0.7_0.2_300_/_0.6)] mb-10"
               />
-              <div className="mt-8 text-[10px] tracking-[0.4em] text-accent">
+              <div className="text-[10px] tracking-[0.5em] text-accent font-black mb-4">
                 05 — FALE COM A GENTE
               </div>
-              <h2 className="mt-4 text-3xl md:text-5xl font-black leading-tight tracking-tight">
-                QUER FAZER PARTE
+              <h2 className="text-4xl md:text-7xl font-black leading-[0.9] tracking-tighter mb-8">
+                PRONTO PARA
                 <br />
-                <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                  DO ELITE?
+                <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent italic">
+                  O PRÓXIMO NÍVEL?
                 </span>
               </h2>
-              <p className="mt-6 text-base md:text-lg text-muted-foreground font-light max-w-xl mx-auto">
-                Atletas, famílias, escolas, imprensa ou interessados — entre em contato. O time está
-                sempre aberto a quem quer somar.
+              <p className="text-base md:text-xl text-muted-foreground font-medium max-w-2xl mx-auto mb-12">
+                Seja você um atleta talentoso ou um parceiro querendo apoiar o esporte catarinense, sua jornada começa aqui.
               </p>
 
-              <div className="mt-12 grid sm:grid-cols-3 gap-4">
-                <a
-                  href="https://instagram.com/elite_floripa"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group rounded-2xl border border-border bg-background/40 p-5 hover:border-primary/50 hover:bg-background/60 transition text-left"
-                >
-                  <Instagram className="h-5 w-5 text-accent mb-3" />
-                  <div className="text-[10px] tracking-[0.3em] text-muted-foreground font-bold">
-                    INSTAGRAM
-                  </div>
-                  <div className="text-sm font-bold mt-1">@elite_floripa</div>
-                </a>
-                <a
-                  href="mailto:contato@elitefloripa.com.br"
-                  className="group rounded-2xl border border-border bg-background/40 p-5 hover:border-primary/50 hover:bg-background/60 transition text-left"
-                >
-                  <Mail className="h-5 w-5 text-accent mb-3" />
-                  <div className="text-[10px] tracking-[0.3em] text-muted-foreground font-bold">
-                    E-MAIL
-                  </div>
-                  <div className="text-sm font-bold mt-1 break-all">
-                    contato@elitefloripa.com.br
-                  </div>
-                </a>
-                <div className="rounded-2xl border border-border bg-background/40 p-5 text-left">
-                  <MapPin className="h-5 w-5 text-accent mb-3" />
-                  <div className="text-[10px] tracking-[0.3em] text-muted-foreground font-bold">
-                    SEDE
-                  </div>
-                  <div className="text-sm font-bold mt-1">Florianópolis — SC</div>
-                </div>
+              <div className="grid sm:grid-cols-3 gap-6">
+                {[
+                  { icon: Instagram, label: "INSTAGRAM", value: "@elite_floripa", href: "https://instagram.com/elite_floripa" },
+                  { icon: Mail, label: "E-MAIL", value: "contato@elitefloripa.com.br", href: "mailto:contato@elitefloripa.com.br" },
+                  { icon: MapPin, label: "LOCALIZAÇÃO", value: "Florianópolis, SC", href: null },
+                ].map((item, i) => (
+                  <motion.a
+                    key={item.label}
+                    href={item.href || "#"}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.1 * i }}
+                    className="group flex flex-col items-center p-8 rounded-[2rem] border border-border bg-background/20 hover:border-primary/50 hover:bg-background/40 transition-all duration-300 shadow-lg"
+                  >
+                    <div className="h-14 w-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
+                      <item.icon className="h-6 w-6 text-primary group-hover:text-inherit" />
+                    </div>
+                    <div className="text-[10px] tracking-[0.3em] text-muted-foreground font-black mb-1">{item.label}</div>
+                    <div className="text-sm font-bold truncate w-full px-2 text-center">{item.value}</div>
+                  </motion.a>
+                ))}
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
