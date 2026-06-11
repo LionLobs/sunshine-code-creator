@@ -17,7 +17,6 @@ import {
   Crown,
   ChevronLeft,
   Quote,
-  Calendar,
 } from "lucide-react";
 import { InfiniteMovingCards } from "@/components/infinite-moving-cards";
 import { Button } from "@/components/ui/button";
@@ -63,7 +62,7 @@ const values = [
   {
     icon: Trophy,
     title: "Alto Desempenho",
-    desc: "Treinos às terças e quintas com metodologia profissional e cobrança real.",
+    desc: "Treinos diários, metodologia profissional e cobrança real.",
   },
   {
     icon: Users,
@@ -393,7 +392,7 @@ function Index() {
                     <p className="mt-3 text-sm text-muted-foreground leading-relaxed font-medium">{desc}</p>
                     <div className="mt-8 flex items-center justify-between">
                       <div className="inline-flex items-center gap-2 text-[10px] font-black tracking-[0.3em] text-accent uppercase">
-                        Ter & Qui
+                        Treinos diários
                       </div>
                       <div className="h-10 w-10 rounded-full border border-border flex items-center justify-center group-hover:bg-primary group-hover:border-primary transition-all">
                         <ChevronRight className="h-4 w-4 text-foreground group-hover:text-primary-foreground" />
@@ -553,9 +552,8 @@ function Index() {
                 Seja você um atleta talentoso ou um parceiro querendo apoiar o esporte catarinense, sua jornada começa aqui.
               </p>
 
-              <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div className="grid sm:grid-cols-3 gap-6">
                 {[
-                  { icon: Calendar, label: "TREINOS", value: "Terças & Quintas", href: null },
                   { icon: Instagram, label: "INSTAGRAM", value: "@elite_floripa", href: "https://instagram.com/elite_floripa" },
                   { icon: Mail, label: "E-MAIL", value: "contato@elitefloripa.com.br", href: "mailto:contato@elitefloripa.com.br" },
                   { icon: MapPin, label: "LOCALIZAÇÃO", value: "Florianópolis, SC", href: null },
