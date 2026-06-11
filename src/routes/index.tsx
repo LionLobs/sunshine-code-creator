@@ -161,7 +161,7 @@ function Home() {
               </span>
               TIME OFICIAL · FLORIANÓPOLIS · SC
             </div>
-            <h1 className="text-4xl md:text-7xl xl:text-8xl font-black leading-[0.85] tracking-tight">
+            <h1 className="text-6xl md:text-7xl xl:text-8xl font-black leading-[0.85] tracking-tight">
               FORMANDO
               <br />
               <span className="bg-gradient-to-r from-primary via-accent to-primary-glow bg-clip-text text-transparent">
