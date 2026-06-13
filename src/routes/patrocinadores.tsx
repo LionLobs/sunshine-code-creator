@@ -231,7 +231,7 @@ function PatrocinadoresPage() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-5">
+          <div className="grid md:grid-cols-3 gap-5">
             {pacotes.map(({ name, price, period, icon: Icon, accent, border, highlight, perks }, i) => (
               <motion.div
                 key={name}
