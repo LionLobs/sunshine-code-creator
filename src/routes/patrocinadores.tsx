@@ -2,10 +2,8 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import {
   ArrowRight,
-  Award,
   Check,
   Crown,
-  Gem,
   Instagram,
   Mail,
   Medal,
