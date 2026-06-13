@@ -2,10 +2,8 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import {
   ArrowRight,
-  Award,
   Check,
   Crown,
-  Gem,
   Instagram,
   Mail,
   Medal,
@@ -24,7 +22,7 @@ const ogImage = heroServeAsset.url;
 const pacotes = [
   {
     name: "BRONZE",
-    price: "R$ 500",
+    price: "R$ 250",
     period: "/mês",
     icon: Medal,
     accent: "from-amber-700 to-amber-500",
@@ -38,12 +36,12 @@ const pacotes = [
   },
   {
     name: "PRATA",
-    price: "R$ 1.500",
+    price: "R$ 500",
     period: "/mês",
-    icon: Award,
-    accent: "from-slate-400 to-slate-200",
-    border: "border-slate-400/40",
-    highlight: false,
+    icon: Trophy,
+    accent: "from-primary to-accent",
+    border: "border-primary/60",
+    highlight: true,
     perks: [
       "Todos os benefícios Bronze",
       "Logo em material gráfico oficial",
@@ -53,34 +51,18 @@ const pacotes = [
   },
   {
     name: "OURO",
-    price: "R$ 3.500",
+    price: "R$ 1.000",
     period: "/mês",
-    icon: Trophy,
-    accent: "from-primary to-accent",
-    border: "border-primary/60",
-    highlight: true,
+    icon: Crown,
+    accent: "from-yellow-400 to-amber-500",
+    border: "border-yellow-400/40",
+    highlight: false,
     perks: [
       "Todos os benefícios Prata",
       "Logo no uniforme oficial de jogo",
       "Destaque em entrevistas e mídia",
       "Conteúdo exclusivo da marca",
       "Participação em eventos do clube",
-    ],
-  },
-  {
-    name: "DIAMANTE",
-    price: "Sob consulta",
-    period: "",
-    icon: Gem,
-    accent: "from-cyan-400 to-blue-500",
-    border: "border-cyan-400/40",
-    highlight: false,
-    perks: [
-      "Todos os benefícios Ouro",
-      "Naming rights de categoria",
-      "Logo principal no uniforme",
-      "Ações de ativação personalizadas",
-      "Cotitularidade em projetos sociais",
     ],
   },
 ];
@@ -249,7 +231,7 @@ function PatrocinadoresPage() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-5">
+          <div className="grid md:grid-cols-3 gap-5">
             {pacotes.map(({ name, price, period, icon: Icon, accent, border, highlight, perks }, i) => (
               <motion.div
                 key={name}
