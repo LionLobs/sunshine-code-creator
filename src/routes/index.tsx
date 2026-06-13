@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import {
@@ -16,6 +16,7 @@ import {
   ChevronRight,
   Quote,
   Menu,
+  Sparkles,
   X,
 } from "lucide-react";
 import { InfiniteMovingCards } from "@/components/infinite-moving-cards";
@@ -548,6 +549,12 @@ function Header() {
               {s.label}
             </a>
           ))}
+          <Link
+            to="/patrocinadores"
+            className="inline-flex items-center gap-1.5 text-accent hover:text-foreground transition font-semibold"
+          >
+            <Sparkles className="h-3.5 w-3.5" /> Patrocinadores
+          </Link>
         </nav>
 
         <div className="flex items-center gap-3">
@@ -582,6 +589,13 @@ function Header() {
                 {s.label}
               </a>
             ))}
+            <Link
+              to="/patrocinadores"
+              onClick={() => setOpen(false)}
+              className="px-4 py-3 rounded-xl text-sm font-bold text-accent hover:bg-muted/40 transition inline-flex items-center gap-2"
+            >
+              <Sparkles className="h-4 w-4" /> Patrocinadores
+            </Link>
           </nav>
         </div>
       )}
