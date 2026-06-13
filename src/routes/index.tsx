@@ -548,6 +548,12 @@ function Header() {
               {s.label}
             </a>
           ))}
+          <Link
+            to="/patrocinadores"
+            className="inline-flex items-center gap-1.5 text-accent hover:text-foreground transition font-semibold"
+          >
+            <Sparkles className="h-3.5 w-3.5" /> Patrocinadores
+          </Link>
         </nav>
 
         <div className="flex items-center gap-3">
