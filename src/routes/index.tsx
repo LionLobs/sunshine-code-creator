@@ -16,6 +16,7 @@ import {
   ChevronRight,
   Quote,
   Menu,
+  Sparkles,
   X,
 } from "lucide-react";
 import { InfiniteMovingCards } from "@/components/infinite-moving-cards";
