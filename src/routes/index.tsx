@@ -589,6 +589,13 @@ function Header() {
                 {s.label}
               </a>
             ))}
+            <Link
+              to="/patrocinadores"
+              onClick={() => setOpen(false)}
+              className="px-4 py-3 rounded-xl text-sm font-bold text-accent hover:bg-muted/40 transition inline-flex items-center gap-2"
+            >
+              <Sparkles className="h-4 w-4" /> Patrocinadores
+            </Link>
           </nav>
         </div>
       )}
