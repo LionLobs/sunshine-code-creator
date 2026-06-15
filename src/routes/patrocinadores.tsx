@@ -44,22 +44,25 @@ const pacotes = [
     highlight: true,
     perks: [
       "Todos os benefícios Bronze",
-      "Logo em material gráfico oficial",
+      "Logo da marca no uniforme oficial",
+      "Bolsa esportiva personalizada com identidade do time",
+      "Camisa oficial Elite Floripa com a marca do patrocinador",
       "Postagens quinzenais no Instagram",
       "Banner em treinos abertos",
     ],
   },
   {
     name: "OURO",
-    price: "R$ 1.000",
-    period: "/mês",
+    price: "Sob consulta",
+    period: "",
     icon: Crown,
     accent: "from-yellow-400 to-amber-500",
     border: "border-yellow-400/40",
     highlight: false,
     perks: [
       "Todos os benefícios Prata",
-      "Logo no uniforme oficial de jogo",
+      "Proposta customizada: fornecimento de materiais, equipamentos ou serviços ao time",
+      "Possibilidade de conversão em R$ 1.000 em dinheiro",
       "Destaque em entrevistas e mídia",
       "Conteúdo exclusivo da marca",
       "Participação em eventos do clube",
@@ -257,7 +260,9 @@ function PatrocinadoresPage() {
                   {name}
                 </div>
                 <div className="mt-2 flex items-baseline gap-1">
-                  <span className="text-3xl font-black tracking-tight">{price}</span>
+                  <span className={`font-black tracking-tight ${price.startsWith("Sob") ? "text-2xl" : "text-3xl"}`}>
+                    {price}
+                  </span>
                   {period && <span className="text-sm text-muted-foreground">{period}</span>}
                 </div>
                 <ul className="mt-6 space-y-3 flex-1">
