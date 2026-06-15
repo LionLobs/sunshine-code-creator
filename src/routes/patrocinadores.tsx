@@ -26,6 +26,7 @@ const pacotes = [
     highlight: false,
     perks: [
       "Logo da marca no site oficial",
+      "Logo da marca no uniforme do time",
       "Menção em postagem mensal no Instagram",
       "Certificado oficial de apoiador",
     ],
