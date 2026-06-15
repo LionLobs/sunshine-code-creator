@@ -550,6 +550,12 @@ function Header() {
           >
             <Sparkles className="h-3.5 w-3.5" /> Patrocinadores
           </Link>
+          <Link
+            to="/jogadores"
+            className="inline-flex items-center gap-1.5 text-accent hover:text-foreground transition font-semibold"
+          >
+            <ArrowRight className="h-3.5 w-3.5" /> Quero Jogar
+          </Link>
         </nav>
 
         <div className="flex items-center gap-3">
@@ -590,6 +596,13 @@ function Header() {
               className="px-4 py-3 rounded-xl text-sm font-bold text-accent hover:bg-muted/40 transition inline-flex items-center gap-2"
             >
               <Sparkles className="h-4 w-4" /> Patrocinadores
+            </Link>
+            <Link
+              to="/jogadores"
+              onClick={() => setOpen(false)}
+              className="px-4 py-3 rounded-xl text-sm font-bold text-accent hover:bg-muted/40 transition inline-flex items-center gap-2"
+            >
+              <ArrowRight className="h-4 w-4" /> Quero Jogar
             </Link>
           </nav>
         </div>
