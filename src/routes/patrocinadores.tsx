@@ -11,7 +11,7 @@ import {
   Trophy,
 } from "lucide-react";
 
-import ogImage from "@/assets/hero-serve.png";
+import ogImage from "@/assets/hero-serve.jpg";
 import bgImage from "@/assets/sub19-team.jpg";
 import logo from "@/assets/logo.png";
 

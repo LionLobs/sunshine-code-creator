@@ -21,7 +21,7 @@ import {
 } from "lucide-react";
 import { InfiniteMovingCards } from "@/components/infinite-moving-cards";
 
-import heroBg from "@/assets/hero-serve.png";
+import heroBg from "@/assets/hero-serve.jpg";
 import sub17Bg from "@/assets/sub17-team.jpg";
 import sub19Bg from "@/assets/sub19-team.jpg";
 import sub21Bg from "@/assets/sub21-team.jpg";
