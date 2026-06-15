@@ -172,10 +172,12 @@ function PatrocinadoresPage() {
                 Ver pacotes <ArrowRight className="h-4 w-4" />
               </a>
               <a
-                href="mailto:contato@elitefloripa.com.br?subject=Quero patrocinar o Elite Floripa"
+                href="https://instagram.com/elite_floripa"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-full border border-border bg-card/50 backdrop-blur px-6 py-3.5 text-sm font-bold hover:bg-card hover:border-primary/50 transition"
               >
-                <Mail className="h-4 w-4" /> Falar com o time
+                <Instagram className="h-4 w-4" /> Falar com o time
               </a>
             </div>
           </div>
