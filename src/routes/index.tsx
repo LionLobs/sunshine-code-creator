@@ -304,14 +304,14 @@ function Home() {
                 transition={{ delay: i * 0.1 }}
                 className="group relative rounded-[2rem] border border-border bg-card/40 backdrop-blur-xl overflow-hidden hover:border-primary/60 transition-all duration-500 shadow-xl"
               >
-                <div className="absolute inset-0 -z-10 opacity-20 group-hover:opacity-40 transition-opacity duration-700">
+                <div className="absolute inset-0 z-0 opacity-60 group-hover:opacity-90 transition-opacity duration-700">
                   <img
                     src={i === 0 ? sub17Bg : i === 1 ? sub19Bg : sub21Bg}
                     alt=""
                     loading="lazy"
                     className="h-full w-full object-cover scale-105 group-hover:scale-110 transition-transform duration-1000"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-card via-card/90 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-card via-card/70 to-card/20" />
                 </div>
 
                 <div className="relative p-8 h-full flex flex-col min-h-[420px]">
