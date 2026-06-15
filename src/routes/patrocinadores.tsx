@@ -323,7 +323,19 @@ function PatrocinadoresPage() {
               ELITE FLORIPA
             </div>
           </div>
-          <div className="text-xs">© {new Date().getFullYear()} Elite Floripa · Florianópolis · SC</div>
+          <div className="text-xs text-center md:text-right">
+            © {new Date().getFullYear()} Elite Floripa · Florianópolis · SC
+            <span className="mx-2 opacity-40">|</span>
+            criado por{" "}
+            <a
+              href="https://dev.lionlobs.com.br/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold text-accent hover:text-primary transition-colors"
+            >
+              LionLobs
+            </a>
+          </div>
         </div>
       </footer>
     </div>
