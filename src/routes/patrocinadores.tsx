@@ -5,7 +5,6 @@ import {
   Check,
   Crown,
   Instagram,
-  Mail,
   Medal,
   Shield,
   Sparkles,
@@ -172,10 +171,12 @@ function PatrocinadoresPage() {
                 Ver pacotes <ArrowRight className="h-4 w-4" />
               </a>
               <a
-                href="mailto:contato@elitefloripa.com.br?subject=Quero patrocinar o Elite Floripa"
+                href="https://instagram.com/elite_floripa"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-full border border-border bg-card/50 backdrop-blur px-6 py-3.5 text-sm font-bold hover:bg-card hover:border-primary/50 transition"
               >
-                <Mail className="h-4 w-4" /> Falar com o time
+                <Instagram className="h-4 w-4" /> Falar com o time
               </a>
             </div>
           </div>
@@ -274,7 +275,9 @@ function PatrocinadoresPage() {
                   ))}
                 </ul>
                 <a
-                  href={`mailto:contato@elitefloripa.com.br?subject=Patrocínio ${name} - Elite Floripa`}
+                  href="https://instagram.com/elite_floripa"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className={`mt-7 inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-xs font-bold tracking-widest transition ${
                     highlight
                       ? "bg-gradient-to-r from-primary to-accent text-primary-foreground hover:scale-105"
@@ -303,16 +306,10 @@ function PatrocinadoresPage() {
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
             <a
-              href="mailto:contato@elitefloripa.com.br?subject=Quero patrocinar o Elite Floripa"
-              className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-primary to-accent px-6 py-3.5 text-sm font-bold text-primary-foreground shadow-[var(--shadow-glow)] hover:scale-105 transition-transform"
-            >
-              <Mail className="h-4 w-4" /> contato@elitefloripa.com.br
-            </a>
-            <a
               href="https://instagram.com/elite_floripa"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full border border-border bg-card/50 backdrop-blur px-6 py-3.5 text-sm font-bold hover:border-primary/50 transition"
+              className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-primary to-accent px-6 py-3.5 text-sm font-bold text-primary-foreground shadow-[var(--shadow-glow)] hover:scale-105 transition-transform"
             >
               <Instagram className="h-4 w-4" /> @elite_floripa
             </a>
