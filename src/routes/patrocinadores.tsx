@@ -11,12 +11,9 @@ import {
   Trophy,
 } from "lucide-react";
 
-import heroServeAsset from "@/assets/hero-serve.png.asset.json";
-import sub19Asset from "@/assets/sub19-team.jpg.asset.json";
-
-const logo = "/assets/logo.png";
-const bgImage = sub19Asset.url;
-const ogImage = heroServeAsset.url;
+import ogImage from "@/assets/hero-serve.png";
+import bgImage from "@/assets/sub19-team.jpg";
+import logo from "@/assets/logo.png";
 
 const pacotes = [
   {
