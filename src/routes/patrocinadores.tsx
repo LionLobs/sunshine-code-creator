@@ -260,7 +260,9 @@ function PatrocinadoresPage() {
                   {name}
                 </div>
                 <div className="mt-2 flex items-baseline gap-1">
-                  <span className="text-3xl font-black tracking-tight">{price}</span>
+                  <span className={`font-black tracking-tight ${price.startsWith("Sob") ? "text-2xl" : "text-3xl"}`}>
+                    {price}
+                  </span>
                   {period && <span className="text-sm text-muted-foreground">{period}</span>}
                 </div>
                 <ul className="mt-6 space-y-3 flex-1">
