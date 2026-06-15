@@ -616,6 +616,17 @@ function Footer() {
         <div className="text-[10px] tracking-widest text-center md:text-right">
           © {new Date().getFullYear()} ELITE FLORIPA
           <br className="md:hidden" /> · TODOS OS DIREITOS RESERVADOS
+          <br className="md:hidden" />
+          <span className="hidden md:inline"> · </span>
+          <span>criado por </span>
+          <a
+            href="https://dev.lionlobs.com.br/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-accent hover:text-primary transition-colors"
+          >
+            LionLobs
+          </a>
         </div>
       </div>
     </footer>
