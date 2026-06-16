@@ -102,12 +102,6 @@ const contactItems = [
     value: "@elite_floripa",
     href: "https://instagram.com/elite_floripa",
   },
-  {
-    icon: Mail,
-    label: "E-MAIL",
-    value: "contato@elitefloripa.com.br",
-    href: "mailto:contato@elitefloripa.com.br",
-  },
   { icon: MapPin, label: "LOCALIZAÇÃO", value: "Florianópolis, SC", href: null },
 ];
 
