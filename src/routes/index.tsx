@@ -10,7 +10,6 @@ import {
   Crown,
   Calendar,
   Instagram,
-  Mail,
   MapPin,
   ArrowRight,
   ChevronRight,
