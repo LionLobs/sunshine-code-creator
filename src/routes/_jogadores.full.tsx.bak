@@ -1,97 +1,71 @@
-import { createFileRoute, Link, redirect } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import {
   ArrowRight,
+  Calendar,
   Check,
-  Crown,
   Instagram,
-  Medal,
+  MapPin,
   Shield,
   Sparkles,
   Trophy,
+  Users,
 } from "lucide-react";
 
 import ogImage from "@/assets/hero-serve.jpg";
-import bgImage from "@/assets/sub19-team.jpg";
+import bgImage from "@/assets/sub21-team.jpg";
 import logo from "@/assets/logo.png";
 
-const pacotes = [
+const FORM_URL =
+  "https://docs.google.com/forms/d/1vIOr0Lpp28uTOa7FVG0EshLB-AUVIxJWrw5mbvEYmcM/viewform";
+
+const requirements = [
+  "Comprometimento com treinos às terças, quintas e sextas",
+  "Idade entre 15 e 21 anos (Sub-17, Sub-19 ou Sub-21)",
+  "Disposição para evoluir técnica, tática e mentalidade",
+  "Respeito à metodologia e valores do Elite Floripa",
+];
+
+const differentials = [
   {
-    name: "BRONZE",
-    price: "R$ 250",
-    period: "/mês",
-    icon: Medal,
-    accent: "from-amber-700 to-amber-500",
-    border: "border-amber-700/40",
-    highlight: false,
-    perks: [
-      "Logo da marca no site oficial",
-      "Logo da marca no uniforme do time",
-      "Menção em postagem mensal no Instagram",
-      "Certificado oficial de apoiador",
-    ],
+    icon: Shield,
+    title: "Time oficial",
+    desc: "Reconhecido pela Prefeitura de Florianópolis, com estrutura profissional.",
   },
   {
-    name: "PRATA",
-    price: "R$ 500",
-    period: "/mês",
     icon: Trophy,
-    accent: "from-primary to-accent",
-    border: "border-primary/60",
-    highlight: true,
-    perks: [
-      "Todos os benefícios Bronze",
-      "Logo da marca no uniforme oficial",
-      "Bolsa esportiva personalizada com identidade do time",
-      "Camisa oficial Elite Floripa com a marca do patrocinador",
-      "Postagens quinzenais no Instagram",
-      "Banner em treinos abertos",
-    ],
+    title: "Alto rendimento",
+    desc: "Metodologia focada em estaduais, regionais e competições nacionais.",
   },
   {
-    name: "OURO",
-    price: "Sob consulta",
-    period: "",
-    icon: Crown,
-    accent: "from-yellow-400 to-amber-500",
-    border: "border-yellow-400/40",
-    highlight: false,
-    perks: [
-      "Todos os benefícios Prata",
-      "Proposta customizada: fornecimento de materiais, equipamentos ou serviços ao time",
-      "Possibilidade de conversão em R$ 1.000 em dinheiro",
-      "Destaque em entrevistas e mídia",
-      "Conteúdo exclusivo da marca",
-      "Participação em eventos do clube",
-    ],
+    icon: Users,
+    title: "Formação completa",
+    desc: "Desenvolvimento técnico, tático, físico e humano dos atletas.",
   },
 ];
 
-export const Route = createFileRoute("/patrocinadores")({
-  beforeLoad: () => {
-    throw redirect({ to: "/" });
-  },
+export const Route = createFileRoute("/jogadores")({
   head: () => ({
     meta: [
-      { title: "Patrocinadores — Elite Floripa Voleibol" },
+      { title: "Quero Jogar no Elite — Elite Floripa Voleibol" },
       {
         name: "description",
         content:
-          "Seja patrocinador do Elite Floripa. Pacotes Bronze, Prata, Ouro e Diamante para marcas que querem apoiar o voleibol masculino de base em Florianópolis.",
+          "Atleta, quer fazer parte do Elite Floripa? Preencha o formulário de inscrição e venha treinar com a gente nas categorias Sub-17, Sub-19 e Sub-21.",
       },
-      { property: "og:title", content: "Patrocine o Elite Floripa" },
+      { property: "og:title", content: "Quero Jogar no Elite Floripa" },
       {
         property: "og:description",
         content:
-          "Conheça nossos pacotes de patrocínio e associe sua marca à formação de atletas em Santa Catarina.",
+          "Inscreva-se para fazer parte do time de voleibol masculino de base em Florianópolis.",
       },
       { property: "og:image", content: ogImage },
     ],
   }),
-  component: PatrocinadoresPage,
+  component: JogadoresPage,
 });
 
-function PatrocinadoresPage() {
+function JogadoresPage() {
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
       {/* Header */}
@@ -120,14 +94,11 @@ function PatrocinadoresPage() {
             <Link to="/" hash="categorias" className="hover:text-foreground transition">
               Categorias
             </Link>
-            <Link to="/patrocinadores" className="text-foreground font-semibold">
+            <Link to="/patrocinadores" className="hover:text-foreground transition">
               Patrocinadores
             </Link>
-            <Link
-              to="/jogadores"
-              className="inline-flex items-center gap-1.5 text-accent hover:text-foreground transition font-semibold"
-            >
-              <ArrowRight className="h-3.5 w-3.5" /> Quero Jogar
+            <Link to="/jogadores" className="text-foreground font-semibold">
+              Quero Jogar
             </Link>
           </nav>
           <Link
@@ -144,7 +115,7 @@ function PatrocinadoresPage() {
         <div className="absolute inset-0 z-0">
           <img
             src={bgImage}
-            alt="Elite Floripa - patrocínio"
+            alt="Elite Floripa - time Sub-21"
             className="h-full w-full object-cover"
             fetchPriority="high"
           />
@@ -157,25 +128,28 @@ function PatrocinadoresPage() {
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-2 rounded-full border border-accent/40 bg-accent/10 backdrop-blur px-4 py-1.5 text-[10px] font-bold tracking-[0.3em] text-accent mb-6">
               <Sparkles className="h-3 w-3" />
-              SEJA PATROCINADOR OFICIAL
+              SELEÇÃO DE ATLETAS
             </div>
             <h1 className="text-5xl md:text-7xl xl:text-8xl font-black leading-[0.85] tracking-tight">
-              SUA MARCA
+              FAÇA PARTE
               <br />
               <span className="bg-gradient-to-r from-primary via-accent to-primary-glow bg-clip-text text-transparent">
-                NO JOGO.
+                DO ELITE.
               </span>
             </h1>
             <p className="mt-6 md:mt-8 max-w-2xl text-base md:text-xl text-foreground/85 leading-relaxed font-light">
-              Associe sua empresa ao crescimento do voleibol masculino de base em Florianópolis.
-              Visibilidade real, audiência engajada e impacto social na formação de novos atletas.
+              Você é atleta de voleibol e quer treinar com metodologia profissional? Inscreva-se
+              no processo de seleção do Elite Floripa e venha construir seu futuro dentro de
+              quadra.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-3">
               <a
-                href="#pacotes"
+                href={FORM_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-primary to-accent px-6 py-3.5 text-sm font-bold text-primary-foreground shadow-[var(--shadow-glow)] hover:scale-105 transition-transform"
               >
-                Ver pacotes <ArrowRight className="h-4 w-4" />
+                Preencher formulário <ArrowRight className="h-4 w-4" />
               </a>
               <a
                 href="https://instagram.com/elite_floripa"
@@ -186,30 +160,25 @@ function PatrocinadoresPage() {
                 <Instagram className="h-4 w-4" /> Falar com o time
               </a>
             </div>
+            <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3 text-xs text-muted-foreground">
+              <div className="flex items-center gap-2">
+                <Calendar className="h-4 w-4 text-accent" />
+                <span>Treinos ter, qui & sex</span>
+              </div>
+              <div className="h-3 w-px bg-border hidden sm:block" />
+              <div className="flex items-center gap-2">
+                <MapPin className="h-4 w-4 text-accent" />
+                <span>Florianópolis · SC</span>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* WHY */}
+      {/* DIFERENCIAIS */}
       <section className="relative border-y border-border bg-background/60 backdrop-blur-xl py-16">
         <div className="mx-auto max-w-7xl px-6 grid md:grid-cols-3 gap-8">
-          {[
-            {
-              icon: Shield,
-              title: "Time oficial",
-              desc: "Reconhecido pela Prefeitura de Florianópolis, com estrutura profissional.",
-            },
-            {
-              icon: Crown,
-              title: "Audiência qualificada",
-              desc: "Famílias, atletas e comunidade esportiva de Santa Catarina.",
-            },
-            {
-              icon: Trophy,
-              title: "Impacto social",
-              desc: "Formação de jovens nas categorias Sub-17, Sub-19 e Sub-21.",
-            },
-          ].map(({ icon: Icon, title, desc }) => (
+          {differentials.map(({ icon: Icon, title, desc }) => (
             <div key={title} className="flex gap-4">
               <div className="h-12 w-12 shrink-0 rounded-2xl bg-gradient-to-br from-primary/20 to-accent/20 border border-primary/30 flex items-center justify-center">
                 <Icon className="h-6 w-6 text-accent" />
@@ -223,100 +192,72 @@ function PatrocinadoresPage() {
         </div>
       </section>
 
-      {/* PACOTES */}
-      <section id="pacotes" className="relative py-24 md:py-32 scroll-mt-24">
+      {/* REQUISITOS / COMO FUNCIONA */}
+      <section id="como-funciona" className="relative py-24 md:py-32 scroll-mt-24">
         <div className="mx-auto max-w-7xl px-6">
           <div className="max-w-3xl mb-14">
             <div className="text-[10px] tracking-[0.4em] text-accent mb-6 font-black">
-              PACOTES DE PATROCÍNIO
+              PROCESSO DE SELEÇÃO
             </div>
             <h2 className="text-4xl md:text-6xl font-black tracking-tighter">
-              ESCOLHA SEU{" "}
+              O QUE VOCÊ PRECISA{" "}
               <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent italic">
-                NÍVEL.
+                PARA ENTRAR?
               </span>
             </h2>
             <p className="mt-6 text-base md:text-lg text-muted-foreground font-light">
-              Pacotes flexíveis para empresas de todos os portes. Personalizamos contrapartidas
-              conforme o objetivo da sua marca.
+              O Elite Floripa busca atletas comprometidos que queiram crescer dentro de um projeto
+              sério. O primeiro passo é preencher o formulário abaixo.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-5">
-            {pacotes.map(({ name, price, period, icon: Icon, accent, border, highlight, perks }, i) => (
+          <div className="grid md:grid-cols-2 gap-6">
+            {requirements.map((req, i) => (
               <motion.div
-                key={name}
+                key={req}
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.08 }}
-                className={`relative rounded-3xl border ${border} bg-card/60 backdrop-blur-xl p-7 flex flex-col ${
-                  highlight ? "shadow-[var(--shadow-glow)] scale-[1.02]" : ""
-                }`}
+                className="flex items-start gap-4 rounded-2xl border border-border bg-card/60 backdrop-blur-xl p-6"
               >
-                {highlight && (
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-gradient-to-r from-primary to-accent text-primary-foreground text-[10px] font-black tracking-widest">
-                    MAIS ESCOLHIDO
-                  </div>
-                )}
-                <div
-                  className={`h-12 w-12 rounded-2xl bg-gradient-to-br ${accent} flex items-center justify-center mb-5 shadow-lg`}
-                >
-                  <Icon className="h-6 w-6 text-background" />
+                <div className="h-10 w-10 shrink-0 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center shadow-lg">
+                  <Check className="h-5 w-5 text-primary-foreground" />
                 </div>
-                <div className="text-xs font-black tracking-[0.3em] text-muted-foreground">
-                  {name}
-                </div>
-                <div className="mt-2 flex items-baseline gap-1">
-                  <span className={`font-black tracking-tight ${price.startsWith("Sob") ? "text-2xl" : "text-3xl"}`}>
-                    {price}
-                  </span>
-                  {period && <span className="text-sm text-muted-foreground">{period}</span>}
-                </div>
-                <ul className="mt-6 space-y-3 flex-1">
-                  {perks.map((perk) => (
-                    <li key={perk} className="flex items-start gap-2 text-sm text-foreground/85">
-                      <Check className="h-4 w-4 text-accent shrink-0 mt-0.5" />
-                      <span>{perk}</span>
-                    </li>
-                  ))}
-                </ul>
-                <a
-                  href="https://instagram.com/elite_floripa"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`mt-7 inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-xs font-bold tracking-widest transition ${
-                    highlight
-                      ? "bg-gradient-to-r from-primary to-accent text-primary-foreground hover:scale-105"
-                      : "border border-border bg-card/70 hover:border-primary/50"
-                  }`}
-                >
-                  QUERO ESTE PACOTE <ArrowRight className="h-4 w-4" />
-                </a>
+                <p className="text-base font-medium text-foreground/90 leading-relaxed">{req}</p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA */}
+      {/* CTA FORMULÁRIO */}
       <section className="relative py-20 border-t border-border">
         <div className="mx-auto max-w-4xl px-6 text-center">
           <h3 className="text-3xl md:text-5xl font-black tracking-tighter">
             VAMOS CONSTRUIR{" "}
             <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent italic">
-              JUNTOS?
+              JOGADORES?
             </span>
           </h3>
-          <p className="mt-5 text-muted-foreground font-light">
-            Entre em contato e receba nossa apresentação completa de patrocínio.
+          <p className="mt-5 text-muted-foreground font-light max-w-2xl mx-auto">
+            Preencha o formulário de inscrição. Nossa comissão técnica entrará em contato para os
+            próximos passos do processo seletivo.
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+            <a
+              href={FORM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-primary to-accent px-6 py-3.5 text-sm font-bold text-primary-foreground shadow-[var(--shadow-glow)] hover:scale-105 transition-transform"
+            >
+              <ArrowRight className="h-4 w-4" /> Quero fazer parte do Elite
+            </a>
             <a
               href="https://instagram.com/elite_floripa"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-primary to-accent px-6 py-3.5 text-sm font-bold text-primary-foreground shadow-[var(--shadow-glow)] hover:scale-105 transition-transform"
+              className="inline-flex items-center gap-2 rounded-full border border-border bg-card/50 backdrop-blur px-6 py-3.5 text-sm font-bold hover:bg-card hover:border-primary/50 transition"
             >
               <Instagram className="h-4 w-4" /> @elite_floripa
             </a>

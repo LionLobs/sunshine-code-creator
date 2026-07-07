@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, redirect } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import {
   ArrowRight,
@@ -45,6 +45,9 @@ const differentials = [
 ];
 
 export const Route = createFileRoute("/jogadores")({
+  beforeLoad: () => {
+    throw redirect({ to: "/" });
+  },
   head: () => ({
     meta: [
       { title: "Quero Jogar no Elite — Elite Floripa Voleibol" },
