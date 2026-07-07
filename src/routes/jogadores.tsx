@@ -45,6 +45,9 @@ const differentials = [
 ];
 
 export const Route = createFileRoute("/jogadores")({
+  beforeLoad: () => {
+    throw redirect({ to: "/" });
+  },
   head: () => ({
     meta: [
       { title: "Quero Jogar no Elite — Elite Floripa Voleibol" },
