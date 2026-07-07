@@ -9,10 +9,16 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as PreviewRouteImport } from './routes/preview'
 import { Route as PatrocinadoresRouteImport } from './routes/patrocinadores'
 import { Route as JogadoresRouteImport } from './routes/jogadores'
 import { Route as IndexRouteImport } from './routes/index'
 
+const PreviewRoute = PreviewRouteImport.update({
+  id: '/preview',
+  path: '/preview',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PatrocinadoresRoute = PatrocinadoresRouteImport.update({
   id: '/patrocinadores',
   path: '/patrocinadores',
@@ -33,34 +39,45 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/jogadores': typeof JogadoresRoute
   '/patrocinadores': typeof PatrocinadoresRoute
+  '/preview': typeof PreviewRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/jogadores': typeof JogadoresRoute
   '/patrocinadores': typeof PatrocinadoresRoute
+  '/preview': typeof PreviewRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/jogadores': typeof JogadoresRoute
   '/patrocinadores': typeof PatrocinadoresRoute
+  '/preview': typeof PreviewRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/jogadores' | '/patrocinadores'
+  fullPaths: '/' | '/jogadores' | '/patrocinadores' | '/preview'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/jogadores' | '/patrocinadores'
-  id: '__root__' | '/' | '/jogadores' | '/patrocinadores'
+  to: '/' | '/jogadores' | '/patrocinadores' | '/preview'
+  id: '__root__' | '/' | '/jogadores' | '/patrocinadores' | '/preview'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   JogadoresRoute: typeof JogadoresRoute
   PatrocinadoresRoute: typeof PatrocinadoresRoute
+  PreviewRoute: typeof PreviewRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/preview': {
+      id: '/preview'
+      path: '/preview'
+      fullPath: '/preview'
+      preLoaderRoute: typeof PreviewRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/patrocinadores': {
       id: '/patrocinadores'
       path: '/patrocinadores'
@@ -89,6 +106,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   JogadoresRoute: JogadoresRoute,
   PatrocinadoresRoute: PatrocinadoresRoute,
+  PreviewRoute: PreviewRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
