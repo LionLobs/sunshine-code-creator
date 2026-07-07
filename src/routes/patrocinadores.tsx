@@ -68,6 +68,9 @@ const pacotes = [
 ];
 
 export const Route = createFileRoute("/patrocinadores")({
+  beforeLoad: () => {
+    throw redirect({ to: "/" });
+  },
   head: () => ({
     meta: [
       { title: "Patrocinadores — Elite Floripa Voleibol" },
